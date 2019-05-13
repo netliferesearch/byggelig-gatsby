@@ -21,14 +21,7 @@ export default {
     {
       name: 'introImage',
       title: 'Intro bilde',
-      type: 'image',
-      fields: [
-        {
-          name: 'description',
-          title: 'Beskrivelse',
-          type: 'string'
-        }
-      ]
+      type: 'introImage'
     },
     {
       name: 'bodyText',
@@ -51,8 +44,6 @@ export default {
         },
         { type: 'image' },
         {
-          name: 'linkButton',
-          title: 'Lenkeknapp',
           type: 'linkButton'
         }
       ]
