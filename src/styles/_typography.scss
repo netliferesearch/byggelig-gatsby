@@ -1,3 +1,53 @@
+$huge: 36px;
+$big: 32px;
+$medium: 24px;
+$normal: 21px;
+$small: 16px;
+
+h1,
+.h1 {
+  font-size: $huge;
+  font-size: bold;
+  &--thin {
+    font-size: normal;
+  }
+  &--bold {
+    font-size: bold;
+  }
+}
+
+h2,
+.h2 {
+  font-size: $big;
+  font-size: normal;
+  &--thin {
+    font-size: normal;
+  }
+  &--bold {
+    font-size: bold;
+  }
+}
+
+h3,
+.h3 {
+  font-size: $medium;
+  font-size: bold;
+  &--thin {
+    font-size: normal;
+  }
+  &--bold {
+    font-size: bold;
+  }
+}
+
+.strong {
+  font-weight: bold;
+}
+
+small {
+  font-size: $small;
+}
+
 /* roboto-regular - latin */
 @font-face {
   font-family: 'Roboto';
