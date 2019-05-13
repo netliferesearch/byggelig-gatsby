@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 // We import object and document schemas
 import page from './page';
 import phase from './phase';
+import article from './article';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -15,7 +16,8 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     page,
-    phase
+    phase,
+    article
     /* Your types here! */
   ])
 });
