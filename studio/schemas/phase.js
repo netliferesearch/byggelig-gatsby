@@ -11,7 +11,17 @@ export default {
     {
       name: 'slug',
       title: 'Slug',
-      type: 'slug'
+      type: 'slug',
+      description: 'Navnet på lenken til siden. Dette navnet må være unikt.',
+      options: {
+        source: 'title',
+        slugify: input =>
+          input
+            .toLowerCase()
+            .replace(/\s+/g, '-')
+            .slice(0, 200)
+      },
+      validation: Rule => Rule.required()
     },
     {
       name: 'intro',
@@ -32,26 +42,6 @@ export default {
     {
       name: 'shouldHave',
       title: 'Bør ha',
-      type: 'array',
-      of: [
-        {
-          name: 'point',
-          title: 'Punkt',
-          type: 'object',
-          fields: [
-            {
-              name: 'text',
-              title: 'Text',
-              type: 'array',
-              of: [{ type: 'block' }]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      name: 'niceToHave',
-      title: 'Fint å ha',
       type: 'array',
       of: [
         {
