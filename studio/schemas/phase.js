@@ -11,7 +11,17 @@ export default {
     {
       name: 'slug',
       title: 'Slug',
-      type: 'slug'
+      type: 'slug',
+      description: 'Navnet på lenken til siden. Dette navnet må være unikt.',
+      options: {
+        source: 'title',
+        slugify: input =>
+          input
+            .toLowerCase()
+            .replace(/\s+/g, '-')
+            .slice(0, 200)
+      },
+      validation: Rule => Rule.required()
     },
     {
       name: 'intro',
