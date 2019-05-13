@@ -5,6 +5,8 @@ import Layout from '../components/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
 
+import Example from '../components/Example';
+
 export default ({ data }) => {
   console.log(data);
   const items = data.allSanityPage.edges;
@@ -12,6 +14,7 @@ export default ({ data }) => {
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <h1>Velkommen!</h1>
+      <Example />
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         <Image />
       </div>
