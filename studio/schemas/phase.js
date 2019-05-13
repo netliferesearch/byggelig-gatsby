@@ -58,26 +58,6 @@ export default {
           ]
         }
       ]
-    },
-    {
-      name: 'niceToHave',
-      title: 'Fint å ha',
-      type: 'array',
-      of: [
-        {
-          name: 'point',
-          title: 'Punkt',
-          type: 'object',
-          fields: [
-            {
-              name: 'text',
-              title: 'Text',
-              type: 'array',
-              of: [{ type: 'block' }]
-            }
-          ]
-        }
-      ]
     }
   ]
 };
