@@ -1,3 +1,5 @@
+import slugify from '@sindresorhus/slugify';
+
 export default {
   name: 'article',
   title: 'Artikkel',
@@ -15,11 +17,7 @@ export default {
       description: 'Navnet på lenken til siden. Dette navnet må være unikt.',
       options: {
         source: 'title',
-        slugify: input =>
-          input
-            .toLowerCase()
-            .replace(/\s+/g, '-')
-            .slice(0, 200)
+        slugify: input => slugify(input)
       },
       validation: Rule => Rule.required()
     },
