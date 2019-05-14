@@ -1,0 +1,15 @@
+@import '../../styles/variables';
+
+.header {
+  background-color: $color-purple;
+  padding: 32px 0;
+
+  &__title {
+    color: white;
+    text-decoration: none;
+  }
+
+  &__description {
+    color: white;
+  }
+}

@@ -9,36 +9,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 
-import Header from './header';
+import Header from '../components/Header';
 import '../styles/main.scss';
 
 const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-            description
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <Header
-          siteTitle={data.site.siteMetadata.title}
-          siteDescription={data.site.siteMetadata.description}
-        />
-        <main className="container">
-          <div className="row">
-            <div className="col-md-8">{children}</div>
-          </div>
-        </main>
-        <footer>Footer</footer>
-      </>
-    )}
-  />
+  <>
+    <Header />
+    <main className="container">
+      <div className="row">
+        <div className="col-md-8">{children}</div>
+      </div>
+    </main>
+    <footer>Footer</footer>
+  </>
 );
 
 Layout.propTypes = {

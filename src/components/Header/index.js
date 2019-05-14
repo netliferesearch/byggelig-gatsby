@@ -1,2 +1,2 @@
-import Example from './Example';
-export default Example;
+import Header from './Header';
+export default Header;
