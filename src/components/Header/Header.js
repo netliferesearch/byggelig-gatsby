@@ -7,12 +7,14 @@ const Header = ({ data }) => {
   const { title, description } = data.site.siteMetadata;
   return (
     <header className="header">
-      <div className="h2">
-        <Link to="/" className="header__title">
-          {title}
-        </Link>
+      <div className="wrap-outer">
+        <div className="h2">
+          <Link to="/" className="header__title">
+            {title}
+          </Link>
+        </div>
+        <div className="header__description">{description}</div>
       </div>
-      <div className="header__description h4">{description}</div>
     </header>
   );
 };

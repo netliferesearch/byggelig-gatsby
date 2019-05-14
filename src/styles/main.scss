@@ -2,9 +2,4 @@
 @import './variables';
 @import './typography';
 @import './grid/grid';
-
-@import '../components/Example/example';
-
-body {
-  font-family: 'Roboto', sans-serif;
-}
+@import './global';
