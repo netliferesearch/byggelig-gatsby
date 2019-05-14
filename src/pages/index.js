@@ -9,7 +9,7 @@ import Example from '../components/Example';
 
 export default ({ data }) => {
   console.log(data);
-  const items = data.allSanityPhase.edges;
+  const items = data.allSanityStep.edges;
   return (
     <Layout>
       <SEO title="Forside" />
@@ -24,7 +24,7 @@ export default ({ data }) => {
         {items.map(item => (
           <li key={item.node.id}>
             Fase:{' '}
-            <Link to={`/phase/${item.node.slug.current}`}>
+            <Link to={`/step/${item.node.slug.current}`}>
               {item.node.title}
             </Link>
           </li>
@@ -36,7 +36,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allSanityPhase {
+    allSanityStep {
       edges {
         node {
           id

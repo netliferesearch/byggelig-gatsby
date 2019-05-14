@@ -4,11 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-async function createPhasePages(graphql, actions, reporter) {
+async function createStepPages(graphql, actions, reporter) {
   const { createPage, createPageDependency } = actions;
   const result = await graphql(`
     {
-      allSanityPhase(filter: { slug: { current: { ne: null } } }) {
+      allSanityStep(filter: { slug: { current: { ne: null } } }) {
         edges {
           node {
             id
@@ -23,17 +23,17 @@ async function createPhasePages(graphql, actions, reporter) {
 
   if (result.errors) throw result.errors;
 
-  const postEdges = (result.data.allSanityPhase || {}).edges || [];
+  const postEdges = (result.data.allSanityStep || {}).edges || [];
 
   postEdges.forEach((edge, index) => {
     const { id, slug = {} } = edge.node;
-    const path = `/phase/${slug.current}/`;
+    const path = `/step/${slug.current}/`;
 
-    reporter.info(`Creating phase page: ${path}`);
+    reporter.info(`Creating step page: ${path}`);
 
     createPage({
       path,
-      component: require.resolve('./src/templates/phase.js'),
+      component: require.resolve('./src/templates/step.js'),
       context: { id }
     });
 
@@ -42,5 +42,5 @@ async function createPhasePages(graphql, actions, reporter) {
 }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  await createPhasePages(graphql, actions, reporter);
+  await createStepPages(graphql, actions, reporter);
 };

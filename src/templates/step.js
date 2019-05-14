@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 
 export default ({ data }) => {
   console.log(data);
-  const { title, intro } = data.sanityPhase;
+  const { title, intro } = data.sanityStep;
   return (
     <Layout>
       <h1>Fase: {title}</h1>
@@ -16,7 +16,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query($id: String!) {
-    sanityPhase(id: { eq: $id }) {
+    sanityStep(id: { eq: $id }) {
       id
       title
       intro
