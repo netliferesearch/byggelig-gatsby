@@ -26,7 +26,7 @@ export default {
       options: {
         list: [
           { title: 'Utbygger', value: 'utbygger' },
-          { title: 'Entrepenør', value: 'entrepenør' }
+          { title: 'Entreprenør', value: 'entreprenør' }
         ]
       }
     }
