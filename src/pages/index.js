@@ -9,7 +9,7 @@ import Example from '../components/Example';
 
 export default ({ data }) => {
   console.log(data);
-  const items = data.allSanityPage.edges;
+  const items = data.allSanityPhase.edges;
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -22,7 +22,12 @@ export default ({ data }) => {
       <h2>Sider i Sanity</h2>
       <ul>
         {items.map(item => (
-          <li key={item.node.id}>Tittel: {item.node.title}</li>
+          <li key={item.node.id}>
+            Fase:{' '}
+            <Link to={`/phase/${item.node.slug.current}`}>
+              {item.node.title}
+            </Link>
+          </li>
         ))}
       </ul>
     </Layout>
@@ -31,11 +36,14 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allSanityPage {
+    allSanityPhase {
       edges {
         node {
           id
           title
+          slug {
+            current
+          }
         }
       }
     }
