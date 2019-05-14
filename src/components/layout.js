@@ -17,8 +17,10 @@ const Layout = ({ children }) => (
   <>
     <Header />
     <main className="wrap-outer">
-      <div className="row">
-        <div className="col-md-8">{children}</div>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-8">{children}</div>
+        </div>
       </div>
     </main>
     <Footer />
