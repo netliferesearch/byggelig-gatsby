@@ -8,12 +8,18 @@ const Header = ({ data }) => {
   return (
     <header className="header">
       <div className="wrap-outer">
-        <div className="h2">
-          <Link to="/" className="header__title">
-            {title}
-          </Link>
+        <div className="row align-center">
+          <div className="col-sm">
+            <div className="h2">
+              <Link to="/" className="header__title">
+                {title}
+              </Link>
+            </div>
+          </div>
+          <div className="col-sm">
+            <div className="header__description">{description}</div>
+          </div>
         </div>
-        <div className="header__description">{description}</div>
       </div>
     </header>
   );

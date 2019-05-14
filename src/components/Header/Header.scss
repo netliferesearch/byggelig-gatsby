@@ -2,7 +2,7 @@
 
 .header {
   background-color: $color-purple;
-  padding: 32px 0;
+  padding: $spacing-6 0;
 
   &__title {
     color: white;
@@ -11,5 +11,6 @@
 
   &__description {
     color: white;
+    text-align: right;
   }
 }
