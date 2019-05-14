@@ -1,0 +1,10 @@
+body {
+  background-color: $color-mint-background;
+  font-family: 'Roboto', sans-serif;
+}
+
+.wrap-outer {
+  max-width: $wrap-outer;
+  margin-left: auto;
+  margin-right: auto;
+}

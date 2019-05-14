@@ -1,0 +1,16 @@
+@import '../../styles/variables';
+
+.header {
+  background-color: $color-purple;
+  padding: $spacing-6 0;
+
+  &__title {
+    color: white;
+    text-decoration: none;
+  }
+
+  &__description {
+    color: white;
+    text-align: right;
+  }
+}

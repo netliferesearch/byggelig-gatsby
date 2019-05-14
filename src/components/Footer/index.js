@@ -1,2 +1,2 @@
-import Example from './Example';
-export default Example;
+import Footer from './Footer';
+export default Footer;
