@@ -12,7 +12,7 @@ export default ({ data }) => {
   const items = data.allSanityPhase.edges;
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO title="Forside" />
       <h1>Velkommen!</h1>
       <Example />
       <div>
