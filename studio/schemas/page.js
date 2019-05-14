@@ -1,6 +1,6 @@
 export default {
   name: 'page',
-  title: 'Page',
+  title: 'Side',
   type: 'document',
   fields: [
     {

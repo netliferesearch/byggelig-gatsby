@@ -1,6 +1,6 @@
 export default {
-  name: 'phase',
-  title: 'Faseside',
+  name: 'step',
+  title: 'Steg',
   type: 'document',
   fields: [
     {
@@ -37,27 +37,13 @@ export default {
       name: 'mustHave',
       title: 'Må ha',
       type: 'array',
-      of: [{ type: 'point' }]
+      of: [{ type: 'advice' }]
     },
     {
       name: 'shouldHave',
       title: 'Bør ha',
       type: 'array',
-      of: [
-        {
-          name: 'point',
-          title: 'Punkt',
-          type: 'object',
-          fields: [
-            {
-              name: 'text',
-              title: 'Text',
-              type: 'array',
-              of: [{ type: 'block' }]
-            }
-          ]
-        }
-      ]
+      of: [{ type: 'advice' }]
     }
   ]
 };

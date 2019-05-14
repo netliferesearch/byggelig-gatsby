@@ -1,11 +1,11 @@
 export default {
-  name: 'point',
-  title: 'Punkt',
+  name: 'advice',
+  title: 'Råd',
   type: 'object',
   fields: [
     {
       name: 'text',
-      title: 'Text',
+      title: 'Tekst',
       type: 'array',
       of: [
         {
@@ -17,6 +17,18 @@ export default {
           }
         }
       ]
+    },
+    {
+      name: 'role',
+      title: 'Rolle',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: {
+        list: [
+          { title: 'Utbygger', value: 'utbygger' },
+          { title: 'Entrepenør', value: 'entrepenør' }
+        ]
+      }
     }
   ],
   preview: {
