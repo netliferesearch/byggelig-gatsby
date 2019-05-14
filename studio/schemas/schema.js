@@ -5,6 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 // We import document schemas
+import settings from './settings';
 import page from './page';
 import step from './step';
 import article from './article';
@@ -19,5 +20,14 @@ export default createSchema({
   name: 'default',
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
-  types: [...schemaTypes, page, step, article, linkButton, advice, introImage]
+  types: [
+    ...schemaTypes,
+    settings,
+    page,
+    step,
+    article,
+    linkButton,
+    advice,
+    introImage
+  ]
 });

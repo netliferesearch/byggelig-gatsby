@@ -24,14 +24,27 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'stage',
+      title: 'Trinn',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Reguleringsplan', value: 'reguleringsplan' },
+          { title: 'Byggeprosess', value: 'byggeprosess' }
+        ],
+        layout: 'radio'
+      },
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'stepNumber',
+      title: 'Stegnummer',
+      type: 'number'
+    },
+    {
       name: 'intro',
       title: 'Intro',
       type: 'text'
-    },
-    {
-      name: 'icon',
-      title: 'Ikon',
-      type: 'image'
     },
     {
       name: 'mustHave',
@@ -44,6 +57,26 @@ export default {
       title: 'Bør ha',
       type: 'array',
       of: [{ type: 'advice' }]
+    },
+    {
+      name: 'icon',
+      title: 'Ikon',
+      type: 'image'
     }
-  ]
+  ],
+  preview: {
+    select: {
+      stage: 'stage',
+      stepNumber: 'stepNumber',
+      title: 'title'
+    },
+    prepare(selection) {
+      const { stage, stepNumber, title } = selection;
+      return {
+        // Makes first character in title uppercase
+        title: `${stage.replace(/^\w/, c => c.toUpperCase())} - ${stepNumber}`,
+        subtitle: title
+      };
+    }
+  }
 };

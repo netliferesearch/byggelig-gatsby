@@ -27,6 +27,7 @@ export default {
       name: 'body',
       title: 'Body',
       type: 'text'
-    }
+    },
+    { name: 'image', title: 'Bilde', type: 'image' }
   ]
 };
