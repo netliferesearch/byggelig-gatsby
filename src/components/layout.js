@@ -10,6 +10,8 @@ import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 import '../styles/main.scss';
 
 const Layout = ({ children }) => (
@@ -20,7 +22,7 @@ const Layout = ({ children }) => (
         <div className="col-md-8">{children}</div>
       </div>
     </main>
-    <footer>Footer</footer>
+    <Footer />
   </>
 );
 
