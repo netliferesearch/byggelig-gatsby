@@ -31,7 +31,7 @@ const Header = ({ data }) => {
 export default () => (
   <StaticQuery
     query={graphql`
-      query Sanity {
+      {
         sanitySettings {
           siteName
           mainSubHeading
