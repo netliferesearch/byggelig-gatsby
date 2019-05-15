@@ -2,10 +2,9 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import Image from '../components/image';
 import SEO from '../components/seo';
 
-import Example from '../components/Example';
+import LinkEntry from '../components/LinkEntry';
 
 export default ({ data }) => {
   console.log(data);
@@ -13,10 +12,27 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title="Forside" />
-      <h1>Velkommen!</h1>
-      <Example />
-      <div>
-        <Image />
+      <div className="row">
+        <div className="col-md-3 mt-md-0 mt-3">
+          <LinkEntry to="/" icon="Some icon">
+            1: Planinitiativ
+          </LinkEntry>
+        </div>
+        <div className="col-md-3 mt-md-0 mt-3">
+          <LinkEntry to="/" icon="Some icon">
+            2: Oppstart plan denne er lang ass
+          </LinkEntry>
+        </div>
+        <div className="col-md-3 mt-md-0 mt-3">
+          <LinkEntry to="/" icon="Some icon">
+            3: Reguleringsplan
+          </LinkEntry>
+        </div>
+        <div className="col-md-3 mt-md-0 mt-3">
+          <LinkEntry to="/" icon="Some icon">
+            4: Beslutning plan
+          </LinkEntry>
+        </div>
       </div>
       <Link to="/page-2/">Go to page 2</Link>
       <h2>Sider i Sanity</h2>
