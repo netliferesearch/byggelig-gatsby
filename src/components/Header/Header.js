@@ -46,7 +46,7 @@ Header.propTypes = {
   data: PropTypes.shape({
     sanitySettings: PropTypes.shape({
       siteName: PropTypes.string.isRequired,
-      mainSub: PropTypes.string.isRequired
+      mainSubHeading: PropTypes.string.isRequired
     }).isRequired
   }).isRequired
 };
