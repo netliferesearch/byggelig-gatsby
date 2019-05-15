@@ -52,7 +52,7 @@ small {
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   src: local('Roboto'), local('Roboto-Regular'),
     url('./fonts/roboto-v19-latin-regular.woff2') format('woff2'),
     /* Super Modern Browsers */ url('./fonts/roboto-v19-latin-regular.woff')
@@ -62,7 +62,7 @@ small {
 @font-face {
   font-family: 'Roboto';
   font-style: italic;
-  font-weight: 400;
+  font-weight: normal;
   src: local('Roboto Italic'), local('Roboto-Italic'),
     url('./fonts/roboto-v19-latin-italic.woff2') format('woff2'),
     /* Super Modern Browsers */ url('./fonts/roboto-v19-latin-italic.woff')
@@ -72,7 +72,7 @@ small {
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   src: local('Roboto Medium'), local('Roboto-Medium'),
     url('./fonts/roboto-v19-latin-500.woff2') format('woff2'),
     /* Super Modern Browsers */ url('./fonts/roboto-v19-latin-500.woff')
@@ -82,7 +82,7 @@ small {
 @font-face {
   font-family: 'Roboto';
   font-style: italic;
-  font-weight: 500;
+  font-weight: bold;
   src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'),
     url('./fonts/roboto-v19-latin-500italic.woff2') format('woff2'),
     /* Super Modern Browsers */ url('./fonts/roboto-v19-latin-500italic.woff')
