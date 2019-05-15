@@ -1,12 +1,6 @@
-$huge: 36px;
-$big: 32px;
-$medium: 24px;
-$normal: 21px;
-$small: 16px;
-
 h1,
 .h1 {
-  font-size: $huge;
+  font-size: $text-huge;
   font-size: bold;
   &--thin {
     font-size: normal;
@@ -18,7 +12,7 @@ h1,
 
 h2,
 .h2 {
-  font-size: $big;
+  font-size: $text-big;
   font-size: normal;
   &--thin {
     font-size: normal;
@@ -30,7 +24,7 @@ h2,
 
 h3,
 .h3 {
-  font-size: $medium;
+  font-size: $text-medium;
   font-size: bold;
   &--thin {
     font-size: normal;
@@ -45,7 +39,7 @@ h3,
 }
 
 small {
-  font-size: $small;
+  font-size: $text-small;
 }
 
 /* roboto-regular - latin */
