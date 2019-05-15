@@ -5,10 +5,10 @@ import classNames from 'classnames';
 import LinkBlock from '../LinkBlock';
 import './ArticlePitch.scss';
 
-const articlePitchClasses = subtle =>
+const textContentClasses = subtle =>
   classNames({
-    'article-pitch': true,
-    'article-pitch--subtle': subtle
+    'article-pitch__text-content': true,
+    'article-pitch__text-content--subtle': subtle
   });
 
 const titleClasses = subtle =>
@@ -17,13 +17,23 @@ const titleClasses = subtle =>
     'article-pitch__title--subtle': subtle
   });
 
+const linkClasses = subtle =>
+  classNames({
+    'article-pitch__link': true,
+    'article-pitch__link--subtle': subtle
+  });
+
 const ArticlePitch = ({ title, intro, to, imageUrl, imageAlt, subtle }) => (
-  <section className={articlePitchClasses(subtle)}>
+  <section className="article-pitch">
     <div className="row">
       <div className={imageUrl ? 'col-md-6' : 'col-md-12'}>
-        <h2 className={titleClasses(subtle)}>{title}</h2>
-        <p className="article-pitch__intro">{intro}</p>
-        <LinkBlock to={to}>Slik fikk de det til</LinkBlock>
+        <div className={textContentClasses(subtle)}>
+          <h2 className={titleClasses(subtle)}>{title}</h2>
+          <p className="article-pitch__intro">{intro}</p>
+          <div className={linkClasses(subtle)}>
+            <LinkBlock to={to}>Slik fikk de det til</LinkBlock>
+          </div>
+        </div>
       </div>
       {imageUrl && (
         <div className="col-md-6">

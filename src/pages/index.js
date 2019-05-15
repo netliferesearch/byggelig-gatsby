@@ -6,6 +6,7 @@ import SEO from '../components/seo';
 
 import LinkEntry from '../components/LinkEntry';
 import Hero from '../components/Hero';
+import ArticlePitch from '../components/ArticlePitch';
 
 export default ({ data }) => {
   console.log(data);
@@ -48,6 +49,17 @@ export default ({ data }) => {
           </li>
         ))}
       </ul>
+      <div className="mt-4">
+        <ArticlePitch
+          title="Det lønner seg!"
+          intro="Obos Ulven reduserte byggekostnader med 15% 
+          ved å involvere viktige aktører fra start."
+          to="/"
+          imageUrl="https://placehold.it/800x800"
+          imageAlt="Some image"
+          // subtle
+        />
+      </div>
     </Layout>
   );
 };

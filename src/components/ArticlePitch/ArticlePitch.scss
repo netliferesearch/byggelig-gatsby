@@ -2,10 +2,20 @@
 
 .article-pitch {
   display: flex;
-  background-color: $yellow;
+  text-align: center;
 
-  &--subtle {
-    background-color: $color-blue-haze;
+  &__text-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: $color-yellow;
+    height: 100%;
+    padding: 10% 10%;
+    &--subtle {
+      background-color: $color-blue-haze;
+      padding: 5% 10%;
+    }
   }
 
   &__image {
@@ -15,11 +25,18 @@
 
   &__title {
     font-size: $text-huge;
+    margin: 0;
     &--subtle {
       font-size: $text-medium;
     }
   }
   &__intro {
     font-size: $text-big;
+  }
+  &__link {
+    margin-top: 3em;
+    &--subtle {
+      margin-top: 1em;
+    }
   }
 }
