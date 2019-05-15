@@ -12,6 +12,7 @@ $color-grey-light: #f9f9f9;
 $color-purple-light: #f4f2f7;
 
 // Spacing
+// Will get deprecated
 $spacing-1: 2px;
 $spacing-2: 4px;
 $spacing-3: 8px;
@@ -22,6 +23,19 @@ $spacing-7: 32px;
 $spacing-8: 48px;
 $spacing-9: 72px;
 $spacing-10: 104px;
+
+// The real spacing - will get tweaked
+$spaces: (
+  0: 4px,
+  1: 10px,
+  2: 20px,
+  3: 40px,
+  4: 60px,
+  5: 80px,
+  6: 100px,
+  7: 120px,
+  8: 160px
+);
 
 // Other
 $wrap-outer: 1240px;
