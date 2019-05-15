@@ -18,22 +18,22 @@ export default ({ data }) => {
       <h1>Hvor er du i prosjektet?</h1>
       <h2>Reguleringsplan</h2>
       <div className="row">
-        <div className="col-md-3 mb-3">
+        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
           <LinkEntry to="/" icon="Some icon">
             1: Planinitiativ
           </LinkEntry>
         </div>
-        <div className="col-md-3 mb-3">
+        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
           <LinkEntry to="/" icon="Some icon">
             2: Oppstart plan denne er lang ass
           </LinkEntry>
         </div>
-        <div className="col-md-3 mb-3">
+        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
           <LinkEntry to="/" icon="Some icon">
             3: Reguleringsplan
           </LinkEntry>
         </div>
-        <div className="col-md-3 mb-3">
+        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
           <LinkEntry to="/" icon="Some icon">
             4: Beslutning plan
           </LinkEntry>
@@ -42,42 +42,42 @@ export default ({ data }) => {
 
       <h2>Byggeprosess</h2>
       <div className="row">
-        <div className="col-md-3 mb-3">
+        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
           <LinkEntry to="/" icon="Some icon">
             1: Strategisk definisjon
           </LinkEntry>
         </div>
-        <div className="col-md-3 mb-3">
+        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
           <LinkEntry to="/" icon="Some icon">
             2: Program- og konseptutvikling
           </LinkEntry>
         </div>
-        <div className="col-md-3 mb-3">
+        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
           <LinkEntry to="/" icon="Some icon">
             3: Bearbeiding av valgt konsept
           </LinkEntry>
         </div>
-        <div className="col-md-3 mb-3">
+        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
           <LinkEntry to="/" icon="Some icon">
             4: Detaljprosjektering
           </LinkEntry>
         </div>
-        <div className="col-md-3 mb-3">
+        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
           <LinkEntry to="/" icon="Some icon">
             5: Produksjon og leveranser
           </LinkEntry>
         </div>
-        <div className="col-md-3 mb-3">
+        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
           <LinkEntry to="/" icon="Some icon">
             6: Overlevering og ibruktakelse
           </LinkEntry>
         </div>
-        <div className="col-md-3 mb-3">
+        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
           <LinkEntry to="/" icon="Some icon">
             7: Bruk og forvaltning
           </LinkEntry>
         </div>
-        <div className="col-md-3 mb-3">
+        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
           <LinkEntry to="/" icon="Some icon">
             8: Avvikling
           </LinkEntry>
