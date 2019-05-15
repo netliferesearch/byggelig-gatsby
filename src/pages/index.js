@@ -5,16 +5,16 @@ import Layout from '../components/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
 
-import Example from '../components/Example';
+import Hero from '../components/Hero';
 
 export default ({ data }) => {
   console.log(data);
   const items = data.allSanityStep.edges;
   return (
     <Layout>
+      <Hero />
       <SEO title="Forside" />
       <h1>Velkommen!</h1>
-      <Example />
       <div>
         <Image />
       </div>

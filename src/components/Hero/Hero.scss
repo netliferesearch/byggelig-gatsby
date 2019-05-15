@@ -1,0 +1,30 @@
+@import '../../styles/variables';
+
+.hero {
+  &__title {
+    font-size: 18px;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 32px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 32px;
+    }
+  }
+
+  &__image {
+    display: block;
+    margin: 0 auto $spacing-5;
+    text-align: center;
+    width: 50%;
+
+    @media (min-width: $breakpoint-sm) {
+      width: auto;
+    }
+  }
+}
