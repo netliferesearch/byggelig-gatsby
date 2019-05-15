@@ -26,8 +26,19 @@ $spacing-10: 104px;
 // Other
 $wrap-outer: 1240px;
 
+// Font sizes
 $text-huge: 36px;
 $text-big: 32px;
 $text-medium: 24px;
 $text-normal: 21px;
 $text-small: 16px;
+
+// Media queries (matches Bootstrap)
+// Small devices (landscape phones, 576px and up)
+$breakpoint-sm: 576px;
+// Medium devices (tablets, 768px and up)
+$breakpoint-md: 768px;
+// Large devices (desktops, 992px and up)
+$breakpoint-lg: 992px;
+// Extra large devices (large desktops, 1200px and up)
+$breakpoint-xl: 1200px;
