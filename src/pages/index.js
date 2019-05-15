@@ -5,12 +5,14 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 import LinkEntry from '../components/LinkEntry';
+import Hero from '../components/Hero';
 
 export default ({ data }) => {
   console.log(data);
   const items = data.allSanityStep.edges;
   return (
     <Layout>
+      <Hero />
       <SEO title="Forside" />
       <div className="row">
         <div className="col-md-3 mt-md-0 mt-3">

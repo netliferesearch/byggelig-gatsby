@@ -4,25 +4,27 @@
   background-color: $color-purple;
   padding: $spacing-6 0;
 
-  @media (max-width: 650px) {
+  @media (max-width: $breakpoint-md) {
     padding: $spacing-3 0 $spacing-4;
   }
 
   &__title {
     color: white;
     text-decoration: none;
+    font-size: $text-medium;
 
-    @media (max-width: 650px) {
-      font-size: 24px;
+    @media (min-width: $breakpoint-md) {
+      font-size: $text-big;
     }
   }
 
   &__description {
     color: white;
     text-align: right;
+    display: none;
 
-    @media (max-width: 650px) {
-      display: none;
+    @media (min-width: $breakpoint-md) {
+      display: block;
     }
   }
 }
