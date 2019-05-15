@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+.link-entry {
+  display: flex;
+  flex-direction: column;
+
+  &--subtle {
+    flex-direction: row;
+  }
+
+  &__text {
+    text-align: center;
+    &--subtle {
+      text-align: right;
+    }
+    &--subtle-back {
+      text-align: left;
+    }
+  }
+  &__icon {
+    &--back {
+      transform: rotate(180deg);
+    }
+  }
+
+  &:hover,
+  &:active {
+  }
+  &:active {
+  }
+}
