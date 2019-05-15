@@ -15,10 +15,6 @@ export default ({ data }) => {
       <Hero />
       <SEO title="Forside" />
       <h1>Velkommen!</h1>
-      <div>
-        <Image />
-      </div>
-      <Link to="/page-2/">Go to page 2</Link>
       <h2>Sider i Sanity</h2>
       <ul>
         {items.map(item => (
