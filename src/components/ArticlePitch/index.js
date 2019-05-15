@@ -1,2 +1,2 @@
-import Example from './Example';
-export default Example;
+import ArticlePitch from './ArticlePitch';
+export default ArticlePitch;
