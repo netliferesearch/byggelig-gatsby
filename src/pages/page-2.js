@@ -11,9 +11,28 @@ const SecondPage = () => (
     <SEO title="Page two" />
     <h1>Hi from the second page</h1>
     <p>Welcome to page 200000</p>
-    <LinkEntry to="/" icon="Some icon">
-      1: Planinitiativ
-    </LinkEntry>
+    <div className="row">
+      <div className="col-md-3">
+        <LinkEntry to="/" icon="Some icon">
+          1: Planinitiativ
+        </LinkEntry>
+      </div>
+      <div className="col-md-3">
+        <LinkEntry to="/" icon="Some icon">
+          2: Oppstart plan
+        </LinkEntry>
+      </div>
+      <div className="col-md-3">
+        <LinkEntry to="/" icon="Some icon">
+          3: Reguleringsplan
+        </LinkEntry>
+      </div>
+      <div className="col-md-3">
+        <LinkEntry to="/" icon="Some icon">
+          4: Beslutning plan
+        </LinkEntry>
+      </div>
+    </div>
     <br />
     <br />
     <LinkBlock to="/">Go back to the homepage</LinkBlock>
