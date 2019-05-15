@@ -11,14 +11,14 @@ const Header = ({ data }) => {
       <div className="wrap-outer">
         <div className="container-fluid">
           <div className="row align-center">
-            <div className="col-sm">
+            <div className="col-sm-auto">
               <div className="h2">
                 <Link to="/" className="header__title">
                   {siteName}
                 </Link>
               </div>
             </div>
-            <div className="col-sm">
+            <div className="col">
               <div className="header__description">{mainSubHeading}</div>
             </div>
           </div>
@@ -46,7 +46,7 @@ Header.propTypes = {
   data: PropTypes.shape({
     sanitySettings: PropTypes.shape({
       siteName: PropTypes.string.isRequired,
-      mainSubHeading: PropTypes.string.isRequired
+      mainSub: PropTypes.string.isRequired
     }).isRequired
   }).isRequired
 };

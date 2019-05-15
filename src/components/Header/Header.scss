@@ -4,13 +4,25 @@
   background-color: $color-purple;
   padding: $spacing-6 0;
 
+  @media (max-width: 650px) {
+    padding: $spacing-3 0 $spacing-4;
+  }
+
   &__title {
     color: white;
     text-decoration: none;
+
+    @media (max-width: 650px) {
+      font-size: 24px;
+    }
   }
 
   &__description {
     color: white;
     text-align: right;
+
+    @media (max-width: 650px) {
+      display: none;
+    }
   }
 }
