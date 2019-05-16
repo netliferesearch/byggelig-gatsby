@@ -84,18 +84,6 @@ export default ({ data }) => {
         </div>
       </div>
 
-      <Link to="/page-2/">Go to page 2</Link>
-      <h2>Sider i Sanity</h2>
-      <ul>
-        {items.map(item => (
-          <li key={item.node.id}>
-            Fase:{' '}
-            <Link to={`/step/${item.node.slug.current}`}>
-              {item.node.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
       <div className="mt-4">
         <ArticlePitch
           title="Det lønner seg!"
