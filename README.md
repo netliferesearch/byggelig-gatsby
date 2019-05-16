@@ -30,17 +30,20 @@ Site: https://byggelig.netlify.com/
 3. Install dependencies: `npm i`
 4. Run Sanity studio: `sanity start`
 
-_Important!_
+**Important!**<br>
 Remember to deploy changes to Studio after making changes to schemas: Run `npm run deploy`.
 
-_Also important!_
+**Also important!**<br>
 Remember that even though you work locally, changes made to the content in Studio will be globally. If you need to experiment with the data, download and work on a copy of the dataset: https://www.sanity.io/docs/data-store/migrating-data
 
-_Sanity - manage users_
+**Sanity - manage users**<br>
 https://manage.sanity.io/
 
-_Sanity - edit content_
+**Sanity - edit content**<br>
 https://byggelig.sanity.studio/
+
+### Gatsby
+If something is not working, you might try to build locally, and check your terminal for errors: `npm run build`.
 
 ## Prosjektregler
 
