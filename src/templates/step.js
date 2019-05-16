@@ -24,16 +24,17 @@ export default ({ data, pageContext }) => {
       <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
       <h2>Dette må du ha på plass</h2>
       <ul>
-        {advices
-          .filter(advice => (advice.role ? advice.role.includes(role) : null))
-          .map(advice => {
-            const { _key, text } = advice;
-            return (
-              <li key={_key}>
-                <BlockContent blocks={text} />
-              </li>
-            );
-          })}
+        {advices &&
+          advices
+            .filter(advice => (advice.role ? advice.role.includes(role) : null))
+            .map(advice => {
+              const { _key, text } = advice;
+              return (
+                <li key={_key}>
+                  <BlockContent blocks={text} />
+                </li>
+              );
+            })}
       </ul>
     </Layout>
   );
