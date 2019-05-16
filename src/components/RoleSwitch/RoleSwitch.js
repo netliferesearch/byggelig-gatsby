@@ -8,8 +8,8 @@ import './RoleSwitch.scss';
 const RoleSwitch = ({ role, stage, stepSlug }) => {
   // Create paths
   const path = `/${stage}/${stepSlug}`;
-  const pathEntreprenor = `${path}/entreprenor`;
   const pathUtbygger = `${path}/utbygger/`;
+  const pathEntreprenor = `${path}/entreprenor`;
 
   const linkClasses = active =>
     classNames({
@@ -20,14 +20,14 @@ const RoleSwitch = ({ role, stage, stepSlug }) => {
 
   return (
     <div className="role-switch">
-      <Link
-        to={pathEntreprenor}
-        className={linkClasses(role === 'entreprenor')}
-      >
-        Entreprenør
-      </Link>
       <Link to={pathUtbygger} className={linkClasses(role === 'utbygger')}>
         Utbygger
+      </Link>
+      <Link
+        to={pathEntreprenor}
+        className={linkClasses(role === 'entreprenør')}
+      >
+        Entreprenør
       </Link>
     </div>
   );

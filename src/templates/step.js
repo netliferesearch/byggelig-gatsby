@@ -6,7 +6,6 @@ import Layout from '../components/layout';
 import RoleSwitch from '../components/RoleSwitch';
 
 export default ({ data, pageContext }) => {
-  console.log(data);
   const { role = '', stage = '', stepSlug = '' } = pageContext.pathParams;
   const {
     title = '',
@@ -14,6 +13,7 @@ export default ({ data, pageContext }) => {
     stepNumber = '',
     _rawMustHave: advices = {}
   } = data.sanityStep;
+
   return (
     <Layout>
       <h1>
@@ -25,7 +25,7 @@ export default ({ data, pageContext }) => {
       <h2>Dette må du ha på plass</h2>
       <ul>
         {advices
-          .filter(advice => advice.role.includes(role))
+          .filter(advice => (advice.role ? advice.role.includes(role) : null))
           .map(advice => {
             const { _key, text } = advice;
             return (
@@ -50,3 +50,5 @@ export const query = graphql`
     }
   }
 `;
+
+// TODO: add proptypes
