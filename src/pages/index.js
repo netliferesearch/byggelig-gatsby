@@ -10,79 +10,35 @@ import ArticlePitch from '../components/ArticlePitch';
 
 export default ({ data }) => {
   console.log(data);
-  const items = data.allSanityStep.edges;
+  const reguleringsplanItems = data.reguleringsplan.edges || {};
+  const byggeprosessItems = data.byggeprosess.edges || {};
+
+  const StepItem = item => {
+    console.log('stepItem', item);
+    const { id, stage, stepNumber, title, slug } = item.node;
+    const path = `/${stage}/${slug.current}`;
+    return (
+      <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
+        <LinkEntry to={path} icon="Some icon" key={id}>
+          {stepNumber}: {title}
+        </LinkEntry>
+      </div>
+    );
+  };
+
   return (
     <Layout>
       <Hero />
       <SEO title="Forside" />
       <h1>Hvor er du i prosjektet?</h1>
+
       <h2>Reguleringsplan</h2>
       <div className="row">
-        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
-          <LinkEntry to="/" icon="Some icon">
-            1: Planinitiativ
-          </LinkEntry>
-        </div>
-        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
-          <LinkEntry to="/" icon="Some icon">
-            2: Oppstart plan denne er lang ass
-          </LinkEntry>
-        </div>
-        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
-          <LinkEntry to="/" icon="Some icon">
-            3: Reguleringsplan
-          </LinkEntry>
-        </div>
-        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
-          <LinkEntry to="/" icon="Some icon">
-            4: Beslutning plan
-          </LinkEntry>
-        </div>
+        {reguleringsplanItems.map(item => StepItem(item))}
       </div>
 
       <h2>Byggeprosess</h2>
-      <div className="row">
-        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
-          <LinkEntry to="/" icon="Some icon">
-            1: Strategisk definisjon
-          </LinkEntry>
-        </div>
-        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
-          <LinkEntry to="/" icon="Some icon">
-            2: Program- og konseptutvikling
-          </LinkEntry>
-        </div>
-        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
-          <LinkEntry to="/" icon="Some icon">
-            3: Bearbeiding av valgt konsept
-          </LinkEntry>
-        </div>
-        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
-          <LinkEntry to="/" icon="Some icon">
-            4: Detaljprosjektering
-          </LinkEntry>
-        </div>
-        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
-          <LinkEntry to="/" icon="Some icon">
-            5: Produksjon og leveranser
-          </LinkEntry>
-        </div>
-        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
-          <LinkEntry to="/" icon="Some icon">
-            6: Overlevering og ibruktakelse
-          </LinkEntry>
-        </div>
-        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
-          <LinkEntry to="/" icon="Some icon">
-            7: Bruk og forvaltning
-          </LinkEntry>
-        </div>
-        <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
-          <LinkEntry to="/" icon="Some icon">
-            8: Avvikling
-          </LinkEntry>
-        </div>
-      </div>
+      <div className="row">{byggeprosessItems.map(item => StepItem(item))}</div>
 
       <div className="mt-4">
         <ArticlePitch
@@ -99,13 +55,35 @@ export default ({ data }) => {
   );
 };
 
+// Query all steps, sort by stage, then stepNumber
 export const query = graphql`
   query {
-    allSanityStep {
+    reguleringsplan: allSanityStep(
+      sort: { fields: [stepNumber], order: ASC }
+      filter: { stage: { eq: "reguleringsplan" } }
+    ) {
       edges {
         node {
           id
           title
+          stepNumber
+          stage
+          slug {
+            current
+          }
+        }
+      }
+    }
+    byggeprosess: allSanityStep(
+      sort: { fields: [stepNumber], order: ASC }
+      filter: { stage: { eq: "byggeprosess" } }
+    ) {
+      edges {
+        node {
+          id
+          title
+          stepNumber
+          stage
           slug {
             current
           }
