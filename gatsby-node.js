@@ -8,10 +8,12 @@ async function createStepPages(graphql, actions, reporter) {
   const { createPage, createPageDependency } = actions;
   const result = await graphql(`
     {
-      allSanityStep(filter: { slug: { current: { ne: null } } }) {
+      allSanityStep {
         edges {
           node {
             id
+            stage
+            stepNumber
             slug {
               current
             }
@@ -26,18 +28,48 @@ async function createStepPages(graphql, actions, reporter) {
   const postEdges = (result.data.allSanityStep || {}).edges || [];
 
   postEdges.forEach((edge, index) => {
-    const { id, slug = {} } = edge.node;
-    const path = `/step/${slug.current}/`;
+    const { id, stage, stepNumber, slug = {} } = edge.node;
 
-    reporter.info(`Creating step page: ${path}`);
+    // Create our paths
+    const stepSlug = `steg${stepNumber}-${slug.current}`;
+    const path = `/${stage}/${stepSlug}`;
+    const pathUtbygger = `${path}/utbygger`;
+    const pathEntreprenor = `${path}/entreprenor`;
 
+    // Log in terminal
+    reporter.info(`Creating step page: ${pathUtbygger}`);
+    reporter.info(`Creating step page: ${pathEntreprenor}`);
+
+    // Create pages for utbygger
     createPage({
-      path,
+      path: pathUtbygger,
       component: require.resolve('./src/templates/step.js'),
-      context: { id }
+      context: {
+        id,
+        pathParams: {
+          role: 'utbygger',
+          stage,
+          stepSlug
+        }
+      }
     });
 
-    createPageDependency({ path, nodeId: id });
+    // Create pages for entreprenør
+    createPage({
+      path: pathEntreprenor,
+      component: require.resolve('./src/templates/step.js'),
+      context: {
+        id,
+        pathParams: {
+          role: 'entreprenor',
+          stage,
+          stepSlug
+        }
+      }
+    });
+
+    createPageDependency({ pathUtbygger, nodeId: id });
+    createPageDependency({ pathEntreprenor, nodeId: id });
   });
 }
 

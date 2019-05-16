@@ -1,31 +1,40 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import BlockContent from '@sanity/block-content-to-react';
 
 import Layout from '../components/layout';
-import LinkStep from '../components/LinkStep';
+import RoleSwitch from '../components/RoleSwitch';
 
-export default ({ data }) => {
-  const { title, intro } = data.sanityStep;
+export default ({ data, pageContext }) => {
+  console.log(data);
+  const { role = '', stage = '', stepSlug = '' } = pageContext.pathParams;
+  const {
+    title = '',
+    intro = '',
+    stepNumber = '',
+    _rawMustHave: advices = {}
+  } = data.sanityStep;
   return (
     <Layout>
-      <h1>Fase: {title}</h1>
-      <p>Intro: {intro}</p>
-      <LinkStep to="/" direction="next" number={1}>
-        Neste
-      </LinkStep>
-      <br />
-      <LinkStep to="/" direction="back" number={1}>
-        Forrige
-      </LinkStep>
-      <br />
-      <LinkStep to="/" direction="next" number={1} subtle>
-        Neste subtil
-      </LinkStep>
-      <br />
-      <LinkStep to="/" direction="back" number={1} subtle>
-        Forrige subtil
-      </LinkStep>
-      <br />
+      <h1>
+        Fase {stepNumber}:<br />
+        {title}
+      </h1>
+      <p>{intro}</p>
+      <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
+      <h2>Dette må du ha på plass</h2>
+      <ul>
+        {advices
+          .filter(advice => advice.role.includes(role))
+          .map(advice => {
+            const { _key, text } = advice;
+            return (
+              <li key={_key}>
+                <BlockContent blocks={text} />
+              </li>
+            );
+          })}
+      </ul>
     </Layout>
   );
 };
@@ -36,11 +45,8 @@ export const query = graphql`
       id
       title
       intro
-      slug {
-        _key
-        _type
-        current
-      }
+      stepNumber
+      _rawMustHave
     }
   }
 `;

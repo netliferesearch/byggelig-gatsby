@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+.role-switch {
+  font-size: 18px;
+  text-align: center;
+  text-transform: uppercase;
+
+  &__link {
+    margin: 0 $spacing-5;
+
+    &--active {
+      box-shadow: none;
+      color: $color-grey;
+      text-decoration: none;
+    }
+  }
+}
