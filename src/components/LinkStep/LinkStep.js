@@ -3,12 +3,15 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import Icon from '../Icon';
+
 import './LinkStep.scss';
 
-const linkStepClasses = subtle =>
+const linkStepClasses = (subtle, direction) =>
   classNames({
     'link-step': true,
-    'link-step--subtle': subtle
+    'link-step--subtle': subtle,
+    'link-step--subtle-back': subtle && direction === 'back'
   });
 
 const textClasses = (subtle, direction) =>
@@ -18,24 +21,23 @@ const textClasses = (subtle, direction) =>
     'link-step__text--subtle-back': subtle && direction === 'back'
   });
 
-const iconClasses = direction =>
+const iconClasses = subtle =>
   classNames({
     'link-step__icon': true,
-    'link-step__icon--back': direction === 'back'
+    'link-step__icon--subtle': subtle
   });
 
 const LinkStep = ({ children, to, direction, number, subtle }) => (
-  <Link to={to} className={linkStepClasses(subtle)}>
-    {/* Should use the icon component here. Toggles between with subtle prop */}
-    {!subtle ||
-      (direction === 'left' && <div className={iconClasses(direction)} />)}
+  <Link to={to} className={linkStepClasses(subtle, direction)}>
+    <div className={iconClasses(subtle)}>
+      <Icon
+        mirror={direction === 'back'}
+        type={subtle ? 'arrow' : 'arrowround'}
+      />
+    </div>
     <div className={textClasses(subtle, direction)}>
       {number && `Fase ${number}:`} <br /> {children}
     </div>
-    {/* Should use the icon component here. Toggles between with subtle prop */}
-    {subtle && direction === 'right' && (
-      <div className={iconClasses(direction)} />
-    )}
   </Link>
 );
 
