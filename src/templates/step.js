@@ -4,6 +4,7 @@ import BlockContent from '@sanity/block-content-to-react';
 
 import Layout from '../components/layout';
 import RoleSwitch from '../components/RoleSwitch';
+import LinkStep from '../components/LinkStep';
 
 export default ({ data, pageContext }) => {
   console.log(data);
@@ -35,6 +36,30 @@ export default ({ data, pageContext }) => {
             );
           })}
       </ul>
+      <div className="row mt-5">
+        <div className="col">
+          <LinkStep direction="back" number={1}>
+            En tittel her
+          </LinkStep>
+        </div>
+        <div className="col">
+          <LinkStep direction="next" number={3}>
+            Og en tittel der
+          </LinkStep>
+        </div>
+      </div>
+      <div className="row mt-5 mb-5">
+        <div className="col">
+          <LinkStep direction="back" number={1} subtle>
+            En tittel
+          </LinkStep>
+        </div>
+        <div className="col">
+          <LinkStep direction="next" number={3} subtle>
+            En annen tittel
+          </LinkStep>
+        </div>
+      </div>
     </Layout>
   );
 };

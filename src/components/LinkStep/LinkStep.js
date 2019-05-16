@@ -28,17 +28,17 @@ const iconClasses = subtle =>
   });
 
 const LinkStep = ({ children, to, direction, number, subtle }) => (
-  <Link to={to} className={linkStepClasses(subtle, direction)}>
-    <div className={iconClasses(subtle)}>
+  <div className={linkStepClasses(subtle, direction)} role="presentation">
+    <Link to={to} className={iconClasses(subtle)} aria-hidden>
       <Icon
         mirror={direction === 'back'}
         type={subtle ? 'arrow' : 'arrowround'}
       />
-    </div>
-    <div className={textClasses(subtle, direction)}>
+    </Link>
+    <Link to={to} className={textClasses(subtle, direction)}>
       {number && `Fase ${number}:`} <br /> {children}
-    </div>
-  </Link>
+    </Link>
+  </div>
 );
 
 LinkStep.propTypes = {

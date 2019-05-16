@@ -11,22 +11,34 @@
 
   &--subtle-back {
     flex-direction: row;
+    text-align: right;
   }
 
   &__text {
+    display: inline-flex;
+    align-self: center;
     flex-shrink: 0;
     text-align: center;
+    color: $color-black;
+    text-decoration: none;
     &--subtle {
       text-align: right;
     }
     &--subtle-back {
       text-align: left;
     }
+
+    &:hover,
+    &:active {
+      color: $color-blue;
+    }
   }
   &__icon {
-    text-align: center;
+    display: inline-flex;
+    align-self: center;
     height: 2em;
     width: auto;
+    margin-bottom: 0.5em;
 
     svg {
       width: 100%;
@@ -36,12 +48,8 @@
 
     &--subtle {
       height: 1em;
+      margin: 0 1em;
+      align-self: center;
     }
-  }
-
-  &:hover,
-  &:active {
-  }
-  &:active {
   }
 }
