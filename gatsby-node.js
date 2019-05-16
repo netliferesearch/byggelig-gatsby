@@ -61,7 +61,7 @@ async function createStepPages(graphql, actions, reporter) {
       context: {
         id,
         pathParams: {
-          role: 'entreprenor',
+          role: 'entreprenør',
           stage,
           stepSlug
         }
