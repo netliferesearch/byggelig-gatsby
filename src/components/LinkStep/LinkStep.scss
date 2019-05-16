@@ -1,14 +1,20 @@
 @import '../../styles/variables';
 
-.link-entry {
+.link-step {
   display: flex;
   flex-direction: column;
+  text-decoration: none;
 
   &--subtle {
+    flex-direction: row-reverse;
+  }
+
+  &--subtle-back {
     flex-direction: row;
   }
 
   &__text {
+    flex-shrink: 0;
     text-align: center;
     &--subtle {
       text-align: right;
@@ -18,8 +24,18 @@
     }
   }
   &__icon {
-    &--back {
-      transform: rotate(180deg);
+    text-align: center;
+    height: 2em;
+    width: auto;
+
+    svg {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+
+    &--subtle {
+      height: 1em;
     }
   }
 
