@@ -8,10 +8,11 @@ async function createStepPages(graphql, actions, reporter) {
   const { createPage, createPageDependency } = actions;
   const result = await graphql(`
     {
-      allSanityStep(filter: { slug: { current: { ne: null } } }) {
+      allSanityStep {
         edges {
           node {
             id
+            stage
             slug {
               current
             }
@@ -26,9 +27,11 @@ async function createStepPages(graphql, actions, reporter) {
   const postEdges = (result.data.allSanityStep || {}).edges || [];
 
   postEdges.forEach((edge, index) => {
-    const { id, slug = {} } = edge.node;
-    const path = `/step/${slug.current}/`;
+    const { id, stage, slug = {} } = edge.node;
+    const path = `/${stage}/${slug.current}/`;
 
+    reporter.info(`Stage: ${stage}`);
+    reporter.info(`Slug: ${slug.current}`);
     reporter.info(`Creating step page: ${path}`);
 
     createPage({
