@@ -9,17 +9,15 @@ import Hero from '../components/Hero';
 import ArticlePitch from '../components/ArticlePitch';
 
 export default ({ data }) => {
-  console.log(data);
   const reguleringsplanItems = data.reguleringsplan.edges || {};
   const byggeprosessItems = data.byggeprosess.edges || {};
 
   const StepItem = item => {
-    console.log('stepItem', item);
     const { id, stage, stepNumber, title, slug } = item.node;
-    const path = `/${stage}/${slug.current}`;
+    const path = `/${stage}/steg${stepNumber}-${slug.current}`;
     return (
-      <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2">
-        <LinkEntry to={path} icon="Some icon" key={id}>
+      <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2" key={id}>
+        <LinkEntry to={path} icon="Some icon">
           {stepNumber}: {title}
         </LinkEntry>
       </div>

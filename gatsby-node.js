@@ -13,6 +13,7 @@ async function createStepPages(graphql, actions, reporter) {
           node {
             id
             stage
+            stepNumber
             slug {
               current
             }
@@ -27,11 +28,8 @@ async function createStepPages(graphql, actions, reporter) {
   const postEdges = (result.data.allSanityStep || {}).edges || [];
 
   postEdges.forEach((edge, index) => {
-    const { id, stage, slug = {} } = edge.node;
-    const path = `/${stage}/${slug.current}/`;
-
-    reporter.info(`Stage: ${stage}`);
-    reporter.info(`Slug: ${slug.current}`);
+    const { id, stage, stepNumber, slug = {} } = edge.node;
+    const path = `/${stage}/steg${stepNumber}-${slug.current}/`;
     reporter.info(`Creating step page: ${path}`);
 
     createPage({
