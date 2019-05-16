@@ -5,7 +5,6 @@ import BlockContent from '@sanity/block-content-to-react';
 import Layout from '../components/layout';
 
 export default ({ data, pageContext }) => {
-  console.log(data);
   const { role = '' } = pageContext;
   const {
     title = '',
@@ -13,7 +12,6 @@ export default ({ data, pageContext }) => {
     stepNumber = '',
     _rawMustHave: advices = {}
   } = data.sanityStep;
-  console.log('advice', advices);
   return (
     <Layout>
       <h1>
@@ -27,9 +25,10 @@ export default ({ data, pageContext }) => {
         {advices
           .filter(advice => advice.role.includes(role))
           .map(advice => {
+            const { _key, text } = advice;
             return (
-              <li>
-                <BlockContent blocks={advice.text} />
+              <li key={_key}>
+                <BlockContent blocks={text} />
               </li>
             );
           })}
