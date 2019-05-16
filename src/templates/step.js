@@ -1,11 +1,13 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 
 import Layout from '../components/layout';
+import RoleSwitch from '../components/RoleSwitch';
 
 export default ({ data, pageContext }) => {
-  const { role = '' } = pageContext;
+  console.log(data);
+  const { role = '', stage = '', stepSlug = '' } = pageContext.pathParams;
   const {
     title = '',
     intro = '',
@@ -19,7 +21,7 @@ export default ({ data, pageContext }) => {
         {title}
       </h1>
       <p>{intro}</p>
-      <h2>Rolle: {role}</h2>
+      <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
       <h2>Dette må du ha på plass</h2>
       <ul>
         {advices
