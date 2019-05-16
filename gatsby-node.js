@@ -29,9 +29,14 @@ async function createStepPages(graphql, actions, reporter) {
 
   postEdges.forEach((edge, index) => {
     const { id, stage, stepNumber, slug = {} } = edge.node;
-    const path = `/${stage}/steg${stepNumber}-${slug.current}`;
+
+    // Create our paths
+    const stepSlug = `steg${stepNumber}-${slug.current}`;
+    const path = `/${stage}/${stepSlug}`;
     const pathUtbygger = `${path}/utbygger`;
     const pathEntreprenor = `${path}/entreprenor`;
+
+    // Log in terminal
     reporter.info(`Creating step page: ${pathUtbygger}`);
     reporter.info(`Creating step page: ${pathEntreprenor}`);
 
@@ -39,14 +44,28 @@ async function createStepPages(graphql, actions, reporter) {
     createPage({
       path: pathUtbygger,
       component: require.resolve('./src/templates/step.js'),
-      context: { id, role: 'utbygger' }
+      context: {
+        id,
+        pathParams: {
+          role: 'utbygger',
+          stage,
+          stepSlug
+        }
+      }
     });
 
     // Create pages for entreprenør
     createPage({
       path: pathEntreprenor,
       component: require.resolve('./src/templates/step.js'),
-      context: { id, role: 'entreprenor' }
+      context: {
+        id,
+        pathParams: {
+          role: 'entreprenor',
+          stage,
+          stepSlug
+        }
+      }
     });
 
     createPageDependency({ pathUtbygger, nodeId: id });
@@ -57,10 +76,3 @@ async function createStepPages(graphql, actions, reporter) {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createStepPages(graphql, actions, reporter);
 };
-
-// /byggeprosess/steg1-behov/[entreprenor/utbygger]
-// context (id OG )
-
-// Generer to sett med sider
-// Hver side har en id context
-// Må bruke url for å vite "role" og matche mot advice
