@@ -5,9 +5,15 @@ import BlockContent from '@sanity/block-content-to-react';
 import Layout from '../components/layout';
 import RoleSwitch from '../components/RoleSwitch';
 import LinkStep from '../components/LinkStep';
+import ArticlePitch from '../components/ArticlePitch';
 
 export default ({ data, pageContext }) => {
-  const { role = '', stage = '', stepSlug = '' } = pageContext.pathParams;
+  const {
+    pathParams: { role = '', stage = '', stepSlug = '' } = {},
+    showRoleSwitch = true, // Logic is set in "gatsby-node.js"
+    prevStep = null,
+    nextStep = null
+  } = pageContext;
   const {
     title = '',
     intro = '',
@@ -17,6 +23,8 @@ export default ({ data, pageContext }) => {
     caseReference = {}
   } = data.sanityStep;
 
+  console.log('context', pageContext);
+
   return (
     <Layout>
       <h1>
@@ -25,7 +33,9 @@ export default ({ data, pageContext }) => {
       </h1>
       <p>{intro}</p>
 
-      <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
+      {showRoleSwitch && (
+        <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
+      )}
 
       <h2>Dette må du ha på plass</h2>
       <ul>
@@ -42,57 +52,89 @@ export default ({ data, pageContext }) => {
             })}
       </ul>
 
-      <h2>Dette bør du ha på plass</h2>
-      <ul>
-        {advicesShouldHave &&
-          advicesShouldHave
-            .filter(advice => (advice.role ? advice.role.includes(role) : null))
-            .map(advice => {
-              const { _key, text } = advice;
-              return (
-                <li key={_key}>
-                  <BlockContent blocks={text} />
-                </li>
-              );
-            })}
-      </ul>
-
-      {caseReference && (
-        <div>
-          <h2>{caseReference.title ? caseReference.title : ''}</h2>
-          <p>{caseReference.intro ? caseReference.intro : ''}</p>
-          <Link
-            to={`/referanse/${
-              caseReference.slug ? caseReference.slug.current : '#'
-            }`}
-          >
-            {caseReference.linkText ? caseReference.linkText : 'Les mer'}
-          </Link>
-        </div>
+      {advicesShouldHave && (
+        <>
+          <h2>Dette bør du ha på plass</h2>
+          <ul>
+            {advicesShouldHave
+              .filter(advice =>
+                advice.role ? advice.role.includes(role) : null
+              )
+              .map(advice => {
+                const { _key, text } = advice;
+                return (
+                  <li key={_key}>
+                    <BlockContent blocks={text} />
+                  </li>
+                );
+              })}
+          </ul>
+        </>
       )}
 
-      <div className="row mt-5">
-        <div className="col">
-          <LinkStep direction="back" number={1}>
-            En tittel her
-          </LinkStep>
-        </div>
-        <div className="col">
-          <LinkStep direction="next" number={3}>
-            Og en tittel der
-          </LinkStep>
-        </div>
-      </div>
+      {caseReference &&
+        (() => {
+          const {
+            title: caseTitle = '',
+            intro: caseIntro = '',
+            linkText = 'Les mer',
+            slug: { current = '#' } = {}
+          } = caseReference;
+          return (
+            <ArticlePitch
+              title={caseTitle}
+              intro={caseIntro}
+              linkText={linkText}
+              subtle
+              to={`/artikkel/${current}`}
+            />
+          );
+        })()}
+
       <div className="row mt-5 mb-5">
         <div className="col">
-          <LinkStep direction="back" number={1} subtle>
-            En tittel
-          </LinkStep>
+          {prevStep &&
+            prevStep.node &&
+            (() => {
+              const {
+                title: prevTitle = '',
+                stepNumber: prevStepNumber = '',
+                slug: { current: prevSlug = '#' } = {}
+              } = prevStep.node;
+              const prevPath = `/${stage}/steg${prevStepNumber}-${prevSlug}/${role}`;
+              return (
+                <LinkStep
+                  direction="back"
+                  number={prevStepNumber}
+                  to={prevPath}
+                  subtle
+                >
+                  {prevTitle}
+                </LinkStep>
+              );
+            })()}
         </div>
         <div className="col">
-          <LinkStep direction="next" number={3} subtle>
-            En annen tittel
-          </LinkStep>
+          {nextStep &&
+            nextStep.node &&
+            (() => {
+              const {
+                title: nextTitle = '',
+                stepNumber: nextStepNumber = '',
+                slug: { current: nextSlug = '#' } = {}
+              } = nextStep.node;
+              const nextPath = `/${stage}/steg${nextStepNumber}-${nextSlug}/${role}`;
+              return (
+                <LinkStep
+                  direction="next"
+                  number={nextStepNumber}
+                  to={nextPath}
+                  subtle
+                >
+                  {nextTitle}
+                </LinkStep>
+              );
+            })()}
         </div>
       </div>
     </Layout>
@@ -109,13 +151,12 @@ export const query = graphql`
       _rawMustHave
       _rawShouldHave
       caseReference {
-        id
-        slug {
-          current
-        }
         title
         intro
         linkText
+        slug {
+          current
+        }
       }
     }
   }
