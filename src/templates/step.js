@@ -26,7 +26,7 @@ export default ({ data, pageContext }) => {
   return (
     <Layout>
       <div className="row mt-5 mb-5">
-        <div className="col">
+        <div className="col-lg-3 col-6 order-lg-1 order-1">
           {prevStep &&
             prevStep.node &&
             (() => {
@@ -47,14 +47,14 @@ export default ({ data, pageContext }) => {
               );
             })()}
         </div>
-        <div className="col">
+        <div className="col-lg-6 order-lg-2 order-3 center">
           <h1>
             Fase {stepNumber}:<br />
             {title}
           </h1>
           <p>{intro}</p>
         </div>
-        <div className="col">
+        <div className="col-lg-3 col-6 order-lg-3 order-2">
           {nextStep &&
             nextStep.node &&
             (() => {
