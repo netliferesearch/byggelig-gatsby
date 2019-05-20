@@ -91,6 +91,7 @@ small {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: normal;
+  font-display: fallback;
   src: local('Roboto'), local('Roboto-Regular'),
     url('./fonts/roboto-v19-latin-regular.woff2') format('woff2'),
     /* Super Modern Browsers */ url('./fonts/roboto-v19-latin-regular.woff')
@@ -101,6 +102,7 @@ small {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: normal;
+  font-display: fallback;
   src: local('Roboto Italic'), local('Roboto-Italic'),
     url('./fonts/roboto-v19-latin-italic.woff2') format('woff2'),
     /* Super Modern Browsers */ url('./fonts/roboto-v19-latin-italic.woff')
@@ -111,6 +113,7 @@ small {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: bold;
+  font-display: fallback;
   src: local('Roboto Medium'), local('Roboto-Medium'),
     url('./fonts/roboto-v19-latin-500.woff2') format('woff2'),
     /* Super Modern Browsers */ url('./fonts/roboto-v19-latin-500.woff')
@@ -121,6 +124,7 @@ small {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: bold;
+  font-display: fallback;
   src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'),
     url('./fonts/roboto-v19-latin-500italic.woff2') format('woff2'),
     /* Super Modern Browsers */ url('./fonts/roboto-v19-latin-500italic.woff')
