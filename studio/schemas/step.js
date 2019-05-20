@@ -63,7 +63,7 @@ export default {
     },
     {
       title: 'Prosjekteksempel',
-      name: 'case',
+      name: 'caseReference',
       type: 'reference',
       to: [{ type: 'article' }]
     }
