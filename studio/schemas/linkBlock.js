@@ -1,6 +1,6 @@
 export default {
-  name: 'linkButton',
-  title: 'Lenkeknapp',
+  name: 'linkBlock',
+  title: 'Lenke-blokk',
   type: 'object',
   fields: [
     {
