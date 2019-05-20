@@ -8,19 +8,21 @@ export default () => (
     <div className="wrap-outer">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-3 mt-md-0 mt-2">
+          <div className="col-lg-3 mt-lg-0 mt-2">
             <img src={ntnuLogo} alt="NTNU Logo" />
           </div>
-          <div className="col-md-5 mt-md-0 mt-2">
+          <div className="col-lg-5 mt-lg-0 mt-2">
             Veiledningen for effektive og bærekraftige byggeprosesser er
             kvalitetssikret av NTNU
           </div>
-          <div className="col-md-3 offset-md-1 mt-md-0 mt-2">
-            Lurer du på noe?
-            <br />
-            <a href="mailto:kontakt@byggelig.no" className="footer__link">
-              kontakt@byggelig.no
-            </a>
+          <div className="col-lg-3 offset-lg-1 mt-lg-0 mt-2">
+            <div className="footer__contact">
+              Lurer du på noe?
+              <br />
+              <a href="mailto:kontakt@byggelig.no" className="footer__link">
+                kontakt@byggelig.no
+              </a>
+            </div>
           </div>
         </div>
       </div>
