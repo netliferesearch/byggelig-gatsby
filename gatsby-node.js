@@ -47,11 +47,11 @@ async function createStepPages(graphql, actions, reporter) {
       component: require.resolve('./src/templates/step.js'),
       context: {
         id,
+        showRoleSwitch: roleSwitchIsVisible, // We use this to hide Roleswitch on "Reguleringsplan" step page
         pathParams: {
           role: 'utbygger',
           stage,
-          stepSlug,
-          showRoleSwitch: roleSwitchIsVisible // We use this to hide Roleswitch on "Reguleringsplan" step page
+          stepSlug
         }
       }
     });
@@ -62,11 +62,11 @@ async function createStepPages(graphql, actions, reporter) {
       component: require.resolve('./src/templates/step.js'),
       context: {
         id,
+        showRoleSwitch: roleSwitchIsVisible, // We use this to show Roleswitch on "Byggeprosess" step page
         pathParams: {
           role: 'entreprenør',
           stage,
-          stepSlug,
-          showRoleSwitch: roleSwitchIsVisible // We use this to show Roleswitch on "Byggeprosess" step page
+          stepSlug
         }
       }
     });

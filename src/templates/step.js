@@ -9,11 +9,9 @@ import ArticlePitch from '../components/ArticlePitch';
 
 export default ({ data, pageContext }) => {
   const {
-    role = '',
-    stage = '',
-    stepSlug = '',
+    pathParams: { role = '', stage = '', stepSlug = '' } = {},
     showRoleSwitch = true // Logic is set in "gatsby-node.js"
-  } = pageContext.pathParams;
+  } = pageContext;
   const {
     title = '',
     intro = '',
