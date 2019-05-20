@@ -66,7 +66,7 @@ export default ({ data, pageContext }) => {
               caseReference.slug ? caseReference.slug.current : '#'
             }`}
           >
-            Slik fikk de det til
+            {caseReference.linkText ? caseReference.linkText : 'Les mer'}
           </Link>
         </div>
       )}
@@ -115,6 +115,7 @@ export const query = graphql`
         }
         title
         intro
+        linkText
       }
     }
   }
