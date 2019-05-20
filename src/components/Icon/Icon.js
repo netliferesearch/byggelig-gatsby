@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import './Icon.scss';
 
@@ -27,8 +28,22 @@ const iconStyle = (deg, mirror) => ({
   transform: `${deg ? `rotate(${deg}deg)` : ''} ${mirror ? 'scale(-1, 1)' : ''}`
 });
 
-const LinkStep = memo(({ type, rotate, mirror }) => (
-  <div aria-hidden className="icon" style={iconStyle(rotate, mirror)}>
+const iconClasses = size =>
+  classNames({
+    icon: true,
+    'icon--small': size === 'small',
+    'icon--normal': size === 'normal',
+    'icon--medium': size === 'medium',
+    'icon--big': size === 'big',
+    'icon--huge': size === 'huge'
+  });
+
+const LinkStep = memo(({ type, rotate, mirror, size }) => (
+  <div
+    aria-hidden
+    className={iconClasses(size)}
+    style={iconStyle(rotate, mirror)}
+  >
     {type === 'arrowcollapse' && <ArrowCollapse />}
     {type === 'avvikling' && <Avvikling />}
     {type === 'bearbeidingavvalgtkonsept' && <Bearbeidingavvalgtkonsept />}
@@ -74,7 +89,8 @@ LinkStep.propTypes = {
     'toppen'
   ]).isRequired,
   rotate: PropTypes.number,
-  mirror: PropTypes.bool
+  mirror: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'normal', 'medium', 'big', 'huge'])
 };
 
 export default LinkStep;

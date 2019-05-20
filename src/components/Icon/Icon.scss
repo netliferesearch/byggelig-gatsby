@@ -2,12 +2,31 @@
 
 .icon {
   display: inline-block;
-  height: 100%;
+  height: auto;
   width: auto;
 
   svg {
-    max-height: 100%;
-    height: 100%;
-    width: auto;
+    width: 100%;
+    height: auto;
+  }
+  &--huge {
+    width: $text-huge;
+    height: auto;
+  }
+  &--big {
+    width: $text-big;
+    height: auto;
+  }
+  &--medium {
+    width: $text-medium;
+    height: auto;
+  }
+  &--normal {
+    width: $text-normal;
+    height: auto;
+  }
+  &--small {
+    width: $text-small;
+    height: auto;
   }
 }
