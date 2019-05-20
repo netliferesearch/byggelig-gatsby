@@ -9,7 +9,9 @@ import IntroImage from '../components/IntroImage';
 const serializers = {
   types: {
     linkBlock: props => (
-      <LinkBlock to={props.node.url}>{props.node.text}</LinkBlock>
+      <LinkBlock to={props.node.url} external>
+        {props.node.text}
+      </LinkBlock>
     )
   }
 };
