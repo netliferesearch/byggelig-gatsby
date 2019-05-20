@@ -29,7 +29,7 @@ export default ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO title={`${title} – Byggelig`} />
-      <div className="row mt-5 mb-5">
+      <div className="row mt-5">
         <div className="col-lg-3 col-6 order-lg-1 order-1">
           {prevStep &&
             prevStep.node &&
@@ -83,13 +83,13 @@ export default ({ data, pageContext }) => {
       </div>
 
       {showRoleSwitch && (
-        <div className="row">
+        <div className="row mt-2">
           <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
             <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
           </div>
         </div>
       )}
-      <article>
+      <article className="mt-3">
         <h2>Dette må du ha på plass</h2>
         <ul>
           {advicesMustHave &&
@@ -147,7 +147,7 @@ export default ({ data, pageContext }) => {
           );
         })()}
 
-      <div className="row mt-5 mb-5">
+      <div className="row mt-5">
         <div className="col">
           {prevStep &&
             prevStep.node &&
