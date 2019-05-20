@@ -26,6 +26,14 @@ export default {
       title: 'Body',
       type: 'text'
     },
-    { name: 'image', title: 'Bilde', type: 'image' }
+    { name: 'image', title: 'Bilde', type: 'image' },
+    {
+      name: 'article',
+      title: 'Artikkel',
+      type: 'reference',
+      to: [{ type: 'article' }],
+      description: 'Peker til en artikkel, som blir vist på forsiden.',
+      weak: true
+    }
   ]
 };

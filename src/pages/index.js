@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -11,13 +11,34 @@ import ArticlePitch from '../components/ArticlePitch';
 export default ({ data }) => {
   const reguleringsplanItems = data.reguleringsplan.edges || {};
   const byggeprosessItems = data.byggeprosess.edges || {};
+  const {
+    article: {
+      title: articleTitle = '',
+      intro: articleIntro = '',
+      introImage: {
+        asset: { url: articleImageUrl = '' } = {},
+        description: articleImageDescription = ''
+      },
+      linkText: articleLinkText,
+      slug: { current: articleSlug = '' } = {}
+    } = {}
+  } = data.sanityPage || {};
 
   const StepItem = item => {
-    const { id, stage, stepNumber, title, slug } = item.node;
+    const {
+      id,
+      stage,
+      stepNumber,
+      title,
+      slug,
+      icon: {
+        asset: { url: iconUrl = '' }
+      }
+    } = item.node;
     const path = `/${stage}/steg${stepNumber}-${slug.current}/utbygger`;
     return (
       <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2" key={id}>
-        <LinkEntry to={path} icon="Some icon">
+        <LinkEntry to={path} icon={iconUrl}>
           {stepNumber}: {title}
         </LinkEntry>
       </div>
@@ -40,13 +61,12 @@ export default ({ data }) => {
 
       <div className="mt-4">
         <ArticlePitch
-          title="Det lønner seg!"
-          intro="Obos Ulven reduserte byggekostnader med 15% 
-          ved å involvere viktige aktører fra start."
-          to="/"
-          imageUrl="https://placehold.it/800x800"
-          imageAlt="Some image"
-          // subtle
+          title={articleTitle}
+          intro={articleIntro}
+          to={`/artikkel/${articleSlug}`}
+          linkText={articleLinkText}
+          imageUrl={articleImageUrl}
+          imageAlt={articleImageDescription}
         />
       </div>
     </Layout>
@@ -66,6 +86,11 @@ export const query = graphql`
           title
           stepNumber
           stage
+          icon {
+            asset {
+              url
+            }
+          }
           slug {
             current
           }
@@ -82,9 +107,30 @@ export const query = graphql`
           title
           stepNumber
           stage
+          icon {
+            asset {
+              url
+            }
+          }
           slug {
             current
           }
+        }
+      }
+    }
+    sanityPage {
+      article {
+        title
+        intro
+        introImage {
+          asset {
+            url
+          }
+          description
+        }
+        linkText
+        slug {
+          current
         }
       }
     }

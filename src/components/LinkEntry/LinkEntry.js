@@ -7,7 +7,11 @@ import './LinkEntry.scss';
 const LinkEntry = ({ children, to, icon }) => (
   <Link to={to} className="link-entry">
     {/* Should use the icon component here, above the text */}
-    {icon && <div className="link-entry__icon" />}
+    {icon && (
+      <div className="link-entry__icon">
+        <img src={icon} alt="" aria-hidden />
+      </div>
+    )}
     {children}
   </Link>
 );

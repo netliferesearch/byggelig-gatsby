@@ -45,7 +45,12 @@ const ArticlePitch = ({
       </div>
       {imageUrl && (
         <div className="col-md-6">
-          <img src={imageUrl} alt={imageAlt} className="article-pitch__image" />
+          <div
+            className="article-pitch__image"
+            role="img"
+            style={{ backgroundImage: `url(${imageUrl})` }}
+            aria-label={imageAlt}
+          />
         </div>
       )}
     </div>

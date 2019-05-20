@@ -7,7 +7,7 @@
   height: 100%;
   text-decoration: none;
   text-align: center;
-  padding: 1.25em 0.75em 1em 0.75em;
+  padding: 1.6em 0.75em 1.4em 0.75em;
   color: $color-black;
   background-color: $color-white;
   box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.05);
@@ -15,15 +15,9 @@
 
   &__icon {
     display: inline-flex;
-    height: 4em;
+    height: 3em;
     width: auto;
     margin-bottom: 1em;
-
-    // dummy css before we get the icons
-    background-color: $color-yellow;
-    border-radius: 100%;
-    width: 4em;
-    content: '';
   }
 
   &:hover,
