@@ -61,7 +61,7 @@ export default {
       title: 'Lenketekst',
       description:
         'Navnet som som lenketekst dersom dette vises som en referanse på en annen side. Feks: "Slik fikk de det til"',
-      type: 'text'
+      type: 'string'
     }
   ]
 };
