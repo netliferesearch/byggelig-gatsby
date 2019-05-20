@@ -8,12 +8,13 @@ async function createStepPages(graphql, actions, reporter) {
   const { createPage, createPageDependency } = actions;
   const result = await graphql(`
     {
-      allSanityStep {
+      allSanityStep(sort: { fields: [stage, stepNumber], order: ASC }) {
         edges {
           node {
             id
             stage
             stepNumber
+            title
             slug {
               current
             }
@@ -41,6 +42,26 @@ async function createStepPages(graphql, actions, reporter) {
     reporter.info(`Creating step page: ${pathUtbygger}`);
     reporter.info(`Creating step page: ${pathEntreprenor}`);
 
+    // We need to do some calculations to figure out the prev and next step,
+    // since index includes both stages
+    const calculatePrevStep = () => {
+      if (stepNumber === 1) {
+        return false;
+      } else {
+        return index === 0 ? null : postEdges[index - 1];
+      }
+    };
+    const calculateNextStep = () => {
+      if (
+        (stage === 'reguleringsplan' && stepNumber === 4) ||
+        (stage === 'byggeprosess' && stepNumber === 8)
+      ) {
+        return false;
+      } else {
+        return index === result.length - 1 ? null : postEdges[index + 1];
+      }
+    };
+
     // Create pages for utbygger
     createPage({
       path: pathUtbygger,
@@ -48,6 +69,8 @@ async function createStepPages(graphql, actions, reporter) {
       context: {
         id,
         showRoleSwitch: roleSwitchIsVisible, // We use this to hide Roleswitch on "Reguleringsplan" step page
+        prevStep: calculatePrevStep(),
+        nextStep: calculateNextStep(),
         pathParams: {
           role: 'utbygger',
           stage,
@@ -63,6 +86,8 @@ async function createStepPages(graphql, actions, reporter) {
       context: {
         id,
         showRoleSwitch: roleSwitchIsVisible, // We use this to show Roleswitch on "Byggeprosess" step page
+        prevStep: calculatePrevStep(),
+        nextStep: calculateNextStep(),
         pathParams: {
           role: 'entreprenør',
           stage,
@@ -79,3 +104,12 @@ async function createStepPages(graphql, actions, reporter) {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createStepPages(graphql, actions, reporter);
 };
+
+/* 
+
+TODO
+Sortere på stage, stepNumber
+Vise riktig innhold
+Logikk om forrige/neste så den ikke går til neste Stage
+
+*/

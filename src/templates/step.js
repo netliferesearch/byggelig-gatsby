@@ -10,7 +10,9 @@ import ArticlePitch from '../components/ArticlePitch';
 export default ({ data, pageContext }) => {
   const {
     pathParams: { role = '', stage = '', stepSlug = '' } = {},
-    showRoleSwitch = true // Logic is set in "gatsby-node.js"
+    showRoleSwitch = true, // Logic is set in "gatsby-node.js"
+    prevStep = null,
+    nextStep = null
   } = pageContext;
   const {
     title = '',
@@ -20,6 +22,8 @@ export default ({ data, pageContext }) => {
     _rawShouldHave: advicesShouldHave = {},
     caseReference = {}
   } = data.sanityStep;
+
+  console.log('context', pageContext);
 
   return (
     <Layout>
@@ -74,7 +78,7 @@ export default ({ data, pageContext }) => {
             title: caseTitle = '',
             intro: caseIntro = '',
             linkText = 'Les mer',
-            slug: { current } = {}
+            slug: { current = '#' } = {}
           } = caseReference;
           return (
             <ArticlePitch
@@ -87,28 +91,50 @@ export default ({ data, pageContext }) => {
           );
         })()}
 
-      <div className="row mt-5">
-        <div className="col">
-          <LinkStep direction="back" number={1}>
-            En tittel her
-          </LinkStep>
-        </div>
-        <div className="col">
-          <LinkStep direction="next" number={3}>
-            Og en tittel der
-          </LinkStep>
-        </div>
-      </div>
       <div className="row mt-5 mb-5">
         <div className="col">
-          <LinkStep direction="back" number={1} subtle>
-            En tittel
-          </LinkStep>
+          {prevStep &&
+            prevStep.node &&
+            (() => {
+              const {
+                title: prevTitle = '',
+                stepNumber: prevStepNumber = '',
+                slug: { current: prevSlug = '#' } = {}
+              } = prevStep.node;
+              const prevPath = `/${stage}/steg${prevStepNumber}-${prevSlug}/${role}`;
+              return (
+                <LinkStep
+                  direction="back"
+                  number={prevStepNumber}
+                  to={prevPath}
+                  subtle
+                >
+                  {prevTitle}
+                </LinkStep>
+              );
+            })()}
         </div>
         <div className="col">
-          <LinkStep direction="next" number={3} subtle>
-            En annen tittel
-          </LinkStep>
+          {nextStep &&
+            nextStep.node &&
+            (() => {
+              const {
+                title: nextTitle = '',
+                stepNumber: nextStepNumber = '',
+                slug: { current: nextSlug = '#' } = {}
+              } = nextStep.node;
+              const nextPath = `/${stage}/steg${nextStepNumber}-${nextSlug}/${role}`;
+              return (
+                <LinkStep
+                  direction="next"
+                  number={nextStepNumber}
+                  to={nextPath}
+                  subtle
+                >
+                  {nextTitle}
+                </LinkStep>
+              );
+            })()}
         </div>
       </div>
     </Layout>
