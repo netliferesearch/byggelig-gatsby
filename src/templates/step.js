@@ -23,8 +23,6 @@ export default ({ data, pageContext }) => {
     caseReference = {}
   } = data.sanityStep;
 
-  console.log('context', pageContext);
-
   return (
     <Layout>
       <h1>
