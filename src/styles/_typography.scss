@@ -34,6 +34,22 @@ ul {
   }
 }
 
+.text-huge {
+  font-size: $text-huge;
+}
+.text-big {
+  font-size: $text-big;
+}
+.text-medium {
+  font-size: $text-medium;
+}
+.text-normal {
+  font-size: $text-normal;
+}
+.text-small {
+  font-size: $text-small;
+}
+
 h2,
 .h2 {
   font-size: $text-big;
