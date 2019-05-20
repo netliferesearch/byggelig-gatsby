@@ -60,6 +60,12 @@ export default {
       name: 'icon',
       title: 'Ikon',
       type: 'image'
+    },
+    {
+      title: 'Prosjekteksempel',
+      name: 'case',
+      type: 'reference',
+      to: [{ type: 'article' }]
     }
   ],
   preview: {
