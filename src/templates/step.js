@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 
 import Layout from '../components/layout';
@@ -13,7 +13,8 @@ export default ({ data, pageContext }) => {
     intro = '',
     stepNumber = '',
     _rawMustHave: advicesMustHave = {},
-    _rawShouldHave: advicesShouldHave = {}
+    _rawShouldHave: advicesShouldHave = {},
+    caseReference = {}
   } = data.sanityStep;
 
   return (
@@ -56,6 +57,20 @@ export default ({ data, pageContext }) => {
             })}
       </ul>
 
+      {caseReference && (
+        <div>
+          <h2>{caseReference.title ? caseReference.title : ''}</h2>
+          <p>{caseReference.intro ? caseReference.intro : ''}</p>
+          <Link
+            to={`/referanse/${
+              caseReference.slug ? caseReference.slug.current : '#'
+            }`}
+          >
+            Slik fikk de det til
+          </Link>
+        </div>
+      )}
+
       <div className="row mt-5">
         <div className="col">
           <LinkStep direction="back" number={1}>
@@ -93,6 +108,14 @@ export const query = graphql`
       stepNumber
       _rawMustHave
       _rawShouldHave
+      caseReference {
+        id
+        slug {
+          current
+        }
+        title
+        intro
+      }
     }
   }
 `;
