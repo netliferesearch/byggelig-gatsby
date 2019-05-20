@@ -43,20 +43,25 @@ export default ({ data, pageContext }) => {
             })}
       </ul>
 
-      <h2>Dette bør du ha på plass</h2>
-      <ul>
-        {advicesShouldHave &&
-          advicesShouldHave
-            .filter(advice => (advice.role ? advice.role.includes(role) : null))
-            .map(advice => {
-              const { _key, text } = advice;
-              return (
-                <li key={_key}>
-                  <BlockContent blocks={text} />
-                </li>
-              );
-            })}
-      </ul>
+      {advicesShouldHave && (
+        <>
+          <h2>Dette bør du ha på plass</h2>
+          <ul>
+            {advicesShouldHave
+              .filter(advice =>
+                advice.role ? advice.role.includes(role) : null
+              )
+              .map(advice => {
+                const { _key, text } = advice;
+                return (
+                  <li key={_key}>
+                    <BlockContent blocks={text} />
+                  </li>
+                );
+              })}
+          </ul>
+        </>
+      )}
 
       {caseReference &&
         (() => {
