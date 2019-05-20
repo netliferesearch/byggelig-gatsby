@@ -25,11 +25,57 @@ export default ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <h1>
-        Fase {stepNumber}:<br />
-        {title}
-      </h1>
-      <p>{intro}</p>
+      <div className="row mt-5 mb-5">
+        <div className="col">
+          {prevStep &&
+            prevStep.node &&
+            (() => {
+              const {
+                title: prevTitle = '',
+                stepNumber: prevStepNumber = '',
+                slug: { current: prevSlug = '#' } = {}
+              } = prevStep.node;
+              const prevPath = `/${stage}/steg${prevStepNumber}-${prevSlug}/${role}`;
+              return (
+                <LinkStep
+                  direction="back"
+                  number={prevStepNumber}
+                  to={prevPath}
+                >
+                  {prevTitle}
+                </LinkStep>
+              );
+            })()}
+        </div>
+        <div className="col">
+          <h1>
+            Fase {stepNumber}:<br />
+            {title}
+          </h1>
+          <p>{intro}</p>
+        </div>
+        <div className="col">
+          {nextStep &&
+            nextStep.node &&
+            (() => {
+              const {
+                title: nextTitle = '',
+                stepNumber: nextStepNumber = '',
+                slug: { current: nextSlug = '#' } = {}
+              } = nextStep.node;
+              const nextPath = `/${stage}/steg${nextStepNumber}-${nextSlug}/${role}`;
+              return (
+                <LinkStep
+                  direction="next"
+                  number={nextStepNumber}
+                  to={nextPath}
+                >
+                  {nextTitle}
+                </LinkStep>
+              );
+            })()}
+        </div>
+      </div>
 
       {showRoleSwitch && (
         <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
