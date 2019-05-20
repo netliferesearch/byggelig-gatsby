@@ -4,6 +4,7 @@ import BlockContent from '@sanity/block-content-to-react';
 
 import Layout from '../components/layout';
 import LinkBlock from '../components/LinkBlock';
+import IntroImage from '../components/IntroImage';
 
 const serializers = {
   types: {
@@ -28,22 +29,16 @@ export default ({ data }) => {
   return (
     <Layout>
       <div className="row">
-        <div className="col-md-4">
+        <div className="col-lg-4">
           <h1>{title}</h1>
-          <p>{intro}</p>
+          <p className="text-big">{intro}</p>
         </div>
-        <div className="col-md-8">
-          <img
-            src={imageUrl}
-            alt={imageDescription}
-            className="img-wide"
-            aria-describedby="intro-image-description"
-          />
-          <div id="intro-image-description">{imageDescription}</div>
+        <div className="col-lg-8">
+          <IntroImage src={imageUrl} alt={imageDescription} description />
         </div>
       </div>
-      <div className="row">
-        <div className="col-md-8 col-md-offset-2">
+      <div className="row mt-3">
+        <div className="col-md-8">
           <BlockContent blocks={bodyText} serializers={serializers} />
         </div>
       </div>
