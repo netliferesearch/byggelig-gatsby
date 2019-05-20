@@ -8,7 +8,12 @@ import LinkStep from '../components/LinkStep';
 import ArticlePitch from '../components/ArticlePitch';
 
 export default ({ data, pageContext }) => {
-  const { role = '', stage = '', stepSlug = '' } = pageContext.pathParams;
+  const {
+    role = '',
+    stage = '',
+    stepSlug = '',
+    showRoleSwitch = true // Logic is set in "gatsby-node.js"
+  } = pageContext.pathParams;
   const {
     title = '',
     intro = '',
@@ -26,7 +31,9 @@ export default ({ data, pageContext }) => {
       </h1>
       <p>{intro}</p>
 
-      <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
+      {showRoleSwitch && (
+        <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
+      )}
 
       <h2>Dette må du ha på plass</h2>
       <ul>

@@ -35,6 +35,7 @@ async function createStepPages(graphql, actions, reporter) {
     const path = `/${stage}/${stepSlug}`;
     const pathUtbygger = `${path}/utbygger`;
     const pathEntreprenor = `${path}/entreprenor`;
+    const roleSwitchIsVisible = stage === 'reguleringsplan' ? false : true; // // We use this to hide Roleswitch on step page
 
     // Log in terminal
     reporter.info(`Creating step page: ${pathUtbygger}`);
@@ -49,7 +50,8 @@ async function createStepPages(graphql, actions, reporter) {
         pathParams: {
           role: 'utbygger',
           stage,
-          stepSlug
+          stepSlug,
+          showRoleSwitch: roleSwitchIsVisible // We use this to hide Roleswitch on "Reguleringsplan" step page
         }
       }
     });
@@ -63,7 +65,8 @@ async function createStepPages(graphql, actions, reporter) {
         pathParams: {
           role: 'entreprenør',
           stage,
-          stepSlug
+          stepSlug,
+          showRoleSwitch: roleSwitchIsVisible // We use this to show Roleswitch on "Byggeprosess" step page
         }
       }
     });
