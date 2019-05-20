@@ -52,6 +52,7 @@ async function createStepPages(graphql, actions, reporter) {
       }
     };
     const calculateNextStep = () => {
+      // Check if last step on reguleringsplan (step 4) or byggeprosess (step 8)
       if (
         (stage === 'reguleringsplan' && stepNumber === 4) ||
         (stage === 'byggeprosess' && stepNumber === 8)
