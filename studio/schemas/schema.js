@@ -11,7 +11,7 @@ import step from './step';
 import article from './article';
 
 // Importing object schemas
-import linkButton from './linkButton';
+import linkBlock from './linkBlock';
 import advice from './advice';
 import introImage from './introImage';
 
@@ -26,7 +26,7 @@ export default createSchema({
     page,
     step,
     article,
-    linkButton,
+    linkBlock,
     advice,
     introImage
   ]

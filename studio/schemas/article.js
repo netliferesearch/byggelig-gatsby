@@ -52,7 +52,7 @@ export default {
         },
         { type: 'image' },
         {
-          type: 'linkButton'
+          type: 'linkBlock'
         }
       ]
     },

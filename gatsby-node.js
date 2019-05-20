@@ -102,8 +102,52 @@ async function createStepPages(graphql, actions, reporter) {
   });
 }
 
+async function createArticlePages(graphql, actions, reporter) {
+  const { createPage, createPageDependency } = actions;
+  const result = await graphql(`
+    {
+      allSanityArticle {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) throw result.errors;
+
+  const postEdges = (result.data.allSanityArticle || {}).edges || [];
+
+  postEdges.forEach((edge, index) => {
+    const { id, slug = {} } = edge.node;
+
+    // Create our path
+    const articleSlug = slug.current;
+    const path = `/artikkel/${articleSlug}`;
+
+    createPage({
+      path: path,
+      component: require.resolve('./src/templates/article.js'),
+      context: {
+        id,
+        pathParams: {
+          articleSlug
+        }
+      }
+    });
+
+    createPageDependency({ path, nodeId: id });
+  });
+}
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createStepPages(graphql, actions, reporter);
+  await createArticlePages(graphql, actions, reporter);
 };
 
 /* 
