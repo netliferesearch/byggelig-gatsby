@@ -7,6 +7,7 @@ import RoleSwitch from '../components/RoleSwitch';
 import LinkStep from '../components/LinkStep';
 import ArticlePitch from '../components/ArticlePitch';
 import Icon from '../components/Icon';
+import SEO from '../components/seo';
 
 export default ({ data, pageContext }) => {
   const {
@@ -27,6 +28,7 @@ export default ({ data, pageContext }) => {
 
   return (
     <Layout>
+      <SEO title={`${title} – Byggelig`} />
       <div className="row mt-5 mb-5">
         <div className="col-lg-3 col-6 order-lg-1 order-1">
           {prevStep &&
@@ -87,27 +89,11 @@ export default ({ data, pageContext }) => {
           </div>
         </div>
       )}
-
-      <h2>Dette må du ha på plass</h2>
-      <ul>
-        {advicesMustHave &&
-          advicesMustHave
-            .filter(advice => (advice.role ? advice.role.includes(role) : null))
-            .map(advice => {
-              const { _key, text } = advice;
-              return (
-                <li key={_key}>
-                  <BlockContent blocks={text} />
-                </li>
-              );
-            })}
-      </ul>
-
-      {advicesShouldHave && (
-        <>
-          <h2>Dette bør du ha på plass</h2>
-          <ul>
-            {advicesShouldHave
+      <article>
+        <h2>Dette må du ha på plass</h2>
+        <ul>
+          {advicesMustHave &&
+            advicesMustHave
               .filter(advice =>
                 advice.role ? advice.role.includes(role) : null
               )
@@ -119,9 +105,28 @@ export default ({ data, pageContext }) => {
                   </li>
                 );
               })}
-          </ul>
-        </>
-      )}
+        </ul>
+
+        {advicesShouldHave && (
+          <>
+            <h2>Dette bør du ha på plass</h2>
+            <ul>
+              {advicesShouldHave
+                .filter(advice =>
+                  advice.role ? advice.role.includes(role) : null
+                )
+                .map(advice => {
+                  const { _key, text } = advice;
+                  return (
+                    <li key={_key}>
+                      <BlockContent blocks={text} />
+                    </li>
+                  );
+                })}
+            </ul>
+          </>
+        )}
+      </article>
 
       {caseReference &&
         (() => {
@@ -217,5 +222,3 @@ export const query = graphql`
     }
   }
 `;
-
-// TODO: add proptypes

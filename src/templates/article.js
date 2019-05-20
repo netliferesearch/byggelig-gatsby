@@ -5,6 +5,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import Layout from '../components/layout';
 import LinkBlock from '../components/LinkBlock';
 import IntroImage from '../components/IntroImage';
+import SEO from '../components/seo';
 
 const serializers = {
   types: {
@@ -30,20 +31,23 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <div className="row">
-        <div className="col-lg-4">
-          <h1>{title}</h1>
-          <p className="text-big">{intro}</p>
+      <SEO title={`${title} – Byggelig`} />
+      <article>
+        <div className="row">
+          <div className="col-lg-4">
+            <h1>{title}</h1>
+            <p className="text-big">{intro}</p>
+          </div>
+          <div className="col-lg-8">
+            <IntroImage src={imageUrl} alt={imageDescription} description />
+          </div>
         </div>
-        <div className="col-lg-8">
-          <IntroImage src={imageUrl} alt={imageDescription} description />
+        <div className="row mt-3">
+          <div className="col-md-8">
+            <BlockContent blocks={bodyText} serializers={serializers} />
+          </div>
         </div>
-      </div>
-      <div className="row mt-3">
-        <div className="col-md-8">
-          <BlockContent blocks={bodyText} serializers={serializers} />
-        </div>
-      </div>
+      </article>
     </Layout>
   );
 };
@@ -64,5 +68,3 @@ export const query = graphql`
     }
   }
 `;
-
-// TODO: add proptypes

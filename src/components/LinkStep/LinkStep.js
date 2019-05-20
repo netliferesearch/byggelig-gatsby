@@ -29,7 +29,7 @@ const iconClasses = subtle =>
 
 const LinkStep = ({ children, to, direction, number, subtle }) => (
   <div className={linkStepClasses(subtle, direction)} role="presentation">
-    <Link to={to} className={iconClasses(subtle)} aria-hidden>
+    <Link to={to} className={iconClasses(subtle)} aria-hidden tabIndex="-1">
       <Icon
         mirror={direction === 'back'}
         type={subtle ? 'arrow' : 'arrowround'}

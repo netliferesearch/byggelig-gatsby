@@ -52,12 +52,12 @@ export default ({ data }) => {
       <h1>Hvor er du i prosjektet?</h1>
 
       <h2>Reguleringsplan</h2>
-      <div className="row">
+      <nav className="row">
         {reguleringsplanItems.map(item => StepItem(item))}
-      </div>
+      </nav>
 
       <h2>Byggeprosess</h2>
-      <div className="row">{byggeprosessItems.map(item => StepItem(item))}</div>
+      <nav className="row">{byggeprosessItems.map(item => StepItem(item))}</nav>
 
       <div className="mt-4">
         <ArticlePitch
