@@ -1,2 +1,2 @@
-import Example from './Example';
-export default Example;
+import Collapsible from './Collapsible';
+export default Collapsible;
