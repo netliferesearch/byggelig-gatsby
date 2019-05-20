@@ -1,6 +1,16 @@
 @import '../../styles/variables';
+@import '../../styles/grid/grid.scss';
 
 .hero {
+  display: flex;
+  background-color: $color-purple-light;
+  flex-direction: row;
+  padding: 4% 0;
+
+  &__text-content {
+    padding-right: $grid-gutter-width;
+  }
+
   &__title {
     font-size: 18px;
 
@@ -19,9 +29,7 @@
 
   &__image {
     display: block;
-    margin: 0 auto $spacing-5;
-    text-align: center;
-    width: 50%;
+    padding: 2% 0;
 
     @media (min-width: $breakpoint-sm) {
       width: auto;

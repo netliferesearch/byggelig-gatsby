@@ -47,27 +47,34 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <Hero />
       <SEO title="Forside" />
-      <h1>Hvor er du i prosjektet?</h1>
+      <div className="row">
+        <div className="col-xs-12 order-2">
+          <h1>Hvor er du i prosjektet?</h1>
+          <h2>Reguleringsplan</h2>
+          <nav className="row">
+            {reguleringsplanItems.map(item => StepItem(item))}
+          </nav>
 
-      <h2>Reguleringsplan</h2>
-      <nav className="row">
-        {reguleringsplanItems.map(item => StepItem(item))}
-      </nav>
+          <h2>Byggeprosess</h2>
+          <nav className="row">
+            {byggeprosessItems.map(item => StepItem(item))}
+          </nav>
 
-      <h2>Byggeprosess</h2>
-      <nav className="row">{byggeprosessItems.map(item => StepItem(item))}</nav>
-
-      <div className="mt-4">
-        <ArticlePitch
-          title={articleTitle}
-          intro={articleIntro}
-          to={`/artikkel/${articleSlug}`}
-          linkText={articleLinkText}
-          imageUrl={articleImageUrl}
-          imageAlt={articleImageDescription}
-        />
+          <div className="mt-4">
+            <ArticlePitch
+              title={articleTitle}
+              intro={articleIntro}
+              to={`/artikkel/${articleSlug}`}
+              linkText={articleLinkText}
+              imageUrl={articleImageUrl}
+              imageAlt={articleImageDescription}
+            />
+          </div>
+        </div>
+        <div className="col-xs-12 order-1">
+          <Hero />
+        </div>
       </div>
     </Layout>
   );
