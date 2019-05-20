@@ -12,7 +12,8 @@ export default ({ data, pageContext }) => {
     title = '',
     intro = '',
     stepNumber = '',
-    _rawMustHave: advices = {}
+    _rawMustHave: advicesMustHave = {},
+    _rawShouldHave: advicesShouldHave = {}
   } = data.sanityStep;
 
   return (
@@ -22,11 +23,13 @@ export default ({ data, pageContext }) => {
         {title}
       </h1>
       <p>{intro}</p>
+
       <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
+
       <h2>Dette må du ha på plass</h2>
       <ul>
-        {advices &&
-          advices
+        {advicesMustHave &&
+          advicesMustHave
             .filter(advice => (advice.role ? advice.role.includes(role) : null))
             .map(advice => {
               const { _key, text } = advice;
@@ -37,6 +40,22 @@ export default ({ data, pageContext }) => {
               );
             })}
       </ul>
+
+      <h2>Dette bør du ha på plass</h2>
+      <ul>
+        {advicesShouldHave &&
+          advicesShouldHave
+            .filter(advice => (advice.role ? advice.role.includes(role) : null))
+            .map(advice => {
+              const { _key, text } = advice;
+              return (
+                <li key={_key}>
+                  <BlockContent blocks={text} />
+                </li>
+              );
+            })}
+      </ul>
+
       <div className="row mt-5">
         <div className="col">
           <LinkStep direction="back" number={1}>
@@ -73,6 +92,7 @@ export const query = graphql`
       intro
       stepNumber
       _rawMustHave
+      _rawShouldHave
     }
   }
 `;
