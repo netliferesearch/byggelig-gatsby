@@ -13,7 +13,6 @@ const RoleSwitch = ({ role, stage, stepSlug }) => {
 
   const linkClasses = active =>
     classNames({
-      link: true,
       'role-switch__link': true,
       'role-switch__link--active': active
     });
