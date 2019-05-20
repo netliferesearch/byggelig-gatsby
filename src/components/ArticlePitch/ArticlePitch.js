@@ -23,7 +23,15 @@ const linkClasses = subtle =>
     'article-pitch__link--subtle': subtle
   });
 
-const ArticlePitch = ({ title, intro, to, imageUrl, imageAlt, subtle }) => (
+const ArticlePitch = ({
+  title,
+  intro,
+  to,
+  imageUrl,
+  imageAlt,
+  subtle,
+  linkText
+}) => (
   <section className="article-pitch">
     <div className="row">
       <div className={imageUrl ? 'col-md-6' : 'col-md-12'}>
@@ -31,7 +39,7 @@ const ArticlePitch = ({ title, intro, to, imageUrl, imageAlt, subtle }) => (
           <h2 className={titleClasses(subtle)}>{title}</h2>
           <p className="article-pitch__intro">{intro}</p>
           <div className={linkClasses(subtle)}>
-            <LinkBlock to={to}>Slik fikk de det til</LinkBlock>
+            <LinkBlock to={to}>{linkText}</LinkBlock>
           </div>
         </div>
       </div>
@@ -50,7 +58,8 @@ ArticlePitch.propTypes = {
   to: PropTypes.string.isRequired,
   imageUrl: PropTypes.string,
   imageAlt: PropTypes.string,
-  subtle: PropTypes.bool
+  subtle: PropTypes.bool,
+  linkText: PropTypes.string
 };
 
 export default ArticlePitch;

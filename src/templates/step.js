@@ -5,6 +5,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import Layout from '../components/layout';
 import RoleSwitch from '../components/RoleSwitch';
 import LinkStep from '../components/LinkStep';
+import ArticlePitch from '../components/ArticlePitch';
 
 export default ({ data, pageContext }) => {
   const { role = '', stage = '', stepSlug = '' } = pageContext.pathParams;
@@ -57,19 +58,24 @@ export default ({ data, pageContext }) => {
             })}
       </ul>
 
-      {caseReference && (
-        <div>
-          <h2>{caseReference.title ? caseReference.title : ''}</h2>
-          <p>{caseReference.intro ? caseReference.intro : ''}</p>
-          <Link
-            to={`/referanse/${
-              caseReference.slug ? caseReference.slug.current : '#'
-            }`}
-          >
-            {caseReference.linkText ? caseReference.linkText : 'Les mer'}
-          </Link>
-        </div>
-      )}
+      {caseReference &&
+        (() => {
+          const {
+            title: caseTitle = '',
+            intro: caseIntro = '',
+            linkText = 'Les mer',
+            slug: { current } = {}
+          } = caseReference;
+          return (
+            <ArticlePitch
+              title={caseTitle}
+              intro={caseIntro}
+              linkText={linkText}
+              subtle
+              to={`/artikkel/${current}`}
+            />
+          );
+        })()}
 
       <div className="row mt-5">
         <div className="col">
@@ -109,13 +115,12 @@ export const query = graphql`
       _rawMustHave
       _rawShouldHave
       caseReference {
-        id
-        slug {
-          current
-        }
         title
         intro
         linkText
+        slug {
+          current
+        }
       }
     }
   }
