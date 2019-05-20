@@ -35,10 +35,11 @@ const iconClasses = size =>
     'icon--normal': size === 'normal',
     'icon--medium': size === 'medium',
     'icon--big': size === 'big',
-    'icon--huge': size === 'huge'
+    'icon--huge': size === 'huge',
+    'icon--giga': size === 'giga'
   });
 
-const LinkStep = memo(({ type, rotate, mirror, size }) => (
+const LinkStep = memo(({ type, rotate, mirror, size, src }) => (
   <div
     aria-hidden
     className={iconClasses(size)}
@@ -63,6 +64,7 @@ const LinkStep = memo(({ type, rotate, mirror, size }) => (
     {type === 'reguleringsplan' && <Reguleringsplan />}
     {type === 'strategiskdefinisjon' && <Strategiskdefinisjon />}
     {type === 'toppen' && <Toppen />}
+    {!type && src && <img src={src} alt="" />}
   </div>
 ));
 
@@ -87,10 +89,11 @@ LinkStep.propTypes = {
     'reguleringsplan',
     'strategiskdefinisjon',
     'toppen'
-  ]).isRequired,
+  ]),
+  src: PropTypes.string,
   rotate: PropTypes.number,
   mirror: PropTypes.bool,
-  size: PropTypes.oneOf(['small', 'normal', 'medium', 'big', 'huge'])
+  size: PropTypes.oneOf(['small', 'normal', 'medium', 'big', 'huge', 'giga'])
 };
 
 export default LinkStep;

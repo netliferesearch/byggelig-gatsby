@@ -6,6 +6,7 @@ import Layout from '../components/layout';
 import RoleSwitch from '../components/RoleSwitch';
 import LinkStep from '../components/LinkStep';
 import ArticlePitch from '../components/ArticlePitch';
+import Icon from '../components/Icon';
 
 export default ({ data, pageContext }) => {
   const {
@@ -18,6 +19,7 @@ export default ({ data, pageContext }) => {
     title = '',
     intro = '',
     stepNumber = '',
+    icon: { asset: { url: iconUrl = '' } = {} } = {},
     _rawMustHave: advicesMustHave = {},
     _rawShouldHave: advicesShouldHave = {},
     caseReference = {}
@@ -48,6 +50,7 @@ export default ({ data, pageContext }) => {
             })()}
         </div>
         <div className="col-lg-6 order-lg-2 order-3 center">
+          <Icon src={iconUrl} size="giga" />
           <h1>
             Fase {stepNumber}:<br />
             {title}
@@ -78,7 +81,11 @@ export default ({ data, pageContext }) => {
       </div>
 
       {showRoleSwitch && (
-        <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
+        <div className="row">
+          <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+            <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
+          </div>
+        </div>
       )}
 
       <h2>Dette må du ha på plass</h2>
@@ -192,6 +199,11 @@ export const query = graphql`
       title
       intro
       stepNumber
+      icon {
+        asset {
+          url
+        }
+      }
       _rawMustHave
       _rawShouldHave
       caseReference {

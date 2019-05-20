@@ -9,24 +9,22 @@
     width: 100%;
     height: auto;
   }
+  &--giga {
+    width: $text-huge * 2;
+  }
   &--huge {
     width: $text-huge;
-    height: auto;
   }
   &--big {
     width: $text-big;
-    height: auto;
   }
   &--medium {
     width: $text-medium;
-    height: auto;
   }
   &--normal {
     width: $text-normal;
-    height: auto;
   }
   &--small {
     width: $text-small;
-    height: auto;
   }
 }

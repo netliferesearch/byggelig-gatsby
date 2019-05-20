@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 
 import './LinkEntry.scss';
 
+import Icon from '../Icon';
+
 const LinkEntry = ({ children, to, icon }) => (
   <Link to={to} className="link-entry">
     {/* Should use the icon component here, above the text */}
     {icon && (
       <div className="link-entry__icon">
-        <img src={icon} alt="" aria-hidden />
+        <Icon src={icon} size="giga" />
       </div>
     )}
     {children}

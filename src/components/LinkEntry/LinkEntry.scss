@@ -15,9 +15,10 @@
 
   &__icon {
     display: inline-flex;
-    height: 3em;
+    height: 3.5em;
     width: auto;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+    align-items: center;
   }
 
   &:hover,
