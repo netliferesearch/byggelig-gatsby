@@ -26,8 +26,6 @@ function SEO({ description, lang, meta, keywords, title }) {
     `
   );
 
-  console.log('sanitySettings', sanitySettings);
-
   const {
     siteName = '',
     mainSubHeading = ''
