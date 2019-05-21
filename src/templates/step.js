@@ -90,7 +90,7 @@ export default ({ data, pageContext }) => {
         </div>
       )}
       <article className="mt-3">
-        <h2>Dette må du ha på plass</h2>
+        <h2 className="text-center">Dette må du ha på plass</h2>
         <ul>
           {advicesMustHave &&
             advicesMustHave
