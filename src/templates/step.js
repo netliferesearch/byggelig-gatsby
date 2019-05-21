@@ -149,7 +149,9 @@ export default ({ data, pageContext }) => {
             return (
               <section className="mt-6">
                 <hr />
-                <h1 className="text-center mt-4">{title}</h1>
+                <h1 className="text-center mt-4" id="mote">
+                  {title}
+                </h1>
                 <p className="text-center">{description}</p>
 
                 {mustHave && (
