@@ -1,8 +1,4 @@
 module.exports = {
-  siteMetadata: {
-    title: `Byggefasen.no`,
-    description: `Veiledning for effektive og bærekraftige byggeprosesser`
-  },
   plugins: [
     {
       resolve: 'gatsby-source-sanity',

@@ -31,7 +31,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={`${title} – Byggelig`} />
+      <SEO title={`${title}`} />
       <article className="mt-3">
         <div className="row">
           <div className="col-lg-4">
