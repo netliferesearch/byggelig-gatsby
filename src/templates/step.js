@@ -142,7 +142,7 @@ export default ({ data, pageContext }) => {
             } = meetings[0];
             return (
               <>
-                <h2>{title}</h2>
+                <h2 id="mote">{title}</h2>
                 <p>{description}</p>
 
                 {mustHave && (
