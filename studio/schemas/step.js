@@ -66,6 +66,13 @@ export default {
       name: 'caseReference',
       type: 'reference',
       to: [{ type: 'article' }]
+    },
+    {
+      name: 'meetings',
+      title: 'Er det et møte etter leveransen?',
+      description: 'Feks "Oppstartsmøte" mellom steg 1 og 2',
+      type: 'array',
+      of: [{ type: 'meeting' }]
     }
   ],
   preview: {

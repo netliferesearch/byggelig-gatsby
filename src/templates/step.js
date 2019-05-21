@@ -26,6 +26,9 @@ export default ({ data, pageContext }) => {
     caseReference = {}
   } = data.sanityStep;
 
+  // Quickfix since we have "ø" in Sanity Schema name. TODO: Fix schema and remove this quickfix
+  const roleFix = role === 'entreprenør' ? 'entreprenor' : role;
+
   return (
     <Layout>
       <SEO title={`${title} – Byggelig`} />
@@ -39,7 +42,7 @@ export default ({ data, pageContext }) => {
                 stepNumber: prevStepNumber = '',
                 slug: { current: prevSlug = '#' } = {}
               } = prevStep.node;
-              const prevPath = `/${stage}/steg${prevStepNumber}-${prevSlug}/${role}`;
+              const prevPath = `/${stage}/steg${prevStepNumber}-${prevSlug}/${roleFix}`;
               return (
                 <LinkStep
                   direction="back"
@@ -68,7 +71,7 @@ export default ({ data, pageContext }) => {
                 stepNumber: nextStepNumber = '',
                 slug: { current: nextSlug = '#' } = {}
               } = nextStep.node;
-              const nextPath = `/${stage}/steg${nextStepNumber}-${nextSlug}/${role}`;
+              const nextPath = `/${stage}/steg${nextStepNumber}-${nextSlug}/${roleFix}`;
               return (
                 <LinkStep
                   direction="next"
@@ -157,7 +160,7 @@ export default ({ data, pageContext }) => {
                 stepNumber: prevStepNumber = '',
                 slug: { current: prevSlug = '#' } = {}
               } = prevStep.node;
-              const prevPath = `/${stage}/steg${prevStepNumber}-${prevSlug}/${role}`;
+              const prevPath = `/${stage}/steg${prevStepNumber}-${prevSlug}/${roleFix}`;
               return (
                 <LinkStep
                   direction="back"
@@ -179,7 +182,7 @@ export default ({ data, pageContext }) => {
                 stepNumber: nextStepNumber = '',
                 slug: { current: nextSlug = '#' } = {}
               } = nextStep.node;
-              const nextPath = `/${stage}/steg${nextStepNumber}-${nextSlug}/${role}`;
+              const nextPath = `/${stage}/steg${nextStepNumber}-${nextSlug}/${roleFix}`;
               return (
                 <LinkStep
                   direction="next"
