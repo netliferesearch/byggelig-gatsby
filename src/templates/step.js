@@ -147,7 +147,7 @@ export default ({ data, pageContext }) => {
 
                 {mustHave && (
                   <>
-                    <h2>Dette bør du ha på plass</h2>
+                    <h2>Dette må du ha på plass</h2>
                     <ul>
                       {mustHave
                         .filter(advice =>
