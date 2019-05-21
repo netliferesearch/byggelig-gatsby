@@ -34,7 +34,7 @@ export default ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO title={`${title} – Byggelig`} />
+      <SEO title={`Fase ${stepNumber}: ${title}`} />
       <div className="row mt-5">
         <div className="col-lg-3 col-6 order-lg-1 order-1">
           {prevStep &&
@@ -274,6 +274,9 @@ export const query = graphql`
       title
       intro
       stepNumber
+      slug {
+        current
+      }
       icon {
         asset {
           url
