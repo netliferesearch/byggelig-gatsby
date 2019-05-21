@@ -132,6 +132,7 @@ export default ({ data, pageContext }) => {
         )}
 
         {meetings &&
+          meetings[0] &&
           (() => {
             const {
               title = '',
