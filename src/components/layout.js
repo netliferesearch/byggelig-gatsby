@@ -23,9 +23,7 @@ const Layout = ({ children }) => (
         </div>
       </div>
     </main>
-    <div className="mt-6">
-      <Footer />
-    </div>
+    <Footer />
   </>
 );
 

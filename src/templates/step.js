@@ -252,7 +252,8 @@ export default ({ data, pageContext }) => {
               );
             })()}
         </div>
-        <div className="row">
+        {/* Adds spacing before footer if there are no case reference */}
+        <div className={`row ${caseReference ? '' : 'mb-6'}`}>
           {caseReference &&
             (() => {
               const {

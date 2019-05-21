@@ -61,7 +61,7 @@ export default ({ data }) => {
             {byggeprosessItems.map(item => StepItem(item))}
           </nav>
 
-          <div className="mt-4">
+          <div className="mt-4 mb-6">
             <ArticlePitch
               title={articleTitle}
               intro={articleIntro}

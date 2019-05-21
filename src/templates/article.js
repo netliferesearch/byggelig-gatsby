@@ -42,7 +42,7 @@ export default ({ data }) => {
             <IntroImage src={imageUrl} alt={imageDescription} description />
           </div>
         </div>
-        <div className="row mt-3">
+        <div className="row mt-3 mb-6">
           <div className="col-md-8">
             <BlockContent blocks={bodyText} serializers={serializers} />
           </div>
