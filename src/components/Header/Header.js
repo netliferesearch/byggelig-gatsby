@@ -13,7 +13,7 @@ const Header = ({ data }) => {
           <div className="row align-center">
             <div className="col-sm-auto">
               <div className="h2">
-                <Link to="/" className="header__title">
+                <Link to="/" className="header__title link">
                   {siteName}
                 </Link>
               </div>

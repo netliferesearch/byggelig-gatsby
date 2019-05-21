@@ -9,8 +9,7 @@
   }
 
   &__title {
-    color: white;
-    text-decoration: none;
+    color: white !important;
     font-size: $text-medium;
 
     @media (min-width: $breakpoint-md) {
