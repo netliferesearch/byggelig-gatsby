@@ -25,6 +25,7 @@ export default ({ data, pageContext }) => {
     icon: { asset: { url: iconUrl = '' } = {} } = {},
     _rawMustHave: advicesMustHave = {},
     _rawShouldHave: advicesShouldHave = {},
+    _rawMeetings: meetings = {},
     caseReference = {}
   } = data.sanityStep;
 
@@ -135,6 +136,63 @@ export default ({ data, pageContext }) => {
             </ContentCard>
           </div>
         )}
+
+        {meetings &&
+          meetings[0] &&
+          (() => {
+            const {
+              title = '',
+              description = '',
+              mustHave = {},
+              shouldHave = {}
+            } = meetings[0];
+            return (
+              <>
+                <h2 id="mote">{title}</h2>
+                <p>{description}</p>
+
+                {mustHave && (
+                  <>
+                    <h2>Dette må du ha på plass</h2>
+                    <ul>
+                      {mustHave
+                        .filter(advice =>
+                          advice.role ? advice.role.includes(role) : null
+                        )
+                        .map(advice => {
+                          const { _key, text } = advice;
+                          return (
+                            <li key={_key}>
+                              <BlockContent blocks={text} />
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  </>
+                )}
+
+                {shouldHave && (
+                  <>
+                    <h2>Dette bør du ha på plass</h2>
+                    <ul>
+                      {shouldHave
+                        .filter(advice =>
+                          advice.role ? advice.role.includes(role) : null
+                        )
+                        .map(advice => {
+                          const { _key, text } = advice;
+                          return (
+                            <li key={_key}>
+                              <BlockContent blocks={text} />
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  </>
+                )}
+              </>
+            );
+          })()}
       </article>
 
       {caseReference &&
@@ -230,6 +288,7 @@ export const query = graphql`
           current
         }
       }
+      _rawMeetings
     }
   }
 `;
