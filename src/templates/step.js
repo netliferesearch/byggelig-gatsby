@@ -148,17 +148,19 @@ export default ({ data, pageContext }) => {
             } = meetings[0];
             return (
               <section className="mt-6">
-                <hr />
-                <h1 className="text-center mt-4" id="mote">
-                  {title}
-                </h1>
-                <p className="text-center">{description}</p>
+                <div className="col-md-6 offset-md-3">
+                  <hr />
+                  <h1 className="text-center mt-4" id="mote">
+                    {title}
+                  </h1>
+                  <p className="text-center">{description}</p>
+                </div>
 
                 {mustHave && (
                   <div className="mt-3">
                     <ContentCard>
                       <h2 className="text-center">Dette må du ha på plass</h2>
-                      <ul>
+                      <ul className="mt-4">
                         {mustHave
                           .filter(advice =>
                             advice.role ? advice.role.includes(role) : null
