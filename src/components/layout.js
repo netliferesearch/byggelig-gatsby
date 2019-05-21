@@ -16,13 +16,7 @@ import '../styles/main.scss';
 const Layout = ({ children }) => (
   <>
     <Header />
-    <main className="wrap-outer">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-12">{children}</div>
-        </div>
-      </div>
-    </main>
+    {children}
     <Footer />
   </>
 );

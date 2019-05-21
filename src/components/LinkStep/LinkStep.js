@@ -33,7 +33,7 @@ const LinkStep = ({ children, to, direction, number, subtle }) => (
       <Icon
         mirror={direction === 'back'}
         type={subtle ? 'arrow' : 'arrowround'}
-        size="huge"
+        size={subtle ? 'big' : 'huge'}
       />
     </Link>
     <Link to={to} className={textClasses(subtle, direction)}>

@@ -32,22 +32,24 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title={`${title}`} />
-      <article className="mt-3">
-        <div className="row">
-          <div className="col-lg-4">
-            <h1>{title}</h1>
-            <p className="text-big">{intro}</p>
+      <div className="wrap-outer">
+        <article className="container-fluid mt-3">
+          <div className="row">
+            <div className="col-lg-4">
+              <h1>{title}</h1>
+              <p className="text-big">{intro}</p>
+            </div>
+            <div className="col-lg-8">
+              <IntroImage src={imageUrl} alt={imageDescription} description />
+            </div>
           </div>
-          <div className="col-lg-8">
-            <IntroImage src={imageUrl} alt={imageDescription} description />
+          <div className="row mt-3 mb-6">
+            <div className="col-md-8">
+              <BlockContent blocks={bodyText} serializers={serializers} />
+            </div>
           </div>
-        </div>
-        <div className="row mt-3 mb-6">
-          <div className="col-md-8">
-            <BlockContent blocks={bodyText} serializers={serializers} />
-          </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </Layout>
   );
 };
