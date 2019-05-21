@@ -195,27 +195,6 @@ export default ({ data, pageContext }) => {
           })()}
       </article>
 
-      {caseReference &&
-        (() => {
-          const {
-            title: caseTitle = '',
-            intro: caseIntro = '',
-            linkText = 'Les mer',
-            slug: { current = '#' } = {}
-          } = caseReference;
-          return (
-            <div className="mt-6">
-              <ArticlePitch
-                title={caseTitle}
-                intro={caseIntro}
-                linkText={linkText}
-                subtle
-                to={`/artikkel/${current}`}
-              />
-            </div>
-          );
-        })()}
-
       <div className="row mt-5">
         <div className="col">
           {prevStep &&
@@ -258,6 +237,28 @@ export default ({ data, pageContext }) => {
                 >
                   {nextTitle}
                 </LinkStep>
+              );
+            })()}
+        </div>
+        <div className="row">
+          {caseReference &&
+            (() => {
+              const {
+                title: caseTitle = '',
+                intro: caseIntro = '',
+                linkText = 'Les mer',
+                slug: { current = '#' } = {}
+              } = caseReference;
+              return (
+                <div className="mt-6">
+                  <ArticlePitch
+                    title={caseTitle}
+                    intro={caseIntro}
+                    linkText={linkText}
+                    subtle
+                    to={`/artikkel/${current}`}
+                  />
+                </div>
               );
             })()}
         </div>
