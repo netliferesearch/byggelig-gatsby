@@ -54,10 +54,24 @@ ul {
   text-align: center;
 }
 
+h1,
+.h1 {
+  font-size: $text-huge;
+  font-size: normal;
+  margin: 0;
+  &--thin {
+    font-size: normal;
+  }
+  &--bold {
+    font-size: bold;
+  }
+}
+
 h2,
 .h2 {
   font-size: $text-big;
   font-size: normal;
+  margin: 0;
   &--thin {
     font-size: normal;
   }
@@ -70,6 +84,7 @@ h3,
 .h3 {
   font-size: $text-medium;
   font-size: bold;
+  margin: 0;
   &--thin {
     font-size: normal;
   }

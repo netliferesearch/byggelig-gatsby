@@ -59,7 +59,7 @@ export default ({ data, pageContext }) => {
         </div>
         <div className="col-lg-6 order-lg-2 order-3 center">
           <Icon src={iconUrl} size="giga" />
-          <h1>
+          <h1 className="mt-2">
             Fase {stepNumber}:<br />
             {title}
           </h1>
@@ -97,8 +97,8 @@ export default ({ data, pageContext }) => {
       )}
       <article className="mt-3">
         <ContentCard>
-          <h2 className="text-center mb-4">Dette må du ha på plass</h2>
-          <ul>
+          <h2 className="text-center">Dette må du ha på plass</h2>
+          <ul className="mt-4">
             {advicesMustHave &&
               advicesMustHave
                 .filter(advice =>
@@ -118,7 +118,7 @@ export default ({ data, pageContext }) => {
           <div className="mt-6">
             <ContentCard>
               <Collapsible title="Dette bør du ha på plass">
-                <ul>
+                <ul className="mt-4">
                   {advicesShouldHave
                     .filter(advice =>
                       advice.role ? advice.role.includes(role) : null
@@ -147,50 +147,59 @@ export default ({ data, pageContext }) => {
               shouldHave = {}
             } = meetings[0];
             return (
-              <>
-                <h2 id="mote">{title}</h2>
-                <p>{description}</p>
+              <section className="mt-6">
+                <div className="col-md-6 offset-md-3">
+                  <hr />
+                  <h1 className="text-center mt-4" id="mote">
+                    {title}
+                  </h1>
+                  <p className="text-center">{description}</p>
+                </div>
 
                 {mustHave && (
-                  <>
-                    <h2>Dette må du ha på plass</h2>
-                    <ul>
-                      {mustHave
-                        .filter(advice =>
-                          advice.role ? advice.role.includes(role) : null
-                        )
-                        .map(advice => {
-                          const { _key, text } = advice;
-                          return (
-                            <li key={_key}>
-                              <BlockContent blocks={text} />
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  </>
+                  <div className="mt-3">
+                    <ContentCard>
+                      <h2 className="text-center">Dette må du ha på plass</h2>
+                      <ul className="mt-4">
+                        {mustHave
+                          .filter(advice =>
+                            advice.role ? advice.role.includes(role) : null
+                          )
+                          .map(advice => {
+                            const { _key, text } = advice;
+                            return (
+                              <li key={_key}>
+                                <BlockContent blocks={text} />
+                              </li>
+                            );
+                          })}
+                      </ul>
+                    </ContentCard>
+                  </div>
                 )}
-
                 {shouldHave && (
-                  <>
-                    <h2>Dette bør du ha på plass</h2>
-                    <ul>
-                      {shouldHave
-                        .filter(advice =>
-                          advice.role ? advice.role.includes(role) : null
-                        )
-                        .map(advice => {
-                          const { _key, text } = advice;
-                          return (
-                            <li key={_key}>
-                              <BlockContent blocks={text} />
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  </>
+                  <div className="mt-6">
+                    <ContentCard>
+                      <Collapsible title="Dette bør du ha på plass">
+                        <ul className="mt-4">
+                          {shouldHave
+                            .filter(advice =>
+                              advice.role ? advice.role.includes(role) : null
+                            )
+                            .map(advice => {
+                              const { _key, text } = advice;
+                              return (
+                                <li key={_key}>
+                                  <BlockContent blocks={text} />
+                                </li>
+                              );
+                            })}
+                        </ul>
+                      </Collapsible>
+                    </ContentCard>
+                  </div>
                 )}
-              </>
+              </section>
             );
           })()}
       </article>

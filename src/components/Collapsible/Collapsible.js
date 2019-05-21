@@ -38,7 +38,7 @@ const Collapsible = props => {
       <button
         onClick={() => setOpen(!open)}
         aria-expanded={open}
-        className="collapsible__button h2 mb-4"
+        className="collapsible__button h2"
         role="heading"
         aria-level="2"
       >
