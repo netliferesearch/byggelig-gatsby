@@ -98,7 +98,7 @@ export default ({ data, pageContext }) => {
       <article className="mt-3">
         <ContentCard>
           <h2 className="text-center">Dette må du ha på plass</h2>
-          <ul className="mt-4">
+          <ul className="ul-check mt-4">
             {advicesMustHave &&
               advicesMustHave
                 .filter(advice =>
@@ -108,6 +108,9 @@ export default ({ data, pageContext }) => {
                   const { _key, text } = advice;
                   return (
                     <li key={_key}>
+                      <div className="li-icon">
+                        <Icon type="check" size="small" />
+                      </div>
                       <BlockContent blocks={text} />
                     </li>
                   );
@@ -118,7 +121,7 @@ export default ({ data, pageContext }) => {
           <div className="mt-6">
             <ContentCard>
               <Collapsible title="Dette bør du ha på plass">
-                <ul className="mt-4">
+                <ul className="ul-check mt-4">
                   {advicesShouldHave
                     .filter(advice =>
                       advice.role ? advice.role.includes(role) : null
@@ -160,7 +163,7 @@ export default ({ data, pageContext }) => {
                   <div className="mt-3">
                     <ContentCard>
                       <h2 className="text-center">Dette må du ha på plass</h2>
-                      <ul className="mt-4">
+                      <ul className="ul-check mt-4">
                         {mustHave
                           .filter(advice =>
                             advice.role ? advice.role.includes(role) : null
@@ -181,7 +184,7 @@ export default ({ data, pageContext }) => {
                   <div className="mt-6">
                     <ContentCard>
                       <Collapsible title="Dette bør du ha på plass">
-                        <ul className="mt-4">
+                        <ul className="ul-check mt-4">
                           {shouldHave
                             .filter(advice =>
                               advice.role ? advice.role.includes(role) : null

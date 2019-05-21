@@ -39,7 +39,7 @@ const iconClasses = size =>
     'icon--giga': size === 'giga'
   });
 
-const LinkStep = memo(({ type, rotate, mirror, size, src }) => (
+const Icon = memo(({ type, rotate, mirror, size, src }) => (
   <div
     aria-hidden
     className={iconClasses(size)}
@@ -68,7 +68,7 @@ const LinkStep = memo(({ type, rotate, mirror, size, src }) => (
   </div>
 ));
 
-LinkStep.propTypes = {
+Icon.propTypes = {
   type: PropTypes.oneOf([
     'arrowcollapse',
     'avvikling',
@@ -96,4 +96,8 @@ LinkStep.propTypes = {
   size: PropTypes.oneOf(['small', 'normal', 'medium', 'big', 'huge', 'giga'])
 };
 
-export default LinkStep;
+Icon.defaultProps = {
+  size: 'small'
+};
+
+export default Icon;
