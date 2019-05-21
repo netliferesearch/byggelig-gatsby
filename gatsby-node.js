@@ -46,7 +46,7 @@ async function createStepPages(graphql, actions, reporter) {
     // since index includes both stages
     const calculatePrevStep = () => {
       if (stepNumber === 1) {
-        return false;
+        return null;
       } else {
         return index === 0 ? null : postEdges[index - 1];
       }
@@ -57,7 +57,7 @@ async function createStepPages(graphql, actions, reporter) {
         (stage === 'reguleringsplan' && stepNumber === 4) ||
         (stage === 'byggeprosess' && stepNumber === 8)
       ) {
-        return false;
+        return null;
       } else {
         return index === result.length - 1 ? null : postEdges[index + 1];
       }
