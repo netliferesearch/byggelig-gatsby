@@ -7,7 +7,9 @@ import RoleSwitch from '../components/RoleSwitch';
 import LinkStep from '../components/LinkStep';
 import ArticlePitch from '../components/ArticlePitch';
 import Icon from '../components/Icon';
+import Collapsible from '../components/Collapsible';
 import SEO from '../components/seo';
+import ContentCard from '../components/ContentCard';
 
 export default ({ data, pageContext }) => {
   const {
@@ -93,28 +95,11 @@ export default ({ data, pageContext }) => {
         </div>
       )}
       <article className="mt-3">
-        <h2 className="text-center">Dette må du ha på plass</h2>
-        <ul>
-          {advicesMustHave &&
-            advicesMustHave
-              .filter(advice =>
-                advice.role ? advice.role.includes(role) : null
-              )
-              .map(advice => {
-                const { _key, text } = advice;
-                return (
-                  <li key={_key}>
-                    <BlockContent blocks={text} />
-                  </li>
-                );
-              })}
-        </ul>
-
-        {advicesShouldHave && (
-          <>
-            <h2>Dette bør du ha på plass</h2>
-            <ul>
-              {advicesShouldHave
+        <ContentCard>
+          <h2 className="text-center mb-4">Dette må du ha på plass</h2>
+          <ul>
+            {advicesMustHave &&
+              advicesMustHave
                 .filter(advice =>
                   advice.role ? advice.role.includes(role) : null
                 )
@@ -126,8 +111,29 @@ export default ({ data, pageContext }) => {
                     </li>
                   );
                 })}
-            </ul>
-          </>
+          </ul>
+        </ContentCard>
+        {advicesShouldHave && (
+          <div className="mt-6">
+            <ContentCard>
+              <Collapsible title="Dette bør du ha på plass">
+                <ul>
+                  {advicesShouldHave
+                    .filter(advice =>
+                      advice.role ? advice.role.includes(role) : null
+                    )
+                    .map(advice => {
+                      const { _key, text } = advice;
+                      return (
+                        <li key={_key}>
+                          <BlockContent blocks={text} />
+                        </li>
+                      );
+                    })}
+                </ul>
+              </Collapsible>
+            </ContentCard>
+          </div>
         )}
       </article>
 
@@ -140,13 +146,15 @@ export default ({ data, pageContext }) => {
             slug: { current = '#' } = {}
           } = caseReference;
           return (
-            <ArticlePitch
-              title={caseTitle}
-              intro={caseIntro}
-              linkText={linkText}
-              subtle
-              to={`/artikkel/${current}`}
-            />
+            <div className="mt-6">
+              <ArticlePitch
+                title={caseTitle}
+                intro={caseIntro}
+                linkText={linkText}
+                subtle
+                to={`/artikkel/${current}`}
+              />
+            </div>
           );
         })()}
 

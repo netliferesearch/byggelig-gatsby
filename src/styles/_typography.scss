@@ -6,6 +6,7 @@ ul {
   a:visited,
   a:active {
     display: inline;
+    font-weight: bold;
     color: $color-black;
     text-decoration: none;
     box-shadow: inset 0 -3px $color-mint;
