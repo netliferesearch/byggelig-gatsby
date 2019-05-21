@@ -6,22 +6,29 @@ import './LinkBlock.scss';
 
 import Icon from '../Icon';
 
-const LinkBlock = ({ children, to, external }) =>
-  external ? (
+const LinkBlock = ({ children, to }) => {
+  const internal = /^\/(?!\/)/.test(to);
+
+  if (internal) {
+    return (
+      <Link to={to} className="link-block">
+        {children}
+        <div className="link-block__icon">
+          <Icon type="arrow" size="small" />
+        </div>
+      </Link>
+    );
+  }
+
+  return (
     <a href={to} className="link-block">
       {children}
       <div className="link-block__icon">
         <Icon type="arrow" size="small" />
       </div>
     </a>
-  ) : (
-    <Link to={to} className="link-block">
-      {children}
-      <div className="link-block__icon">
-        <Icon type="arrow" size="small" />
-      </div>
-    </Link>
   );
+};
 
 LinkBlock.propTypes = {
   to: PropTypes.string.isRequired,

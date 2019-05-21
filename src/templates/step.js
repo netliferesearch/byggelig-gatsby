@@ -34,7 +34,7 @@ export default ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO title={`${title} – Byggelig`} />
+      <SEO title={`Fase ${stepNumber}: ${title}`} />
       <div className="row mt-5">
         <div className="col-lg-3 col-6 order-lg-1 order-1">
           {prevStep &&
@@ -200,27 +200,6 @@ export default ({ data, pageContext }) => {
           })()}
       </article>
 
-      {caseReference &&
-        (() => {
-          const {
-            title: caseTitle = '',
-            intro: caseIntro = '',
-            linkText = 'Les mer',
-            slug: { current = '#' } = {}
-          } = caseReference;
-          return (
-            <div className="mt-6">
-              <ArticlePitch
-                title={caseTitle}
-                intro={caseIntro}
-                linkText={linkText}
-                subtle
-                to={`/artikkel/${current}`}
-              />
-            </div>
-          );
-        })()}
-
       <div className="row mt-5">
         <div className="col">
           {prevStep &&
@@ -266,6 +245,28 @@ export default ({ data, pageContext }) => {
               );
             })()}
         </div>
+        <div className="row">
+          {caseReference &&
+            (() => {
+              const {
+                title: caseTitle = '',
+                intro: caseIntro = '',
+                linkText = 'Les mer',
+                slug: { current = '#' } = {}
+              } = caseReference;
+              return (
+                <div className="mt-6">
+                  <ArticlePitch
+                    title={caseTitle}
+                    intro={caseIntro}
+                    linkText={linkText}
+                    subtle
+                    to={`/artikkel/${current}`}
+                  />
+                </div>
+              );
+            })()}
+        </div>
       </div>
     </Layout>
   );
@@ -278,6 +279,9 @@ export const query = graphql`
       title
       intro
       stepNumber
+      slug {
+        current
+      }
       icon {
         asset {
           url
