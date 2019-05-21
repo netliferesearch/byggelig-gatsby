@@ -1,4 +1,39 @@
+@import '../../styles/variables';
+
 .collapsible {
-  &--open {
+  &__button {
+    display: block;
+    width: 100%;
+    border: 0;
+    background: none;
+    font-family: inherit;
+    color: inherit;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: $spacing-4;
+  }
+  &__icon {
+    display: inline-block;
+    margin-top: 0.25em;
+    margin-left: 0.75em;
+
+    svg {
+      width: 0.75em;
+      height: 0.75em;
+      max-width: 0.75em;
+      max-height: 0.75em;
+    }
+
+    &--open {
+      transform: translateY(0.05em);
+    }
+  }
+  &__content-wrapper {
+    display: none;
+
+    &--open {
+      display: block;
+    }
   }
 }
