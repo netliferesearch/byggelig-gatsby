@@ -6,10 +6,9 @@ import Layout from '../components/layout';
 import RoleSwitch from '../components/RoleSwitch';
 import ArticlePitch from '../components/ArticlePitch';
 import Icon from '../components/Icon';
-import Collapsible from '../components/Collapsible';
 import SEO from '../components/seo';
-import ContentCard from '../components/ContentCard';
 import StepNavigation from '../components/StepNavigation';
+import AdvicesCard from '../components/AdvicesCard';
 
 export default ({ data, pageContext }) => {
   // Destructure our data
@@ -32,32 +31,6 @@ export default ({ data, pageContext }) => {
 
   // Quickfix since we have "ø" in Sanity Schema name. TODO: Fix schema and remove this quickfix
   const roleFix = role === 'entreprenør' ? 'entreprenor' : role;
-
-  // const AdvicesCard = () => {
-  //   return (
-  //     <ContentCard>
-  //       <h2 className="text-center">Dette må du ha på plass</h2>
-  //       <ul className="ul-check mt-4">
-  //         {advicesMustHave &&
-  //           advicesMustHave
-  //             .filter(advice =>
-  //               advice.role ? advice.role.includes(role) : null
-  //             )
-  //             .map(advice => {
-  //               const { _key, text } = advice;
-  //               return (
-  //                 <li key={_key}>
-  //                   <div className="li-icon">
-  //                     <Icon type="check" size="small" />
-  //                   </div>
-  //                   <BlockContent blocks={text} />
-  //                 </li>
-  //               );
-  //             })}
-  //       </ul>
-  //     </ContentCard>
-  //   );
-  // };
 
   return (
     <Layout>
@@ -101,56 +74,22 @@ export default ({ data, pageContext }) => {
               </div>
             </div>
           )}
+
           <article className="mt-3">
-            {/* <AdvicesCard /> */}
+            <AdvicesCard
+              title="Dette må du ha på plass"
+              advices={advicesMustHave}
+              role={role}
+            />
 
-            <ContentCard>
-              <h2 className="text-center">Dette må du ha på plass</h2>
-              <ul className="ul-check mt-4">
-                {advicesMustHave &&
-                  advicesMustHave
-                    .filter(advice =>
-                      advice.role ? advice.role.includes(role) : null
-                    )
-                    .map(advice => {
-                      const { _key, text } = advice;
-                      return (
-                        <li key={_key}>
-                          <div className="li-icon">
-                            <Icon type="check" size="small" />
-                          </div>
-                          <BlockContent blocks={text} />
-                        </li>
-                      );
-                    })}
-              </ul>
-            </ContentCard>
-
-            {advicesShouldHave && (
-              <div className="mt-6">
-                <ContentCard>
-                  <Collapsible title="Dette bør du ha på plass">
-                    <ul className="ul-check mt-4">
-                      {advicesShouldHave
-                        .filter(advice =>
-                          advice.role ? advice.role.includes(role) : null
-                        )
-                        .map(advice => {
-                          const { _key, text } = advice;
-                          return (
-                            <li key={_key}>
-                              <div className="li-icon">
-                                <Icon type="check" size="small" />
-                              </div>
-                              <BlockContent blocks={text} />
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  </Collapsible>
-                </ContentCard>
-              </div>
-            )}
+            <div className="mt-6">
+              <AdvicesCard
+                title="Dette bør du ha på plass"
+                advices={advicesShouldHave}
+                role={role}
+                collapsible
+              />
+            </div>
 
             {meetings &&
               meetings[0] &&
@@ -171,59 +110,21 @@ export default ({ data, pageContext }) => {
                       <p className="text-center">{description}</p>
                     </div>
 
-                    {mustHave && (
-                      <div className="mt-3">
-                        <ContentCard>
-                          <h2 className="text-center">
-                            Dette må du ha på plass
-                          </h2>
-                          <ul className="ul-check mt-4">
-                            {mustHave
-                              .filter(advice =>
-                                advice.role ? advice.role.includes(role) : null
-                              )
-                              .map(advice => {
-                                const { _key, text } = advice;
-                                return (
-                                  <li key={_key}>
-                                    <div className="li-icon">
-                                      <Icon type="check" size="small" />
-                                    </div>
-                                    <BlockContent blocks={text} />
-                                  </li>
-                                );
-                              })}
-                          </ul>
-                        </ContentCard>
-                      </div>
-                    )}
-                    {shouldHave && (
-                      <div className="mt-6">
-                        <ContentCard>
-                          <Collapsible title="Dette bør du ha på plass">
-                            <ul className="ul-check mt-4">
-                              {shouldHave
-                                .filter(advice =>
-                                  advice.role
-                                    ? advice.role.includes(role)
-                                    : null
-                                )
-                                .map(advice => {
-                                  const { _key, text } = advice;
-                                  return (
-                                    <li key={_key}>
-                                      <div className="li-icon">
-                                        <Icon type="check" size="small" />
-                                      </div>
-                                      <BlockContent blocks={text} />
-                                    </li>
-                                  );
-                                })}
-                            </ul>
-                          </Collapsible>
-                        </ContentCard>
-                      </div>
-                    )}
+                    <div className="mt-3">
+                      <AdvicesCard
+                        title="Dette må du ha på plass"
+                        advices={mustHave}
+                        role={role}
+                      />
+                    </div>
+                    <div className="mt-6">
+                      <AdvicesCard
+                        title="Dette bør du ha på plass"
+                        advices={shouldHave}
+                        role={role}
+                        collapsible
+                      />
+                    </div>
                   </section>
                 );
               })()}
