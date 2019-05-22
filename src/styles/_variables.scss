@@ -11,30 +11,17 @@ $color-grey: #757575;
 $color-grey-light: #f9f9f9;
 $color-purple-light: #f4f2f7;
 
-// Spacing
-// Will get deprecated
-$spacing-1: 2px;
-$spacing-2: 4px;
-$spacing-3: 8px;
-$spacing-4: 12px;
-$spacing-5: 16px;
-$spacing-6: 24px;
-$spacing-7: 32px;
-$spacing-8: 48px;
-$spacing-9: 72px;
-$spacing-10: 104px;
-
 // The real spacing - will get tweaked
 $spaces: (
-  0: 4px,
-  1: 10px,
-  2: 20px,
-  3: 40px,
-  4: 60px,
-  5: 80px,
-  6: 100px,
-  7: 120px,
-  8: 160px
+  0: 0.2rem,
+  1: 0.5rem,
+  2: 1rem,
+  3: 2rem,
+  4: 3rem,
+  5: 4rem,
+  6: 5rem,
+  7: 6rem,
+  8: 8rem
 );
 
 // Other
