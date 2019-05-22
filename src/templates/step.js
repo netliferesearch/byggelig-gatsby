@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 
 import Layout from '../components/layout';
@@ -33,9 +33,48 @@ export default ({ data, pageContext }) => {
   // Quickfix since we have "ø" in Sanity Schema name. TODO: Fix schema and remove this quickfix
   const roleFix = role === 'entreprenør' ? 'entreprenor' : role;
 
+  // const AdvicesCard = () => {
+  //   return (
+  //     <ContentCard>
+  //       <h2 className="text-center">Dette må du ha på plass</h2>
+  //       <ul className="ul-check mt-4">
+  //         {advicesMustHave &&
+  //           advicesMustHave
+  //             .filter(advice =>
+  //               advice.role ? advice.role.includes(role) : null
+  //             )
+  //             .map(advice => {
+  //               const { _key, text } = advice;
+  //               return (
+  //                 <li key={_key}>
+  //                   <div className="li-icon">
+  //                     <Icon type="check" size="small" />
+  //                   </div>
+  //                   <BlockContent blocks={text} />
+  //                 </li>
+  //               );
+  //             })}
+  //       </ul>
+  //     </ContentCard>
+  //   );
+  // };
+
   return (
     <Layout>
       <SEO title={`Fase ${stepNumber}: ${title}`} />
+
+      <div className="wrap-outer">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col mt-2">
+              <Link to="/" className="link">
+                ← Forsiden
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="wrap-outer">
         <div className="container-fluid">
           <div className="row mt-5">
@@ -63,6 +102,8 @@ export default ({ data, pageContext }) => {
             </div>
           )}
           <article className="mt-3">
+            {/* <AdvicesCard /> */}
+
             <ContentCard>
               <h2 className="text-center">Dette må du ha på plass</h2>
               <ul className="ul-check mt-4">
@@ -84,6 +125,7 @@ export default ({ data, pageContext }) => {
                     })}
               </ul>
             </ContentCard>
+
             {advicesShouldHave && (
               <div className="mt-6">
                 <ContentCard>

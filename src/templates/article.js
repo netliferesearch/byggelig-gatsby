@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 
 import Layout from '../components/layout';
@@ -32,6 +32,19 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title={`${title}`} />
+
+      <div className="wrap-outer">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col mt-2">
+              <Link to="/" className="link">
+                ← Forsiden
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="wrap-outer">
         <article className="container-fluid mt-3">
           <div className="row">
