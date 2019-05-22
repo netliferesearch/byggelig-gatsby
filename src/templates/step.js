@@ -1,17 +1,18 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 
 import Layout from '../components/layout';
 import RoleSwitch from '../components/RoleSwitch';
-import LinkStep from '../components/LinkStep';
 import ArticlePitch from '../components/ArticlePitch';
 import Icon from '../components/Icon';
 import Collapsible from '../components/Collapsible';
 import SEO from '../components/seo';
 import ContentCard from '../components/ContentCard';
+import StepNavigation from '../components/StepNavigation';
 
 export default ({ data, pageContext }) => {
+  // Destructure our data
   const {
     pathParams: { role = '', stage = '', stepSlug = '' } = {},
     showRoleSwitch = true, // Logic is set in "gatsby-node.js"
@@ -37,25 +38,7 @@ export default ({ data, pageContext }) => {
       <SEO title={`Fase ${stepNumber}: ${title}`} />
       <div className="row mt-5">
         <div className="col-lg-3 col-6 order-lg-1 order-1">
-          {prevStep &&
-            prevStep.node &&
-            (() => {
-              const {
-                title: prevTitle = '',
-                stepNumber: prevStepNumber = '',
-                slug: { current: prevSlug = '#' } = {}
-              } = prevStep.node;
-              const prevPath = `/${stage}/steg${prevStepNumber}-${prevSlug}/${roleFix}`;
-              return (
-                <LinkStep
-                  direction="back"
-                  number={prevStepNumber}
-                  to={prevPath}
-                >
-                  {prevTitle}
-                </LinkStep>
-              );
-            })()}
+          <StepNavigation step={prevStep} direction="back" role={roleFix} />
         </div>
         <div className="col-lg-6 order-lg-2 order-3 center">
           <Icon src={iconUrl} size="giga" />
@@ -66,25 +49,7 @@ export default ({ data, pageContext }) => {
           <p>{intro}</p>
         </div>
         <div className="col-lg-3 col-6 order-lg-3 order-2">
-          {nextStep &&
-            nextStep.node &&
-            (() => {
-              const {
-                title: nextTitle = '',
-                stepNumber: nextStepNumber = '',
-                slug: { current: nextSlug = '#' } = {}
-              } = nextStep.node;
-              const nextPath = `/${stage}/steg${nextStepNumber}-${nextSlug}/${roleFix}`;
-              return (
-                <LinkStep
-                  direction="next"
-                  number={nextStepNumber}
-                  to={nextPath}
-                >
-                  {nextTitle}
-                </LinkStep>
-              );
-            })()}
+          <StepNavigation step={nextStep} direction="next" role={roleFix} />
         </div>
       </div>
 
@@ -206,48 +171,10 @@ export default ({ data, pageContext }) => {
 
       <div className="row mt-5">
         <div className="col">
-          {prevStep &&
-            prevStep.node &&
-            (() => {
-              const {
-                title: prevTitle = '',
-                stepNumber: prevStepNumber = '',
-                slug: { current: prevSlug = '#' } = {}
-              } = prevStep.node;
-              const prevPath = `/${stage}/steg${prevStepNumber}-${prevSlug}/${roleFix}`;
-              return (
-                <LinkStep
-                  direction="back"
-                  number={prevStepNumber}
-                  to={prevPath}
-                  subtle
-                >
-                  {prevTitle}
-                </LinkStep>
-              );
-            })()}
+          <StepNavigation step={prevStep} direction="back" role={roleFix} />
         </div>
         <div className="col">
-          {nextStep &&
-            nextStep.node &&
-            (() => {
-              const {
-                title: nextTitle = '',
-                stepNumber: nextStepNumber = '',
-                slug: { current: nextSlug = '#' } = {}
-              } = nextStep.node;
-              const nextPath = `/${stage}/steg${nextStepNumber}-${nextSlug}/${roleFix}`;
-              return (
-                <LinkStep
-                  direction="next"
-                  number={nextStepNumber}
-                  to={nextPath}
-                  subtle
-                >
-                  {nextTitle}
-                </LinkStep>
-              );
-            })()}
+          <StepNavigation step={nextStep} direction="next" role={roleFix} />
         </div>
         <div className="row">
           {caseReference &&
