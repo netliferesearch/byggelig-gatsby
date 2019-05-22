@@ -35,7 +35,7 @@ export default ({ data }) => {
         asset: { url: iconUrl = '' }
       }
     } = item.node;
-    const path = `/${stage}/steg${stepNumber}-${slug.current}/utbygger`;
+    const path = `/${stage}/fase${stepNumber}-${slug.current}/utbygger`;
     return (
       <div className="col-lg-3 col-sm-6 mb-sm-3 mb-2" key={id}>
         <LinkEntry to={path} icon={iconUrl}>

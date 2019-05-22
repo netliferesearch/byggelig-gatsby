@@ -20,7 +20,7 @@ const StepNavigation = ({
     stage = ''
   } = step.node;
 
-  const navPath = `/${stage}/steg${stepNumber}-${slug}/${role}`;
+  const navPath = `/${stage}/fase${stepNumber}-${slug}/${role}`;
 
   return (
     <LinkStep
