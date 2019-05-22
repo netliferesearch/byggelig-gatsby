@@ -3,5 +3,9 @@
 .content-card {
   background-color: white;
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.05);
-  padding: 50px 100px;
+  padding: 3rem 5vw;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 2rem 0;
+  }
 }

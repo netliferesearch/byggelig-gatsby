@@ -2,11 +2,7 @@
 
 .header {
   background-color: $color-purple;
-  padding: $spacing-6 0;
-
-  @media (max-width: $breakpoint-md) {
-    padding: $spacing-3 0 $spacing-4;
-  }
+  padding: map-get($spaces, 2) 0;
 
   &__title {
     color: white !important;
