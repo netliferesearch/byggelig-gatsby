@@ -57,5 +57,5 @@ AdvicesCard.propTypes = {
   title: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
   collapsible: PropTypes.bool,
-  advices: PropTypes.array.isRequired
+  advices: PropTypes.array
 };
