@@ -1,17 +1,17 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
-import BlockContent from '@sanity/block-content-to-react';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import RoleSwitch from '../components/RoleSwitch';
-import LinkStep from '../components/LinkStep';
 import ArticlePitch from '../components/ArticlePitch';
 import Icon from '../components/Icon';
-import Collapsible from '../components/Collapsible';
 import SEO from '../components/seo';
-import ContentCard from '../components/ContentCard';
+import StepNavigation from '../components/StepNavigation';
+import AdvicesCard from '../components/AdvicesCard';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default ({ data, pageContext }) => {
+  // Destructure our data
   const {
     pathParams: { role = '', stage = '', stepSlug = '' } = {},
     showRoleSwitch = true, // Logic is set in "gatsby-node.js"
@@ -35,29 +35,14 @@ export default ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO title={`Fase ${stepNumber}: ${title}`} />
+
+      <Breadcrumbs />
+
       <div className="wrap-outer">
         <div className="container-fluid">
           <div className="row mt-5">
             <div className="col-lg-3 col-6 order-lg-1 order-1">
-              {prevStep &&
-                prevStep.node &&
-                (() => {
-                  const {
-                    title: prevTitle = '',
-                    stepNumber: prevStepNumber = '',
-                    slug: { current: prevSlug = '#' } = {}
-                  } = prevStep.node;
-                  const prevPath = `/${stage}/steg${prevStepNumber}-${prevSlug}/${roleFix}`;
-                  return (
-                    <LinkStep
-                      direction="back"
-                      number={prevStepNumber}
-                      to={prevPath}
-                    >
-                      {prevTitle}
-                    </LinkStep>
-                  );
-                })()}
+              <StepNavigation step={prevStep} direction="back" role={roleFix} />
             </div>
             <div className="col-lg-6 order-lg-2 order-3 center">
               <Icon src={iconUrl} size="giga" />
@@ -68,25 +53,7 @@ export default ({ data, pageContext }) => {
               <p>{intro}</p>
             </div>
             <div className="col-lg-3 col-6 order-lg-3 order-2">
-              {nextStep &&
-                nextStep.node &&
-                (() => {
-                  const {
-                    title: nextTitle = '',
-                    stepNumber: nextStepNumber = '',
-                    slug: { current: nextSlug = '#' } = {}
-                  } = nextStep.node;
-                  const nextPath = `/${stage}/steg${nextStepNumber}-${nextSlug}/${roleFix}`;
-                  return (
-                    <LinkStep
-                      direction="next"
-                      number={nextStepNumber}
-                      to={nextPath}
-                    >
-                      {nextTitle}
-                    </LinkStep>
-                  );
-                })()}
+              <StepNavigation step={nextStep} direction="next" role={roleFix} />
             </div>
           </div>
 
@@ -97,53 +64,22 @@ export default ({ data, pageContext }) => {
               </div>
             </div>
           )}
+
           <article className="mt-3">
-            <ContentCard>
-              <h2 className="text-center">Dette må du ha på plass</h2>
-              <ul className="ul-check mt-4">
-                {advicesMustHave &&
-                  advicesMustHave
-                    .filter(advice =>
-                      advice.role ? advice.role.includes(role) : null
-                    )
-                    .map(advice => {
-                      const { _key, text } = advice;
-                      return (
-                        <li key={_key}>
-                          <div className="li-icon">
-                            <Icon type="check" size="small" />
-                          </div>
-                          <BlockContent blocks={text} />
-                        </li>
-                      );
-                    })}
-              </ul>
-            </ContentCard>
-            {advicesShouldHave && (
-              <div className="mt-6">
-                <ContentCard>
-                  <Collapsible title="Dette bør du ha på plass">
-                    <ul className="ul-check mt-4">
-                      {advicesShouldHave
-                        .filter(advice =>
-                          advice.role ? advice.role.includes(role) : null
-                        )
-                        .map(advice => {
-                          const { _key, text } = advice;
-                          return (
-                            <li key={_key}>
-                              <div className="li-icon">
-                                <Icon type="check" size="small" />
-                              </div>
-                              <BlockContent blocks={text} />
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  </Collapsible>
-                </ContentCard>
-              </div>
-            )}
+            <AdvicesCard
+              title="Dette må du ha på plass"
+              advices={advicesMustHave}
+              role={role}
+            />
+
+            <div className="mt-6">
+              <AdvicesCard
+                title="Dette bør du ha på plass"
+                advices={advicesShouldHave}
+                role={role}
+                collapsible
+              />
+            </div>
 
             {meetings &&
               meetings[0] &&
@@ -164,59 +100,21 @@ export default ({ data, pageContext }) => {
                       <p className="text-center">{description}</p>
                     </div>
 
-                    {mustHave && (
-                      <div className="mt-3">
-                        <ContentCard>
-                          <h2 className="text-center">
-                            Dette må du ha på plass
-                          </h2>
-                          <ul className="ul-check mt-4">
-                            {mustHave
-                              .filter(advice =>
-                                advice.role ? advice.role.includes(role) : null
-                              )
-                              .map(advice => {
-                                const { _key, text } = advice;
-                                return (
-                                  <li key={_key}>
-                                    <div className="li-icon">
-                                      <Icon type="check" size="small" />
-                                    </div>
-                                    <BlockContent blocks={text} />
-                                  </li>
-                                );
-                              })}
-                          </ul>
-                        </ContentCard>
-                      </div>
-                    )}
-                    {shouldHave && (
-                      <div className="mt-6">
-                        <ContentCard>
-                          <Collapsible title="Dette bør du ha på plass">
-                            <ul className="ul-check mt-4">
-                              {shouldHave
-                                .filter(advice =>
-                                  advice.role
-                                    ? advice.role.includes(role)
-                                    : null
-                                )
-                                .map(advice => {
-                                  const { _key, text } = advice;
-                                  return (
-                                    <li key={_key}>
-                                      <div className="li-icon">
-                                        <Icon type="check" size="small" />
-                                      </div>
-                                      <BlockContent blocks={text} />
-                                    </li>
-                                  );
-                                })}
-                            </ul>
-                          </Collapsible>
-                        </ContentCard>
-                      </div>
-                    )}
+                    <div className="mt-3">
+                      <AdvicesCard
+                        title="Dette må du ha på plass"
+                        advices={mustHave}
+                        role={role}
+                      />
+                    </div>
+                    <div className="mt-6">
+                      <AdvicesCard
+                        title="Dette bør du ha på plass"
+                        advices={shouldHave}
+                        role={role}
+                        collapsible
+                      />
+                    </div>
                   </section>
                 );
               })()}
@@ -224,48 +122,20 @@ export default ({ data, pageContext }) => {
 
           <div className="row mt-5">
             <div className="col">
-              {prevStep &&
-                prevStep.node &&
-                (() => {
-                  const {
-                    title: prevTitle = '',
-                    stepNumber: prevStepNumber = '',
-                    slug: { current: prevSlug = '#' } = {}
-                  } = prevStep.node;
-                  const prevPath = `/${stage}/steg${prevStepNumber}-${prevSlug}/${roleFix}`;
-                  return (
-                    <LinkStep
-                      direction="back"
-                      number={prevStepNumber}
-                      to={prevPath}
-                      subtle
-                    >
-                      {prevTitle}
-                    </LinkStep>
-                  );
-                })()}
+              <StepNavigation
+                step={prevStep}
+                direction="back"
+                role={roleFix}
+                subtle
+              />
             </div>
             <div className="col">
-              {nextStep &&
-                nextStep.node &&
-                (() => {
-                  const {
-                    title: nextTitle = '',
-                    stepNumber: nextStepNumber = '',
-                    slug: { current: nextSlug = '#' } = {}
-                  } = nextStep.node;
-                  const nextPath = `/${stage}/steg${nextStepNumber}-${nextSlug}/${roleFix}`;
-                  return (
-                    <LinkStep
-                      direction="next"
-                      number={nextStepNumber}
-                      to={nextPath}
-                      subtle
-                    >
-                      {nextTitle}
-                    </LinkStep>
-                  );
-                })()}
+              <StepNavigation
+                step={nextStep}
+                direction="next"
+                role={roleFix}
+                subtle
+              />
             </div>
           </div>
         </div>

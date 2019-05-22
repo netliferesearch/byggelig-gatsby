@@ -1,11 +1,12 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 
 import Layout from '../components/layout';
 import LinkBlock from '../components/LinkBlock';
 import IntroImage from '../components/IntroImage';
 import SEO from '../components/seo';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const serializers = {
   types: {
@@ -32,6 +33,9 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title={`${title}`} />
+
+      <Breadcrumbs />
+
       <div className="wrap-outer">
         <article className="container-fluid mt-3">
           <div className="row">

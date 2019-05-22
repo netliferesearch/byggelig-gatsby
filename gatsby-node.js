@@ -32,7 +32,7 @@ async function createStepPages(graphql, actions, reporter) {
     const { id, stage, stepNumber, slug = {} } = edge.node;
 
     // Create our paths
-    const stepSlug = `steg${stepNumber}-${slug.current}`;
+    const stepSlug = `fase${stepNumber}-${slug.current}`;
     const path = `/${stage}/${stepSlug}`;
     const pathUtbygger = `${path}/utbygger`;
     const pathEntreprenor = `${path}/entreprenor`;
