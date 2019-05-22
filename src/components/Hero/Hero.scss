@@ -18,20 +18,8 @@
     padding-right: $grid-gutter-width;
   }
 
-  &__title {
-    font-size: 18px;
-
-    @media (min-width: $breakpoint-md) {
-      font-size: 32px;
-    }
-  }
-
   &__text {
-    font-size: 18px;
-
-    @media (min-width: $breakpoint-md) {
-      font-size: 32px;
-    }
+    font-size: $text-medium;
   }
 
   &__image {

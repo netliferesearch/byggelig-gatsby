@@ -5,14 +5,10 @@ body {
   font-family: 'Roboto', sans-serif;
   color: $color-black;
   font-size: 15px;
-}
-@media screen and (min-width: $breakpoint-sm) {
-  html {
-    font-size: calc(15px + 5 * ((calc(100vw - #{$breakpoint-sm})) / 680));
+  @media screen and (min-width: $breakpoint-sm) {
+    font-size: calc(15px + 6 * ((calc(100vw - #{$breakpoint-sm})) / 680));
   }
-}
-@media screen and (min-width: $breakpoint-xl) {
-  html {
+  @media screen and (min-width: $breakpoint-xl) {
     font-size: 21px;
   }
 }

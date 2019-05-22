@@ -1,27 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 import LinkBlock from '../LinkBlock';
 import './ArticlePitch.scss';
-
-const textContentClasses = subtle =>
-  classNames({
-    'article-pitch__text-content': true,
-    'article-pitch__text-content--subtle': subtle
-  });
-
-const titleClasses = subtle =>
-  classNames({
-    'article-pitch__title': true,
-    'article-pitch__title--subtle': subtle
-  });
-
-const linkClasses = subtle =>
-  classNames({
-    'article-pitch__link': true,
-    'article-pitch__link--subtle': subtle
-  });
 
 const ArticlePitch = ({
   title,
@@ -33,27 +14,41 @@ const ArticlePitch = ({
   linkText
 }) => (
   <section className="article-pitch">
-    <div className="row">
-      <div className={imageUrl ? 'col-md-6' : 'col-md-12'}>
-        <div className={textContentClasses(subtle)}>
-          <h2 className={titleClasses(subtle)}>{title}</h2>
+    {subtle ? (
+      <>
+        <div className="article-pitch__text-content article-pitch__text-content--subtle">
+          <h2 className="article-pitch__title article-pitch__title--subtle">
+            {title}
+          </h2>
           <p className="article-pitch__intro">{intro}</p>
-          <div className={linkClasses(subtle)}>
+          <div className="article-pitch__link article-pitch__link--subtle">
             <LinkBlock to={to}>{linkText}</LinkBlock>
           </div>
         </div>
-      </div>
-      {imageUrl && (
-        <div className="col-md-6">
-          <div
-            className="article-pitch__image"
-            role="img"
-            style={{ backgroundImage: `url(${imageUrl})` }}
-            aria-label={imageAlt}
-          />
+      </>
+    ) : (
+      <div className="row">
+        <div className={imageUrl ? 'col-md-6' : 'col-md-12'}>
+          <div className="article-pitch__text-content">
+            <h2 className="article-pitch__title">{title}</h2>
+            <p className="article-pitch__intro">{intro}</p>
+            <div className="article-pitch__link">
+              <LinkBlock to={to}>{linkText}</LinkBlock>
+            </div>
+          </div>
         </div>
-      )}
-    </div>
+        {imageUrl && (
+          <div className="col-md-6">
+            <div
+              className="article-pitch__image"
+              role="img"
+              style={{ backgroundImage: `url(${imageUrl})` }}
+              aria-label={imageAlt}
+            />
+          </div>
+        )}
+      </div>
+    )}
   </section>
 );
 
