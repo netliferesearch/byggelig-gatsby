@@ -6,6 +6,7 @@ import Layout from '../components/layout';
 import LinkBlock from '../components/LinkBlock';
 import IntroImage from '../components/IntroImage';
 import SEO from '../components/seo';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const serializers = {
   types: {
@@ -33,17 +34,7 @@ export default ({ data }) => {
     <Layout>
       <SEO title={`${title}`} />
 
-      <div className="wrap-outer">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col mt-2">
-              <Link to="/" className="link">
-                ← Forsiden
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Breadcrumbs />
 
       <div className="wrap-outer">
         <article className="container-fluid mt-3">

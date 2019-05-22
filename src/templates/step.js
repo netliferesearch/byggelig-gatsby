@@ -1,6 +1,5 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
-import BlockContent from '@sanity/block-content-to-react';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import RoleSwitch from '../components/RoleSwitch';
@@ -9,6 +8,7 @@ import Icon from '../components/Icon';
 import SEO from '../components/seo';
 import StepNavigation from '../components/StepNavigation';
 import AdvicesCard from '../components/AdvicesCard';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default ({ data, pageContext }) => {
   // Destructure our data
@@ -36,17 +36,7 @@ export default ({ data, pageContext }) => {
     <Layout>
       <SEO title={`Fase ${stepNumber}: ${title}`} />
 
-      <div className="wrap-outer">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col mt-2">
-              <Link to="/" className="link">
-                ← Forsiden
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Breadcrumbs />
 
       <div className="wrap-outer">
         <div className="container-fluid">
