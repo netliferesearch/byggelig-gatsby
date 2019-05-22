@@ -47,33 +47,35 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Forside" />
-      <div className="row">
-        <div className="col-xs-12 order-2">
-          <h1>Hvor er du i prosjektet?</h1>
-          <h2>Reguleringsplan</h2>
-          <nav className="row">
-            {reguleringsplanItems.map(item => StepItem(item))}
-          </nav>
+      <SEO title="Byggelig – Forside" />
+      <Hero />
+      <div className="wrap-outer">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-xs-12">
+              <h1 className="mt-5 mb-3">Hvor er du i prosjektet?</h1>
+              <h2 className="mb-2">Reguleringsplan</h2>
+              <nav className="row">
+                {reguleringsplanItems.map(item => StepItem(item))}
+              </nav>
 
-          <h2>Byggeprosess</h2>
-          <nav className="row">
-            {byggeprosessItems.map(item => StepItem(item))}
-          </nav>
+              <h2 className="mt-2 mb-2">Byggeprosess</h2>
+              <nav className="row">
+                {byggeprosessItems.map(item => StepItem(item))}
+              </nav>
 
-          <div className="mt-4">
-            <ArticlePitch
-              title={articleTitle}
-              intro={articleIntro}
-              to={`/artikkel/${articleSlug}`}
-              linkText={articleLinkText}
-              imageUrl={articleImageUrl}
-              imageAlt={articleImageDescription}
-            />
+              <div className="mt-4 mb-6">
+                <ArticlePitch
+                  title={articleTitle}
+                  intro={articleIntro}
+                  to={`/artikkel/${articleSlug}`}
+                  linkText={articleLinkText}
+                  imageUrl={articleImageUrl}
+                  imageAlt={articleImageDescription}
+                />
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="col-xs-12 order-1">
-          <Hero />
         </div>
       </div>
     </Layout>

@@ -49,5 +49,5 @@ StepNavigation.propTypes = {
   }),
   direction: PropTypes.string,
   role: PropTypes.string.isRequired,
-  subtle: PropTypes.string
+  subtle: PropTypes.bool
 };

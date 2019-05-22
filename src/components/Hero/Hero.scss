@@ -5,7 +5,14 @@
   display: flex;
   background-color: $color-purple-light;
   flex-direction: row;
-  padding: 4% 0;
+  padding: 6vh 0 2vh 0;
+
+  &__container {
+    display: flex;
+    width: $wrap-outer;
+    margin: 0 auto;
+    padding: 0 calc(#{$grid-gutter-width} / 2);
+  }
 
   &__text-content {
     padding-right: $grid-gutter-width;
