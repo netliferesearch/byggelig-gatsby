@@ -37,7 +37,7 @@ export default ({ data }) => {
     } = item.node;
     const path = `/${stage}/fase${stepNumber}-${slug.current}/utbygger`;
     return (
-      <div className="col-lg-3 col-6 mb-sm-2 mb-2" key={id}>
+      <div className="col-lg-3 col-6 mb-sm-2 mb-2 animate-in" key={id}>
         <LinkEntry to={path} icon={iconUrl}>
           {stepNumber}: {title}
         </LinkEntry>
