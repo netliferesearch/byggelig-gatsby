@@ -90,7 +90,7 @@ async function createStepPages(graphql, actions, reporter) {
         prevStep: calculatePrevStep(),
         nextStep: calculateNextStep(),
         pathParams: {
-          role: 'entreprenør',
+          role: 'entreprenor',
           stage,
           stepSlug
         }

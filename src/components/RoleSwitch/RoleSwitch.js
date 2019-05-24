@@ -24,7 +24,7 @@ const RoleSwitch = ({ role, stage, stepSlug }) => {
       </Link>
       <Link
         to={pathEntreprenor}
-        className={linkClasses(role === 'entreprenør')}
+        className={linkClasses(role === 'entreprenor')}
       >
         Entreprenør
       </Link>

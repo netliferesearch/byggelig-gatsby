@@ -29,9 +29,6 @@ export default ({ data, pageContext }) => {
     caseReference = {}
   } = data.sanityStep;
 
-  // Quickfix since we have "ø" in Sanity Schema name. TODO: Fix schema and remove this quickfix
-  const roleFix = role === 'entreprenør' ? 'entreprenor' : role;
-
   return (
     <Layout>
       <SEO title={`Fase ${stepNumber}: ${title}`} />
@@ -42,7 +39,7 @@ export default ({ data, pageContext }) => {
         <div className="container-fluid">
           <div className="row mt-5">
             <div className="col-lg-3 col-6 order-lg-1 order-1">
-              <StepNavigation step={prevStep} direction="back" role={roleFix} />
+              <StepNavigation step={prevStep} direction="back" role={role} />
             </div>
             <div className="col-lg-6 order-lg-2 order-3 center">
               <Icon src={iconUrl} size="giga" />
@@ -53,7 +50,7 @@ export default ({ data, pageContext }) => {
               <p>{intro}</p>
             </div>
             <div className="col-lg-3 col-6 order-lg-3 order-2">
-              <StepNavigation step={nextStep} direction="next" role={roleFix} />
+              <StepNavigation step={nextStep} direction="next" role={role} />
             </div>
           </div>
 
@@ -125,7 +122,7 @@ export default ({ data, pageContext }) => {
               <StepNavigation
                 step={prevStep}
                 direction="back"
-                role={roleFix}
+                role={role}
                 subtle
               />
             </div>
@@ -133,7 +130,7 @@ export default ({ data, pageContext }) => {
               <StepNavigation
                 step={nextStep}
                 direction="next"
-                role={roleFix}
+                role={role}
                 subtle
               />
             </div>
