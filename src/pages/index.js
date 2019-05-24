@@ -84,6 +84,7 @@ export default ({ data }) => {
           <h2 className="mb-2">Reguleringsplan</h2>
           <nav className="row">
             <Waypoint
+              bottomOffset="50"
               onEnter={() => {
                 setIsInViewList1(true);
               }}
@@ -94,6 +95,7 @@ export default ({ data }) => {
           <h2 className="mt-2 mb-2">Byggeprosess</h2>
           <nav className="row">
             <Waypoint
+              bottomOffset="50"
               onEnter={() => {
                 setIsInViewList2(true);
               }}

@@ -44,6 +44,7 @@ const AdvicesCard = ({
       <CardDetails>
         <ul className="ul-check mt-4">
           <Waypoint
+            bottomOffset="50"
             onEnter={() => {
               setIsInView(true);
             }}
