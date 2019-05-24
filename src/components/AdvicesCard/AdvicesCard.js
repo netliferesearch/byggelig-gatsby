@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import BlockContent from '@sanity/block-content-to-react';
+import { Waypoint } from 'react-waypoint';
 import classNames from 'classnames';
 
 import Icon from '../Icon';
@@ -16,9 +17,11 @@ const AdvicesCard = ({
 }) => {
   const linkClasses = active =>
     classNames({
-      'advices-card__item': true,
-      'animate-in': true
+      'advices-card__item animate-hidden': true,
+      'animate-in': active
     });
+
+  const [isInView, setIsInView] = useState(false);
 
   // Error check
   if (!advices) return null;
@@ -40,12 +43,17 @@ const AdvicesCard = ({
     <ContentCard>
       <CardDetails>
         <ul className="ul-check mt-4">
+          <Waypoint
+            onEnter={() => {
+              setIsInView(true);
+            }}
+          />
           {advices
             .filter(advice => (advice.role ? advice.role.includes(role) : null))
             .map(advice => {
               const { _key, text } = advice;
               return (
-                <li key={_key} className={linkClasses(true)}>
+                <li key={_key} className={linkClasses(isInView)}>
                   <div className="li-icon">
                     <Icon type="check" size="small" />
                   </div>
