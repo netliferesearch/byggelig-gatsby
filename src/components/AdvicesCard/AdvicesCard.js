@@ -5,6 +5,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import Icon from '../Icon';
 import ContentCard from '../ContentCard';
 import Collapsible from '../Collapsible';
+import './AdvicesCard.scss';
 
 const AdvicesCard = ({
   title = '',
@@ -37,7 +38,7 @@ const AdvicesCard = ({
             .map(advice => {
               const { _key, text } = advice;
               return (
-                <li key={_key}>
+                <li key={_key} className="advices-card__item">
                   <div className="li-icon">
                     <Icon type="check" size="small" />
                   </div>
