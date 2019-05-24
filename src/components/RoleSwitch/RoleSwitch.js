@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -19,12 +19,27 @@ const RoleSwitch = ({ role, stage, stepSlug }) => {
 
   return (
     <div className="role-switch">
-      <Link to={pathUtbygger} className={linkClasses(role === 'utbygger')}>
+      <Link
+        className={linkClasses(role === 'utbygger')}
+        onClick={e => {
+          e.preventDefault();
+          const scrollY = window.scrollY;
+          navigate(pathUtbygger, {
+            state: { scrollPosition: scrollY }
+          });
+        }}
+      >
         Utbygger
       </Link>
       <Link
-        to={pathEntreprenor}
         className={linkClasses(role === 'entreprenor')}
+        onClick={e => {
+          e.preventDefault();
+          const scrollY = window.scrollY;
+          navigate(pathEntreprenor, {
+            state: { scrollPosition: scrollY }
+          });
+        }}
       >
         Entreprenør
       </Link>
