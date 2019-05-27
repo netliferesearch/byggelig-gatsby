@@ -1,4 +1,9 @@
 module.exports = {
+  siteMetadata: {
+    title: `Byggelig`,
+    siteUrl: `https://byggelig.netlify.com`,
+    description: `Veiledning for effektive og bærekraftige byggeprosesser`
+  },
   plugins: [
     {
       resolve: 'gatsby-source-sanity',
