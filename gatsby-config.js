@@ -53,15 +53,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Bygg21`,
+        short_name: `bygg21`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#2d0469`,
+        theme_color: `#2d0469`,
         display: `minimal-ui`,
         icon: `src/images/favicon-example.png` // This path is relative to the root of the site.
       }
-    }
+    },
+    `gatsby-plugin-offline`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
