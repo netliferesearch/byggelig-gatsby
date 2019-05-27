@@ -12,11 +12,11 @@ const NotFoundPage = () => (
       <div class="container-fluid">
         <div class="row">
           <div class="col mt-4 mb-4">
-            <h1>Oida, denne siden finnes ikke...</h1>
+            <h1>Denne siden finnes ikke...</h1>
             <p>
-              Håper du ikke ble veldig skuffet. <br />
+              Siden ble ikke prosjektert riktig og er derfor ikke bygget.<br />
               <br />
-              Ta en tur innom forsiden og se om du finner noe der.{' '}
+              Gå til <a href="/">forsiden</a> og se om du kan finne tips til byggeprosessen din der.{' '}
             </p>
           </div>
         </div>
