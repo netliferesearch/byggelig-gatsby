@@ -10,11 +10,9 @@ import StepNavigation from '../components/StepNavigation';
 import AdvicesCard from '../components/AdvicesCard';
 import Breadcrumbs from '../components/Breadcrumbs';
 
-export default ({
-  data,
-  pageContext,
-  location: { state: { scrollPosition: scrollPosition = 0 } = {} } = {}
-}) => {
+export default ({ data, pageContext, location = {} }) => {
+  const scrollPosition =
+    (location && location.state && location.state.scrollPosition) || 0;
   // Destructure our data
   const {
     pathParams: { role = '', stage = '', stepSlug = '' } = {},

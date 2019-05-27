@@ -23,7 +23,7 @@ const RoleSwitch = ({ role, stage, stepSlug }) => {
         className={linkClasses(role === 'utbygger')}
         onClick={e => {
           e.preventDefault();
-          const scrollY = window.scrollY;
+          const scrollY = window.scrollY || 0;
           navigate(pathUtbygger, {
             state: { scrollPosition: scrollY }
           });
