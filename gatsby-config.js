@@ -1,4 +1,9 @@
 module.exports = {
+  siteMetadata: {
+    title: `Byggelig`,
+    siteUrl: `https://byggelig.netlify.com`,
+    description: `Veiledning for effektive og bærekraftige byggeprosesser`
+  },
   plugins: [
     {
       resolve: 'gatsby-source-sanity',
@@ -50,6 +55,7 @@ module.exports = {
         // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
       }
     },
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
