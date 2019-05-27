@@ -26,6 +26,16 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: 'GTM-W27Z4RN',
+
+        // Include GTM in development.
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: false
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
@@ -56,4 +66,17 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ]
+};
+
+exports.shouldUpdateScroll = ({
+  routerProps: { location },
+  getSavedScrollPosition
+}) => {
+  const currentPosition = getSavedScrollPosition(location);
+
+  console.log(currentPosition);
+
+  window.scrollTo(...(currentPosition || [100, 100]));
+
+  return false;
 };
