@@ -50,6 +50,7 @@ export default ({
               <StepNavigation step={prevStep} direction="back" role={role} />
             </div>
             <div className="col-lg-6 order-lg-2 order-3 center">
+              <Icon src={iconUrl} size="giga" />
               <h1 className="mt-2">
                 Fase {stepNumber}:<br />
                 {title}
