@@ -77,7 +77,7 @@ export default ({
               role={role}
             />
 
-            <div className="mt-6">
+            <div className="mt-3">
               <AdvicesCard
                 title="Dette bør du ha på plass"
                 advices={advicesShouldHave}
@@ -112,7 +112,7 @@ export default ({
                         role={role}
                       />
                     </div>
-                    <div className="mt-6">
+                    <div className="mt-3">
                       <AdvicesCard
                         title="Dette bør du ha på plass"
                         advices={shouldHave}

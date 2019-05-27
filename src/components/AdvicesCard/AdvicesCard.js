@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import BlockContent from '@sanity/block-content-to-react';
-import { InView } from 'react-intersection-observer';
+import { Waypoint } from 'react-waypoint';
 import classNames from 'classnames';
 
 import Icon from '../Icon';
@@ -15,14 +15,13 @@ const AdvicesCard = ({
   role = '',
   collapsible = false
 }) => {
-  // Animate list when in view, but only do this once
-  let isInView = false;
-
   const linkClasses = active =>
     classNames({
-      'animate-in': true,
-      'advices-card__item': active
+      'advices-card__item animate-hidden': true,
+      'animate-in': active
     });
+
+  const [isInView, setIsInView] = useState(false);
 
   // Error check
   if (!advices) return null;
@@ -43,30 +42,27 @@ const AdvicesCard = ({
   return (
     <ContentCard>
       <CardDetails>
-        <InView
-          triggerOnce
-          onChange={inView => {
-            isInView = inView;
-          }}
-        >
-          <ul className="ul-check mt-4">
-            {advices
-              .filter(advice =>
-                advice.role ? advice.role.includes(role) : null
-              )
-              .map(advice => {
-                const { _key, text } = advice;
-                return (
-                  <li key={_key} className={linkClasses(isInView)}>
-                    <div className="li-icon">
-                      <Icon type="check" size="small" />
-                    </div>
-                    <BlockContent blocks={text} />
-                  </li>
-                );
-              })}
-          </ul>
-        </InView>
+        <ul className="ul-check mt-4">
+          <Waypoint
+            bottomOffset="50"
+            onEnter={() => {
+              setIsInView(true);
+            }}
+          />
+          {advices
+            .filter(advice => (advice.role ? advice.role.includes(role) : null))
+            .map(advice => {
+              const { _key, text } = advice;
+              return (
+                <li key={_key} className={linkClasses(isInView)}>
+                  <div className="li-icon">
+                    <Icon type="check" size="small" />
+                  </div>
+                  <BlockContent blocks={text} />
+                </li>
+              );
+            })}
+        </ul>
       </CardDetails>
     </ContentCard>
   );
