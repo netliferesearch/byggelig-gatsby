@@ -17,32 +17,37 @@ const RoleSwitch = ({ role, stage, stepSlug }) => {
       'role-switch__link--active': active
     });
 
+  const RoleLink = ({ currentRole, currentPath, children }) => {
+    // If active - return non clickable link
+    if (role === currentRole) {
+      // eslint-disable-next-line
+      return <a className={linkClasses(role === currentRole)}>{children}</a>;
+    }
+
+    return (
+      <Link
+        className={linkClasses(role === currentRole)}
+        to={currentPath}
+        onClick={e => {
+          e.preventDefault();
+          navigate(currentPath, {
+            state: { noScroll: true }
+          });
+        }}
+      >
+        {children}
+      </Link>
+    );
+  };
+
   return (
     <div className="role-switch">
-      <Link
-        className={linkClasses(role === 'utbygger')}
-        to={pathUtbygger}
-        onClick={e => {
-          e.preventDefault();
-          navigate(pathUtbygger, {
-            state: { noScroll: true }
-          });
-        }}
-      >
+      <RoleLink currentRole="utbygger" currentPath={pathUtbygger}>
         Utbygger
-      </Link>
-      <Link
-        className={linkClasses(role === 'entreprenor')}
-        to={pathEntreprenor}
-        onClick={e => {
-          e.preventDefault();
-          navigate(pathEntreprenor, {
-            state: { noScroll: true }
-          });
-        }}
-      >
+      </RoleLink>
+      <RoleLink currentRole="entreprenor" currentPath={pathEntreprenor}>
         Entreprenør
-      </Link>
+      </RoleLink>
     </div>
   );
 };
