@@ -9,7 +9,7 @@ const Breadcrumbs = () => {
         <div className="row">
           <div className="col mt-2">
             <Link to="/" className="link">
-              ← Forsiden
+              ← Alle fasene
             </Link>
           </div>
         </div>
