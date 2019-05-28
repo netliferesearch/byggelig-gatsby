@@ -23,9 +23,8 @@ const RoleSwitch = ({ role, stage, stepSlug }) => {
         className={linkClasses(role === 'utbygger')}
         onClick={e => {
           e.preventDefault();
-          const scrollY = window.scrollY || 0;
           navigate(pathUtbygger, {
-            state: { scrollPosition: scrollY }
+            state: { noScroll: true }
           });
         }}
       >
@@ -35,9 +34,8 @@ const RoleSwitch = ({ role, stage, stepSlug }) => {
         className={linkClasses(role === 'entreprenor')}
         onClick={e => {
           e.preventDefault();
-          const scrollY = window.scrollY;
           navigate(pathEntreprenor, {
-            state: { scrollPosition: scrollY }
+            state: { noScroll: true }
           });
         }}
       >

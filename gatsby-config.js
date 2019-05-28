@@ -74,16 +74,3 @@ module.exports = {
     // `gatsby-plugin-offline`,
   ]
 };
-
-exports.shouldUpdateScroll = ({
-  routerProps: { location },
-  getSavedScrollPosition
-}) => {
-  const currentPosition = getSavedScrollPosition(location);
-
-  console.log(currentPosition);
-
-  window.scrollTo(...(currentPosition || [100, 100]));
-
-  return false;
-};

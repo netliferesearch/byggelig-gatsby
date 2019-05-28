@@ -16,6 +16,7 @@ export default () => (
             kvalitetssikret av NTNU
           </div>
           <div className="col-lg-3 offset-lg-1 mt-lg-0 mt-2">
+            <div className="footer__line" />
             <div className="footer__contact">
               Lurer du på noe?
               <br />

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
@@ -10,9 +10,7 @@ import StepNavigation from '../components/StepNavigation';
 import AdvicesCard from '../components/AdvicesCard';
 import Breadcrumbs from '../components/Breadcrumbs';
 
-export default ({ data, pageContext, location = {} }) => {
-  const scrollPosition =
-    (location && location.state && location.state.scrollPosition) || 0;
+export default ({ data, pageContext }) => {
   // Destructure our data
   const {
     pathParams: { role = '', stage = '', stepSlug = '' } = {},
@@ -31,10 +29,6 @@ export default ({ data, pageContext, location = {} }) => {
     caseReference = {}
   } = data.sanityStep;
 
-  useEffect(() => {
-    window.scroll(0, scrollPosition);
-  }, [scrollPosition]);
-
   return (
     <Layout>
       <SEO title={`Fase ${stepNumber}: ${title}`} />
@@ -48,7 +42,7 @@ export default ({ data, pageContext, location = {} }) => {
               <StepNavigation step={prevStep} direction="back" role={role} />
             </div>
             <div className="col-lg-6 order-lg-2 order-3 center">
-              <Icon src={iconUrl} size="giga" />
+              {<Icon src={iconUrl} size="giga" />}
               <h1 className="mt-2">
                 Fase {stepNumber}:<br />
                 {title}
