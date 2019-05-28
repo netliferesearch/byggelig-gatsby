@@ -33,19 +33,13 @@ export default ({ data }) => {
   const [isInViewList1, setIsInViewList1] = useState(false);
   const [isInViewList2, setIsInViewList2] = useState(false);
 
-  const list1Classes = active =>
+  const listClasses = active =>
     classNames({
       'col-lg-3 col-6 mb-sm-2 mb-2 animate-hidden': true,
       'animate-in': active
     });
 
-  const list2Classes = active =>
-    classNames({
-      'col-lg-3 col-6 mb-sm-2 mb-2 animate-hidden': true,
-      'animate-in': active
-    });
-
-  const StepItem = (item, list) => {
+  const StepItem = (item, currentList) => {
     const {
       id,
       stage,
@@ -58,24 +52,13 @@ export default ({ data }) => {
     } = item.node;
     const path = `/${stage}/fase${stepNumber}-${slug.current}/${defaultRole}`;
 
-    if (list === 'list1') {
-      return (
-        <div className={list1Classes(isInViewList1)} key={id}>
-          <LinkEntry to={path} icon={iconUrl}>
-            {stepNumber}: {title}
-          </LinkEntry>
-        </div>
-      );
-    }
-    if (list === 'list2') {
-      return (
-        <div className={list2Classes(isInViewList2)} key={id}>
-          <LinkEntry to={path} icon={iconUrl}>
-            {stepNumber}: {title}
-          </LinkEntry>
-        </div>
-      );
-    }
+    return (
+      <div className={listClasses(currentList)} key={id}>
+        <LinkEntry to={path} icon={iconUrl}>
+          {stepNumber}: {title}
+        </LinkEntry>
+      </div>
+    );
   };
 
   return (
@@ -93,7 +76,7 @@ export default ({ data }) => {
             }}
           >
             <nav className="row">
-              {reguleringsplanItems.map(item => StepItem(item, 'list1'))}
+              {reguleringsplanItems.map(item => StepItem(item, isInViewList1))}
             </nav>
           </Waypoint>
 
@@ -106,7 +89,7 @@ export default ({ data }) => {
             }}
           >
             <nav className="row">
-              {byggeprosessItems.map(item => StepItem(item, 'list2'))}
+              {byggeprosessItems.map(item => StepItem(item, isInViewList2))}
             </nav>
           </Waypoint>
 
