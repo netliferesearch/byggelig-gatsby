@@ -25,9 +25,13 @@ export default ({ data }) => {
     } = {}
   } = data.sanityPage || {};
 
-  // Check if a role is defined in localStorage, if not we default to the role "utbygger"
+  // Check if a role is defined in localStorage, if not we default to the role "utbygger" + check if client or server
+  let localStorageValue = '';
+  if (typeof window !== 'undefined') {
+    localStorageValue = localStorage.getItem('role');
+  }
   const defaultRole =
-    localStorage.getItem('role') === 'entreprenor' ? 'entreprenor' : 'utbygger';
+    localStorageValue === 'entreprenor' ? 'entreprenor' : 'utbygger';
 
   // Toggle animation when items are in view
   const [isInViewList1, setIsInViewList1] = useState(false);
