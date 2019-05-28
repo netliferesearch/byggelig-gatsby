@@ -50,25 +50,26 @@ const AdvicesCard = ({
   return (
     <ContentCard>
       <CardDetails>
-        <ul className="ul-check mt-4">
-          <Waypoint
-            bottomOffset="50"
-            onEnter={() => {
-              setIsInView(true);
-            }}
-          />
-          {currentAdvices.map(advice => {
-            const { _key, text } = advice;
-            return (
-              <li key={_key} className={linkClasses(isInView)}>
-                <div className="li-icon">
-                  <Icon type="check" size="small" />
-                </div>
-                <BlockContent blocks={text} />
-              </li>
-            );
-          })}
-        </ul>
+        <Waypoint
+          bottomOffset="50"
+          onEnter={() => {
+            setIsInView(true);
+          }}
+        >
+          <ul className="ul-check mt-4">
+            {currentAdvices.map(advice => {
+              const { _key, text } = advice;
+              return (
+                <li key={_key} className={linkClasses(isInView)}>
+                  <div className="li-icon">
+                    <Icon type="check" size="small" />
+                  </div>
+                  <BlockContent blocks={text} />
+                </li>
+              );
+            })}
+          </ul>
+        </Waypoint>
       </CardDetails>
     </ContentCard>
   );

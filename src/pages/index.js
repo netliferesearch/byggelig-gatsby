@@ -82,26 +82,29 @@ export default ({ data }) => {
         <div className="container-fluid">
           <h1 className="mt-5 mb-3">Hvor er du i prosjektet?</h1>
           <h2 className="mb-2">Reguleringsplan</h2>
-          <nav className="row">
-            <Waypoint
-              bottomOffset="50"
-              onEnter={() => {
-                setIsInViewList1(true);
-              }}
-            />
-            {reguleringsplanItems.map(item => StepItem(item, 'list1'))}
-          </nav>
+          <Waypoint
+            bottomOffset="50"
+            onEnter={() => {
+              setIsInViewList1(true);
+            }}
+          >
+            <nav className="row">
+              {reguleringsplanItems.map(item => StepItem(item, 'list1'))}
+            </nav>
+          </Waypoint>
 
           <h2 className="mt-2 mb-2">Byggeprosess</h2>
-          <nav className="row">
-            <Waypoint
-              bottomOffset="50"
-              onEnter={() => {
-                setIsInViewList2(true);
-              }}
-            />
-            {byggeprosessItems.map(item => StepItem(item, 'list2'))}
-          </nav>
+
+          <Waypoint
+            bottomOffset="50"
+            onEnter={() => {
+              setIsInViewList2(true);
+            }}
+          >
+            <nav className="row">
+              {byggeprosessItems.map(item => StepItem(item, 'list2'))}
+            </nav>
+          </Waypoint>
 
           <div className="mt-4 mb-6">
             <ArticlePitch
