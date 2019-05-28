@@ -21,6 +21,7 @@ const RoleSwitch = ({ role, stage, stepSlug }) => {
     <div className="role-switch">
       <Link
         className={linkClasses(role === 'utbygger')}
+        to={pathUtbygger}
         onClick={e => {
           e.preventDefault();
           navigate(pathUtbygger, {
@@ -32,6 +33,7 @@ const RoleSwitch = ({ role, stage, stepSlug }) => {
       </Link>
       <Link
         className={linkClasses(role === 'entreprenor')}
+        to={pathEntreprenor}
         onClick={e => {
           e.preventDefault();
           navigate(pathEntreprenor, {
