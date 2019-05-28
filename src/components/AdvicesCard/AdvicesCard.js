@@ -26,6 +26,14 @@ const AdvicesCard = ({
   // Error check
   if (!advices) return null;
 
+  // Get advices for selected role
+  const currentAdvices = advices.filter(advice =>
+    advice.role ? advice.role.includes(role) : null
+  );
+
+  // Error check
+  if (!currentAdvices.length) return null;
+
   // Should we show the details collapsed (accordion style) or normal?
   const CardDetails = ({ children }) => {
     if (collapsible) {
@@ -49,19 +57,17 @@ const AdvicesCard = ({
               setIsInView(true);
             }}
           />
-          {advices
-            .filter(advice => (advice.role ? advice.role.includes(role) : null))
-            .map(advice => {
-              const { _key, text } = advice;
-              return (
-                <li key={_key} className={linkClasses(isInView)}>
-                  <div className="li-icon">
-                    <Icon type="check" size="small" />
-                  </div>
-                  <BlockContent blocks={text} />
-                </li>
-              );
-            })}
+          {currentAdvices.map(advice => {
+            const { _key, text } = advice;
+            return (
+              <li key={_key} className={linkClasses(isInView)}>
+                <div className="li-icon">
+                  <Icon type="check" size="small" />
+                </div>
+                <BlockContent blocks={text} />
+              </li>
+            );
+          })}
         </ul>
       </CardDetails>
     </ContentCard>
