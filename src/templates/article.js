@@ -22,13 +22,14 @@ export default ({ data }) => {
   const {
     title = '',
     intro = '',
-    introImage: {
-      description: imageDescription = '',
-      asset: { url: imageUrl = '' } = {}
-    } = {},
-    _rawBodyText: bodyText = '',
-    _updatedAt: updatedAt = ''
+    _rawBodyText: bodyText = ''
   } = data.sanityArticle;
+
+  const introImage = data.sanityArticle || {};
+  const {
+    description: imageDescription = '',
+    asset: { url: imageUrl = '' } = {}
+  } = introImage;
 
   return (
     <Layout>
