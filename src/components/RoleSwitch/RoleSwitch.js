@@ -30,6 +30,8 @@ const RoleSwitch = ({ role, stage, stepSlug }) => {
         to={currentPath}
         onClick={e => {
           e.preventDefault();
+          // Use localStorage to remember selected role
+          localStorage.setItem('role', currentRole);
           navigate(currentPath, {
             state: { noScroll: true }
           });
