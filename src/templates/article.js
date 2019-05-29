@@ -8,15 +8,15 @@ import IntroImage from '../components/IntroImage';
 import SEO from '../components/seo';
 import Breadcrumbs from '../components/Breadcrumbs';
 
-// const serializers = {
-//   types: {
-//     linkBlock: props => (
-//       <LinkBlock to={props.node.url} external>
-//         {props.node.text}
-//       </LinkBlock>
-//     )
-//   }
-// };
+const serializers = {
+  types: {
+    linkBlock: props => (
+      <LinkBlock to={props.node.url} external>
+        {props.node.text}
+      </LinkBlock>
+    )
+  }
+};
 
 export default ({ data }) => {
   const {
@@ -52,7 +52,7 @@ export default ({ data }) => {
           </div>
           <div className="row mt-3 mb-6">
             <div className="col-md-8">
-              {/* <BlockContent blocks={bodyText} serializers={serializers} /> */}
+              <BlockContent blocks={bodyText} serializers={serializers} />
             </div>
           </div>
         </article>
@@ -72,7 +72,7 @@ export const query = graphql`
           url
         }
       }
-      _rawBodyText
+      _rawBodyText(resolveReferences: { maxDepth: 5 })
       _updatedAt
     }
   }
