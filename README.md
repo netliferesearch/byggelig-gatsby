@@ -71,4 +71,10 @@ Also see `gatsby-browser.js`. It has a small script listening for changes and us
 
 ## Gatsby
 
-Out site is based on: https://github.com/gatsbyjs/gatsby-starter-default and uses a plugin for pulling data from Sanity.io into Gatsby: https://www.gatsbyjs.org/packages/gatsby-source-sanity/
+Our site is based on: https://github.com/gatsbyjs/gatsby-starter-default and uses a plugin for pulling data from Sanity.io into Gatsby: https://www.gatsbyjs.org/packages/gatsby-source-sanity/
+
+## Checking for broken links
+
+After building with Gatsby we run the commmand line tools link-checker. It checks the built files on the file system in the `/public` directory. It outputs information about the broken links as JSON. This string gets piped into the Node program `linkChecker.js`.
+
+`linkChecker.js` checks if there are any items in the broken link list. If there are any items it creates a HTML file called `broken-links.html` into `/public`. It lists out the page with the error, the broken links on the page and the error message. If there are no errors it does nothing. Gatsby's build command deletes the `/public` directory on each build, meaning the file will not be published if there were no errors, and would be removed if there is no errors anymore. 
