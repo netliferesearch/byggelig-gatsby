@@ -47,7 +47,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build && npm run link-checker",
-    "link-checker": "npx link-checker ./public --external-only --json --http-redirects 16 | node linkChecker.js",
+    "link-checker": "npx link-checker ./public --external-only --json --file-ignore static --http-redirects 16 | node linkChecker.js",
     "develop": "gatsby develop",
     "dev": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
