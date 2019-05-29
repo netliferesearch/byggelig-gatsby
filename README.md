@@ -45,6 +45,12 @@ https://byggelig.sanity.studio/
 ### Gatsby
 If something is not working, you might try to build locally, and check your terminal for errors: `npm run build`.
 
+### Caching / Offline mode
+We use a plugin for enabling offline mode. Caching is notoriously for causing weird bugs where things are not updating for some users. No problems so far(!) and major speed and PWA benefits, but if things go wrong, this plugin can be disabled following these steps: 
+https://www.gatsbyjs.org/packages/gatsby-plugin-offline/#remove 
+
+Also see `gatsby-browser.js`. It has a small script listening for changes and using a serviceworker to reload the page if it notices any changes compared to cached / offline files.
+
 ## Prosjektregler
 
 - Alle stiler skriver med SCSS (SASS)
