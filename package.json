@@ -20,6 +20,7 @@
     "gatsby-source-filesystem": "^2.0.33",
     "gatsby-source-sanity": "^4.0.1",
     "gatsby-transformer-sharp": "^2.1.19",
+    "link-checker": "^1.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -45,7 +46,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build && npm run link-checker",
+    "link-checker": "npx link-checker ./public --external-only --json --http-redirects 16 | node linkChecker.js",
     "develop": "gatsby develop",
     "dev": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",

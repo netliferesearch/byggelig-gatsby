@@ -1,0 +1,41 @@
+{
+  "verbose": false,
+
+  "baseUrl": "https://byggelig.netlify.com",
+
+  "maxConcurrentUrlRequests": 50,
+
+  "maxConcurrentFiles": 10,
+
+  "allowedTags": {
+    "a": "href",
+    "img": "src"
+  },
+
+  "allowedProtocols": ["http:", "https:"],
+
+  "excludePatterns": [
+    "^https?://.*linkedin.com",
+    "^https?://.*example.com",
+    "^https?://.*localhost"
+  ],
+
+  "excludePrivateIPs": true,
+
+  "checkAnchorLinks": true,
+
+  "timeout": 60000,
+
+  "retry405Head": true,
+
+  "retryENOTFOUND": true,
+
+  "maxRetries": 3,
+
+  "useCache": true,
+
+  "avoidHeadForPatterns": [
+    "^https?://.*linkedin.com",
+    "^https?://.*youtube.com"
+  ]
+}

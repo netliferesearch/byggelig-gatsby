@@ -149,12 +149,3 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   await createStepPages(graphql, actions, reporter);
   await createArticlePages(graphql, actions, reporter);
 };
-
-/* 
-
-TODO
-Sortere på stage, stepNumber
-Vise riktig innhold
-Logikk om forrige/neste så den ikke går til neste Stage
-
-*/
