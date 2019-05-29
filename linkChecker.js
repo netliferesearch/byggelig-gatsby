@@ -39,7 +39,7 @@ rl.on('close', () => {
       </style>
       </head>
       <body>
-        <h1>Sider med døde lenker 👻</h1>
+        <h1>Sider med døde lenker 🔗👻</h1>
         <ul>
           ${errors
             .map(
