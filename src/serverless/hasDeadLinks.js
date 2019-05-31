@@ -1,4 +1,4 @@
-const nodeFetch = require('node-fetch').default;
+const axios = require('axios');
 const mailgun = require('mailgun-js');
 
 const brokenLinksDomain = 'https://byggelig.netlify.com/broken-links.html';
@@ -33,7 +33,7 @@ exports.handler = async (event, context) => {
     };
   }
 
-  nodeFetch(brokenLinksDomain).then(res => {
+  axios(brokenLinksDomain).then(res => {
     if (res.status !== 200) {
       return;
     }

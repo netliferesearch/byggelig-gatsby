@@ -73,3 +73,4 @@ studio/dist/
 
 # Built serverless functions
 serverless-build/*.zip
+serverless-build/*.js
