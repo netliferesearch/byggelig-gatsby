@@ -35,21 +35,17 @@ exports.handler = async (event, context) => {
     };
   }
 
-  axios(brokenLinksDomain).then(res => {
-    if (res.status !== 200) {
-      return;
-    }
-
-    errorPageStatus = res.status;
-
-    // Vi sender en epost siden det finnes en side som har en liste med feil.
-    mg.messages().send(mailData, function(error, body) {
-      console.log(error ? error : '', body);
-    });
-  });
-
-  return {
-    statusCode: 200,
-    body: JSON.stringify(`ok. broken-link.html status: ${errorPageStatus}`)
-  };
+  return axios(brokenLinksDomain)
+    .then(res => res.status)
+    .then(status => {
+      if (status !== 200) {
+        return 'no email sent';
+      }
+      // Vi sender en epost siden det finnes en side som har en liste med feil.
+      return mg.messages().send(mailData);
+    })
+    .then(mailRes => ({
+      statusCode: 200,
+      body: `OK. Mail status: ${JSON.stringify(mailRes)}`
+    }));
 };
