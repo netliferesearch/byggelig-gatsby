@@ -1,11 +1,9 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "Byggelig",
+  "description": "Et byggelig prosjekt",
+  "version": "0.2.0",
+  "author": "Netlife Design",
   "dependencies": {
-    "@netlify/zip-it-and-ship-it": "^0.3.1",
     "@sanity/block-content-to-react": "^2.0.6",
     "classnames": "^2.2.6",
     "gatsby": "^2.4.3",
@@ -21,8 +19,6 @@
     "gatsby-source-filesystem": "^2.0.33",
     "gatsby-source-sanity": "^4.0.1",
     "gatsby-transformer-sharp": "^2.1.19",
-    "link-checker": "^1.2.1",
-    "netlify-lambda": "^1.4.13",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -31,6 +27,9 @@
     "zenscroll": "^4.0.2"
   },
   "devDependencies": {
+    "@netlify/zip-it-and-ship-it": "^0.3.1",
+    "netlify-lambda": "^1.4.13",
+    "link-checker": "^1.2.1",
     "babel-eslint": "^9.0.0",
     "eslint": "^5.16.0",
     "eslint-config-react-app": "^4.0.1",
