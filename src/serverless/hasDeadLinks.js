@@ -7,6 +7,8 @@ const { HAS_DEAD_LINKS_SECRET, MG_API_KEY, MG_DOMAIN } = process.env;
 
 const mg = mailgun({ apiKey: MG_API_KEY, domain: MG_DOMAIN });
 
+let errorPageStatus = '';
+
 const mailData = {
   from: `Netlife Robot <me@${MG_DOMAIN}>`,
   to: 'ole.stovern@netlife.com',
@@ -38,6 +40,8 @@ exports.handler = async (event, context) => {
       return;
     }
 
+    errorPageStatus = res.status;
+
     // Vi sender en epost siden det finnes en side som har en liste med feil.
     mg.messages().send(mailData, function(error, body) {
       console.log(error ? error : '', body);
@@ -46,6 +50,6 @@ exports.handler = async (event, context) => {
 
   return {
     statusCode: 200,
-    body: JSON.stringify('okely dokely')
+    body: JSON.stringify(`ok. broken-link.html status: ${errorPageStatus}`)
   };
 };
