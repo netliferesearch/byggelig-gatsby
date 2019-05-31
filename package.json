@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@netlify/zip-it-and-ship-it": "^0.3.1",
     "@sanity/block-content-to-react": "^2.0.6",
     "classnames": "^2.2.6",
     "gatsby": "^2.4.3",
@@ -21,7 +22,6 @@
     "gatsby-source-sanity": "^4.0.1",
     "gatsby-transformer-sharp": "^2.1.19",
     "link-checker": "^1.2.1",
-    "mailgun-js": "^0.22.0",
     "netlify-lambda": "^1.4.13",
     "node-fetch": "^2.6.0",
     "prop-types": "^15.7.2",

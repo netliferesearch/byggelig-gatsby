@@ -1,4 +1,4 @@
-const nodeFetch = require('node-fetch');
+const nodeFetch = require('node-fetch').default;
 const mailgun = require('mailgun-js');
 
 const brokenLinksDomain = 'https://byggelig.netlify.com/broken-links.html';
