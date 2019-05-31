@@ -72,4 +72,4 @@ yarn-error.log
 studio/dist/
 
 # Built serverless functions
-build
+serverless-build/*.zip
