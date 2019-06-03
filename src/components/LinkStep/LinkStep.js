@@ -21,15 +21,21 @@ const textClasses = (subtle, direction) =>
     'link-step__text--subtle-back': subtle && direction === 'back'
   });
 
-const iconClasses = subtle =>
+const iconClasses = (subtle, direction) =>
   classNames({
     'link-step__icon': true,
-    'link-step__icon--subtle': subtle
+    'link-step__icon--subtle': subtle,
+    'link-step__icon--subtle-back': subtle && direction === 'back'
   });
 
 const LinkStep = ({ children, to, direction, number, subtle }) => (
   <div className={linkStepClasses(subtle, direction)} role="presentation">
-    <Link to={to} className={iconClasses(subtle)} aria-hidden tabIndex="-1">
+    <Link
+      to={to}
+      className={iconClasses(subtle, direction)}
+      aria-hidden
+      tabIndex="-1"
+    >
       <Icon
         mirror={direction === 'back'}
         type={subtle ? 'arrow' : 'arrowround'}

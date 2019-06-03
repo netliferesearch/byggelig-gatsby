@@ -47,7 +47,7 @@ export default ({ data, pageContext }) => {
                 Fase {stepNumber}:<br />
                 {title}
               </h1>
-              <p>{intro}</p>
+              <p className="text-big">{intro}</p>
             </div>
             <div className="col-lg-3 col-6 order-lg-3 order-2">
               <StepNavigation step={nextStep} direction="next" role={role} />
@@ -118,7 +118,7 @@ export default ({ data, pageContext }) => {
           </article>
 
           <div className="row mt-5">
-            <div className="col">
+            <div className="col-6">
               <StepNavigation
                 step={prevStep}
                 direction="back"
@@ -126,7 +126,7 @@ export default ({ data, pageContext }) => {
                 subtle
               />
             </div>
-            <div className="col">
+            <div className="col-6">
               <StepNavigation
                 step={nextStep}
                 direction="next"

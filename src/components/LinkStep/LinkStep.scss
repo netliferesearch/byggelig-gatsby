@@ -7,22 +7,35 @@
 
   &--subtle {
     flex-direction: row-reverse;
+
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+    }
   }
 
   &--subtle-back {
     flex-direction: row;
     text-align: right;
+
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+    }
   }
 
   &__text {
-    display: inline-flex;
+    // display: inline-flex;
     align-self: center;
     flex-shrink: 0;
     text-align: center;
     color: $color-black;
     text-decoration: none;
+    // width: 100%;
     &--subtle {
       text-align: right;
+
+      @media (max-width: $breakpoint-sm) {
+        width: 100%;
+      }
     }
     &--subtle-back {
       text-align: left;
@@ -52,6 +65,20 @@
       margin: 0 1em;
       margin-top: -0.5em;
       align-self: center;
+
+      @media (max-width: $breakpoint-sm) {
+        height: 2.5em;
+        align-self: flex-end;
+        margin: 0;
+      }
+
+      &-back {
+        @media (max-width: $breakpoint-sm) {
+          height: 2.5em;
+          align-self: flex-start;
+          margin: 0;
+        }
+      }
     }
   }
 }
