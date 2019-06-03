@@ -17,12 +17,18 @@ const ArticlePitch = ({
     {subtle ? (
       <>
         <div className="article-pitch__text-content article-pitch__text-content--subtle">
-          <h2 className="article-pitch__title article-pitch__title--subtle">
-            {title}
-          </h2>
-          <p className="article-pitch__intro">{intro}</p>
-          <div className="article-pitch__link article-pitch__link--subtle">
-            <LinkBlock to={to}>{linkText}</LinkBlock>
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <h2 className="article-pitch__title article-pitch__title--subtle">
+                  {title}
+                </h2>
+                <p className="article-pitch__intro">{intro}</p>
+                <div className="article-pitch__link article-pitch__link--subtle">
+                  <LinkBlock to={to}>{linkText}</LinkBlock>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </>

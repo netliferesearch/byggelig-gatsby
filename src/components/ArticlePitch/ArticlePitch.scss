@@ -14,7 +14,7 @@
     padding: 10% 10%;
     &--subtle {
       background-color: $color-blue-haze;
-      padding: 5% calc(calc(100% - #{$wrap-outer}) / 2 + #{$grid-gutter-width});
+      padding: calc(3rem + 2vw) 0;
     }
   }
 
