@@ -37,20 +37,24 @@ export default ({ data, pageContext }) => {
 
       <div className="wrap-outer">
         <div className="container-fluid">
-          <div className="row mt-5">
-            <div className="col-lg-3 col-6 order-lg-1 order-1">
+          <div className="row mt-md-4 mt-3">
+            <div className="col-md-3 col-sm-4 col-5 order-1 order-md-1">
               <StepNavigation step={prevStep} direction="back" role={role} />
             </div>
-            <div className="col-lg-6 order-lg-2 order-3 center">
-              {<Icon src={iconUrl} size="giga" />}
+            <div className="col-md-6 col-12 center order-3 order-md-2 mt-3 mt-md-0">
+              <Icon src={iconUrl} size="giga" />
+            </div>
+            <div className="col-md-3 col-sm-4 col-5 offset-2 offset-sm-4 offset-md-0 order-2 order-md-3">
+              <StepNavigation step={nextStep} direction="next" role={role} />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-6 offset-lg-3 center">
               <h1 className="mt-2">
                 Fase {stepNumber}:<br />
                 {title}
               </h1>
               <p className="text-big">{intro}</p>
-            </div>
-            <div className="col-lg-3 col-6 order-lg-3 order-2">
-              <StepNavigation step={nextStep} direction="next" role={role} />
             </div>
           </div>
 
