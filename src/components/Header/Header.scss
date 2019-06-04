@@ -6,20 +6,21 @@
 
   &__title {
     color: white !important;
-    font-size: $text-medium;
+    font-size: $text-big;
+    text-decoration: none;
+  }
 
-    @media (min-width: $breakpoint-md) {
-      font-size: $text-big;
-    }
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
   }
 
   &__description {
     color: white;
     text-align: right;
-    display: none;
-
-    @media (min-width: $breakpoint-md) {
-      display: block;
-    }
+    font-size: $text-small;
   }
 }

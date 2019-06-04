@@ -8,7 +8,6 @@ import Icon from '../components/Icon';
 import SEO from '../components/seo';
 import StepNavigation from '../components/StepNavigation';
 import AdvicesCard from '../components/AdvicesCard';
-import Breadcrumbs from '../components/Breadcrumbs';
 
 export default ({ data, pageContext }) => {
   // Destructure our data
@@ -32,9 +31,6 @@ export default ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO title={`Fase ${stepNumber}: ${title}`} />
-
-      <Breadcrumbs />
-
       <div className="wrap-outer">
         <div className="container-fluid">
           <div className="row mt-md-4 mt-3">
@@ -49,7 +45,7 @@ export default ({ data, pageContext }) => {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-6 offset-lg-3 center">
+            <div className="col-lg-8 col-md-10 offset-md-1 offset-lg-2 center">
               <h1 className="mt-2">
                 Fase {stepNumber}:<br />
                 {title}

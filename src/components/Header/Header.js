@@ -10,15 +10,20 @@ const Header = ({ data }) => {
     <header className="header">
       <div className="wrap-outer">
         <div className="container-fluid">
-          <div className="row align-center">
-            <div className="col-sm-auto">
-              <div className="h2">
-                <Link to="/" className="header__title link">
-                  {siteName}
-                </Link>
-              </div>
+          <div className="row">
+            <div className="col-4">
+              <Link to="/" className="header__title">
+                {siteName}
+              </Link>
             </div>
-            <div className="col">
+            <div className="col-4">
+              <nav className="header__nav">
+                <Link to="/" className="link link--white">
+                  Alle fasene
+                </Link>
+              </nav>
+            </div>
+            <div className="col-4 d-none d-md-block">
               <div className="header__description">{mainSubHeading}</div>
             </div>
           </div>
