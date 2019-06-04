@@ -1,21 +1,16 @@
 const axios = require('axios');
-const mailgun = require('mailgun-js');
+const sgMail = require('@sendgrid/mail');
 
-const brokenLinksDomain = 'https://byggelig.netlify.com/broken-links.html';
+const brokenLinksDomain = 'https://byggelig.no/broken-links.html';
 
-const {
-  HAS_DEAD_LINKS_SECRET,
-  MG_API_KEY,
-  MG_DOMAIN,
-  EMAIL_RECIPIENTS
-} = process.env;
+const { HAS_DEAD_LINKS_SECRET, SG_API_KEY, EMAIL_RECIPIENTS } = process.env;
 
-const mg = mailgun({ apiKey: MG_API_KEY, domain: MG_DOMAIN });
+sgMail.setApiKey(SG_API_KEY);
 
-const mailData = {
-  from: `Netlife Robot <me@${MG_DOMAIN}>`,
+const msg = {
   to: EMAIL_RECIPIENTS,
-  subject: 'Byggelig – liste med ødelagte lenker',
+  from: `Byggelig Robot <robot@byggelig.no>`,
+  subject: 'Liste med ødelagte lenker – Byggelig.no 🤖',
   text: brokenLinksDomain,
   html: `Det finnes ødelagte lenker på byggelig.no<br /><a href="${brokenLinksDomain}">Se hvilke lenker som ikke fungerer lenger</a>`
 };
@@ -48,7 +43,7 @@ exports.handler = async (event, context) => {
         return 'No recipients in variables.';
       }
       // Vi sender en epost siden det finnes en side som har en liste med feil.
-      return mg.messages().send(mailData);
+      return sgMail.send(msg);
     })
     .then(mailRes => ({
       statusCode: 200,
