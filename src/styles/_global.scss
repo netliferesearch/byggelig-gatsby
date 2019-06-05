@@ -1,5 +1,20 @@
+html {
+  height: 100%;
+}
+
 body {
   background-color: $color-mint-light;
+}
+
+// Makes footer stay at bottom regardless of the page height
+.gatsby-wrapper > div {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 .wrap-outer {

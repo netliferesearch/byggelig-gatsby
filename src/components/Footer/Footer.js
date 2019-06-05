@@ -19,10 +19,22 @@ export default () => (
             <div className="footer__line" />
             <div className="footer__contact">
               Lurer du på noe?
-              <br />
-              <a href="mailto:kontakt@byggelig.no" className="footer__link">
-                kontakt@byggelig.no
-              </a>
+              <p role="presentation">
+                <a
+                  href="mailto:kontakt@byggelig.no"
+                  className="link link--white link--slim"
+                >
+                  kontakt@byggelig.no
+                </a>
+              </p>
+              <p role="presentation">
+                <a
+                  className="link link--white link--slim"
+                  href="http://localhost:8000/artikkel/personvern-og-cookies"
+                >
+                  Personvern og cookies
+                </a>
+              </p>
             </div>
           </div>
         </div>

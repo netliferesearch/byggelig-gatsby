@@ -1,13 +1,10 @@
 @import '../../styles/variables';
 
 .footer {
+  flex-shrink: 0;
   background-color: $color-purple;
   color: white;
   padding: 4rem 2rem;
-
-  &__link {
-    color: white;
-  }
 
   &__line {
     border-left: 3px solid $color-mint;

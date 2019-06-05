@@ -54,7 +54,15 @@ ul {
     &:visited,
     &:active,
     &:hover {
-      color: white;
+      color: white !important;
+    }
+  }
+  &--slim {
+    &,
+    &:visited,
+    &:active,
+    &:hover {
+      font-weight: normal;
     }
   }
 }

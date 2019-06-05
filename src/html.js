@@ -25,6 +25,7 @@ export default function HTML(props) {
         <div
           key={`body`}
           id="___gatsby"
+          class="gatsby-wrapper"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
