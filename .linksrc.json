@@ -1,7 +1,7 @@
 {
   "verbose": false,
 
-  "baseUrl": "https://byggelig.netlify.com",
+  "baseUrl": "https://byggelig.no",
 
   "maxConcurrentUrlRequests": 50,
 

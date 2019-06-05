@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Byggelig`,
-    siteUrl: `https://byggelig.netlify.com`,
+    siteUrl: `https://byggelig.no`,
     description: `Veiledning for effektive og bærekraftige byggeprosesser`
   },
   plugins: [
