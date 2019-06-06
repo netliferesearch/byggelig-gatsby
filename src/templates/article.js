@@ -4,6 +4,7 @@ import BlockContent from '@sanity/block-content-to-react';
 
 import Layout from '../components/layout';
 import LinkBlock from '../components/LinkBlock';
+import FileLink from '../components/FileLink';
 import IntroImage from '../components/IntroImage';
 import SEO from '../components/seo';
 
@@ -13,6 +14,11 @@ const serializers = {
       <LinkBlock to={props.node.url} external>
         {props.node.text}
       </LinkBlock>
+    ),
+    fileLink: props => (
+      <FileLink href={props.node.file.asset.url}>
+        {props.node.linkText}
+      </FileLink>
     )
   }
 };

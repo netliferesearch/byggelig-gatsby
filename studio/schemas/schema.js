@@ -14,6 +14,7 @@ import article from './article';
 import linkBlock from './linkBlock';
 import advice from './advice';
 import introImage from './introImage';
+import fileLink from './fileLink';
 import meeting from './meeting';
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -30,6 +31,7 @@ export default createSchema({
     linkBlock,
     advice,
     introImage,
+    fileLink,
     meeting
   ]
 });
