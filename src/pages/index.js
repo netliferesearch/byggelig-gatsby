@@ -68,44 +68,48 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title="Byggelig – Forside" />
-      <Hero />
-      <div className="wrap-outer">
-        <div className="container-fluid">
-          <h1 className="mt-5 mb-3">Hvor er du i prosjektet?</h1>
-          <h2 className="mb-2">Reguleringsplan</h2>
-          <Waypoint
-            bottomOffset="50"
-            onEnter={() => {
-              setIsInViewList1(true);
-            }}
-          >
-            <nav className="row">
-              {reguleringsplanItems.map(item => StepItem(item, isInViewList1))}
-            </nav>
-          </Waypoint>
+      <div>
+        <Hero />
+        <div className="wrap-outer">
+          <div className="container-fluid">
+            <h1 className="mt-5 mb-3">Hvor er du i prosjektet?</h1>
+            <h2 className="mb-2">Reguleringsplan</h2>
+            <Waypoint
+              bottomOffset="50"
+              onEnter={() => {
+                setIsInViewList1(true);
+              }}
+            >
+              <nav className="row">
+                {reguleringsplanItems.map(item =>
+                  StepItem(item, isInViewList1)
+                )}
+              </nav>
+            </Waypoint>
 
-          <h2 className="mt-2 mb-2">Byggeprosess</h2>
+            <h2 className="mt-2 mb-2">Byggeprosess</h2>
 
-          <Waypoint
-            bottomOffset="50"
-            onEnter={() => {
-              setIsInViewList2(true);
-            }}
-          >
-            <nav className="row">
-              {byggeprosessItems.map(item => StepItem(item, isInViewList2))}
-            </nav>
-          </Waypoint>
+            <Waypoint
+              bottomOffset="50"
+              onEnter={() => {
+                setIsInViewList2(true);
+              }}
+            >
+              <nav className="row">
+                {byggeprosessItems.map(item => StepItem(item, isInViewList2))}
+              </nav>
+            </Waypoint>
 
-          <div className="mt-4 mb-6">
-            <ArticlePitch
-              title={articleTitle}
-              intro={articleIntro}
-              to={`/artikkel/${articleSlug}`}
-              linkText={articleLinkText}
-              imageUrl={articleImageUrl}
-              imageAlt={articleImageDescription}
-            />
+            <div className="mt-4 mb-6">
+              <ArticlePitch
+                title={articleTitle}
+                intro={articleIntro}
+                to={`/artikkel/${articleSlug}`}
+                linkText={articleLinkText}
+                imageUrl={articleImageUrl}
+                imageAlt={articleImageDescription}
+              />
+            </div>
           </div>
         </div>
       </div>

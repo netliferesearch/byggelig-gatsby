@@ -11,20 +11,45 @@
   }
   &--giga {
     width: $text-huge * 2;
+    height: $text-huge * 2;
+    // Fix for a height bug in IE11.
+    @supports (-webkit-appearance: none) {
+      height: auto;
+    }
   }
   &--huge {
     width: $text-huge;
+    height: $text-huge;
+    @supports (-webkit-appearance: none) {
+      height: auto;
+    }
   }
   &--big {
     width: $text-big;
+    height: $text-big;
+    @supports (-webkit-appearance: none) {
+      height: auto;
+    }
   }
   &--medium {
     width: $text-medium;
+    height: $text-medium;
+    @supports (-webkit-appearance: none) {
+      height: auto;
+    }
   }
   &--normal {
     width: $text-normal;
+    height: $text-normal;
+    @supports (-webkit-appearance: none) {
+      height: auto;
+    }
   }
   &--small {
     width: $text-small;
+    height: $text-small;
+    @supports (-webkit-appearance: none) {
+      height: auto;
+    }
   }
 }

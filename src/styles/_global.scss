@@ -8,7 +8,11 @@ body {
 
 // Makes footer stay at bottom regardless of the page height
 .gatsby-wrapper > div {
-  display: flex;
+  display: block;
+  // Fixes IE11 height problem
+  @supports (-webkit-appearance: none) {
+    display: flex;
+  }
   flex-direction: column;
   height: 100vh;
 }

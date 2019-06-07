@@ -6,10 +6,10 @@ import SEO from '../components/seo';
 const NotFoundPage = () => (
   <Layout>
     <SEO title="Siden finnes ikke" />
-    <div class="wrap-outer">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col mt-4 mb-4">
+    <div className="wrap-outer">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col mt-4 mb-4">
             <h1>Denne siden finnes ikke...</h1>
             <p>
               Siden ble ikke prosjektert riktig og er derfor ikke bygget.

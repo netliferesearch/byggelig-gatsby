@@ -17,7 +17,7 @@ const ArticlePitch = ({
     {subtle ? (
       <>
         <div className="article-pitch__text-content article-pitch__text-content--subtle">
-          <div className="container">
+          <div className="container-fluid">
             <div className="row">
               <div className="col-12">
                 <h2 className="article-pitch__title article-pitch__title--subtle">
