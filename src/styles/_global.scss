@@ -25,6 +25,9 @@ main {
   max-width: $wrap-outer;
   margin-left: auto;
   margin-right: auto;
+  @media (min-width: $wrap-outer) {
+    width: $wrap-outer;
+  }
 }
 
 // Responsive images
