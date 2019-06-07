@@ -14,6 +14,13 @@ export default {
       title: 'Hovedunderoverskrift.',
       description: 'Brukes i bla. headeren, ved siden av logo.',
       type: 'string'
+    },
+    {
+      name: 'fallbackImage',
+      title: 'Reservebilde',
+      description:
+        'Bilde som vises i sosiale medier, hvis det ikke finnes noe annet bilde på sidemalen.',
+      type: 'image'
     }
   ]
 };
