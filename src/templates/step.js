@@ -139,7 +139,7 @@ export default ({ data, pageContext }) => {
           </div>
         </main>
         {/* Adds spacing before footer if there are no case reference */}
-        <div className={`${caseReference ? '' : 'mb-6'}`}>
+        <div className={`mt-6 ${caseReference ? '' : 'mb-6'}`}>
           {caseReference &&
             (() => {
               const {
@@ -149,15 +149,13 @@ export default ({ data, pageContext }) => {
                 slug: { current = '#' } = {}
               } = caseReference;
               return (
-                <div className="mt-6">
-                  <ArticlePitch
-                    title={caseTitle}
-                    intro={caseIntro}
-                    linkText={linkText}
-                    subtle
-                    to={`/artikkel/${current}`}
-                  />
-                </div>
+                <ArticlePitch
+                  title={caseTitle}
+                  intro={caseIntro}
+                  linkText={linkText}
+                  subtle
+                  to={`/artikkel/${current}`}
+                />
               );
             })()}
         </div>
