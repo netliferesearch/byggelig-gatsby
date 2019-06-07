@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, title, image }) {
   const sanitySettings = useStaticQuery(
     graphql`
       query {
@@ -19,6 +19,13 @@ function SEO({ description, lang, meta, keywords, title }) {
             node {
               siteName
               mainSubHeading
+              fallbackImage {
+                _key
+                _type
+                asset {
+                  url
+                }
+              }
             }
           }
         }
@@ -28,7 +35,8 @@ function SEO({ description, lang, meta, keywords, title }) {
 
   const {
     siteName = '',
-    mainSubHeading = ''
+    mainSubHeading = '',
+    fallbackImage: { asset: { url: fallbackImageUrl = '' } = {} } = {}
   } = sanitySettings.allSanitySettings.edges[0].node;
   const metaDescription = description || mainSubHeading;
 
@@ -55,6 +63,10 @@ function SEO({ description, lang, meta, keywords, title }) {
         {
           property: `og:type`,
           content: `website`
+        },
+        {
+          property: `og:image`,
+          content: image || fallbackImageUrl
         }
       ]
         .concat(
@@ -79,6 +91,7 @@ SEO.defaultProps = {
 
 SEO.propTypes = {
   description: PropTypes.string,
+  image: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   keywords: PropTypes.arrayOf(PropTypes.string),
