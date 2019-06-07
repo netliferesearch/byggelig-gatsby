@@ -1,0 +1,47 @@
+@media print {
+  html,
+  body {
+    color: black;
+    background-color: white;
+  }
+  .header {
+    background-color: white;
+    text-decoration: none !important;
+    &__nav,
+    &__description {
+      display: none;
+    }
+    &__title {
+      color: black !important;
+    }
+  }
+  a,
+  .link {
+    text-decoration: underline !important;
+  }
+  footer {
+    display: none !important;
+  }
+  * {
+    box-shadow: none !important;
+  }
+  .content-card {
+    padding: 2em 0 0 0 !important;
+    border-top: 1px solid #bbbbbb;
+  }
+  .article-pitch {
+    display: none !important;
+  }
+  .link-step {
+    display: none !important;
+  }
+  .collapsible__icon {
+    display: none !important;
+  }
+  .collapsible__content-wrapper {
+    display: block !important;
+  }
+  .advices-card__item {
+    opacity: 1;
+  }
+}
