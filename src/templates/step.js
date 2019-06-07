@@ -30,7 +30,7 @@ export default ({ data, pageContext }) => {
 
   return (
     <>
-      <SEO title={`Fase ${stepNumber}: ${title}`} />
+      <SEO title={`Fase ${stepNumber}: ${title}`} description={intro} />
       <Layout>
         <main className="wrap-outer">
           <div className="container-fluid">

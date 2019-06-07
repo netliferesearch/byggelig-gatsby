@@ -13,6 +13,7 @@ export default ({ data }) => {
   const reguleringsplanItems = data.reguleringsplan.edges || {};
   const byggeprosessItems = data.byggeprosess.edges || {};
   const {
+    body: heroText = '',
     article: {
       title: articleTitle = '',
       intro: articleIntro = '',
@@ -67,7 +68,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Byggelig – Forside" />
+      <SEO title="Byggelig – Forside" description={heroText} />
       <div>
         <Hero />
         <div className="wrap-outer">
@@ -163,6 +164,7 @@ export const query = graphql`
       }
     }
     sanityPage {
+      body
       article {
         title
         intro

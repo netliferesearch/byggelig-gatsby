@@ -34,7 +34,7 @@ export default ({ data }) => {
 
   return (
     <>
-      <SEO title={`${title}`} />
+      <SEO title={`${title}`} description={intro} />
       <Layout>
         <main className="wrap-outer">
           <article className="container-fluid mt-3">
