@@ -2,7 +2,3 @@
   # Directory with the lambda functions to deploy to AWS.
   functions = "serverless-build"
 
-[[redirects]]
-  from = "/broken-links"
-  to = "/ingen-odelagte-lenker"
-  status = 404
