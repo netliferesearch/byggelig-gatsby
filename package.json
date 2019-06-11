@@ -47,9 +47,10 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build && npm run link-checker && npm run lambda-build",
+    "build": "gatsby build && npm run link-checker && npm run lambda-build && npm run move-redirect",
     "link-checker": "npx link-checker ./public --external-only --json --file-ignore static --http-redirects 16 | node linkChecker.js",
     "develop": "gatsby develop",
+    "move-redirect": "cp _redirects public/",
     "dev": "gatsby develop",
     "lambda": "netlify-lambda serve src/serverless",
     "lambda-build": "cd src/serverless && npm install && cd ../.. && zip-it-and-ship-it src/serverless serverless-build",
