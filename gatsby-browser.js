@@ -11,7 +11,7 @@ const scrollTo = id => {
     const rect = el.getBoundingClientRect();
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    window.scrollTo(0, rect.top + scrollTop);
+    window.scrollTo(0, rect.top + scrollTop - 40);
   }
 };
 
