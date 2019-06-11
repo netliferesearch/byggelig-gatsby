@@ -1,19 +1,20 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9c9c731f-0838-48e5-8380-4eb3137cd655/deploy-status)](https://app.netlify.com/sites/byggelig/deploys)
 
-# Bygg21
+# Byggelig
 
-Nettside for Bygg21. TODO: Beskrivelse av prosjektet.
+This is a web application based on the research from Bygg21. It is a tool for better collaboration, planning and execution for property development and construction.
 
-Site: https://byggelig.netlify.com/
+Site: https://www.byggelig.no
 
 ## Om prosjektet
 
 **Tech-stack:**
 
-- Starter: Gatsby starter default
+- Frontend: React with Gatsby
 - Styling: SASS + classnames
 - Hosting/ops: Netlify
 - CMS: Sanity
+- Serverless: Netlify Functions
 
 ## Utvikling
 
@@ -21,7 +22,7 @@ Site: https://byggelig.netlify.com/
 
 1. `npm install`
 2. `npm run dev`
-3. Prosjektet kjører på `localhost:8000`
+3. You find the frontend running at `localhost:8000`
 
 ### Sanity
 
@@ -29,6 +30,7 @@ Site: https://byggelig.netlify.com/
 2. Install Sanity: `npm install -g @sanity/cli`
 3. Install dependencies: `npm i`
 4. Run Sanity studio: `sanity start`
+5. You find Sanity Studio at `localhost:3333`
 
 **Important!**<br>
 Remember to deploy changes to Studio after making changes to schemas: Run `npm run deploy`.
@@ -43,31 +45,27 @@ https://manage.sanity.io/
 https://byggelig.sanity.studio/
 
 ### Gatsby
+
 If something is not working, you might try to build locally, and check your terminal for errors: `npm run build`.
 
-### Caching / Offline mode
-We use a plugin for enabling offline mode. Caching is notoriously for causing weird bugs where things are not updating for some users. No problems so far(!) and major speed and PWA benefits, but if things go wrong, this plugin can be disabled following these steps: 
-https://www.gatsbyjs.org/packages/gatsby-plugin-offline/#remove 
+## Project rules
 
-Also see `gatsby-browser.js`. It has a small script listening for changes and using a serviceworker to reload the page if it notices any changes compared to cached / offline files.
+- Only write styles using SCSS
+- Follow airbnbs sass styleguide: https://github.com/airbnb/css
+- Use the BEM methology: http://getbem.com/
+- Components should not have state by default. Don't use class for components if you need state, use hooks instead.
+- Follow the WCAG 2.0 guidelines with Difi's modifications/interpretation: https://uu.difi.no/krav-og-regelverk/wcag-20-standarden
 
-## Prosjektregler
+## Styling rules
 
-- Alle stiler skriver med SCSS (SASS)
-- Følg AirBnB sin sass-styleguide: https://github.com/airbnb/css
-- Bruk BEM-metologien, og følg reglene slavisk: http://getbem.com/
-- Prøv å lag React komponenter uten state først.
-- Følg WCAG 2.0 kravene med Difi sine modifikasjoner: https://uu.difi.no/krav-og-regelverk/wcag-20-standarden
-
-## Styling regler
-
-- Komponentene skal ha 100% bredde. Griddet eller andre wrappere skal bestemme bredden. Unntaket er komponenter som har bredde basert på innholdet (f. eks. tekst/inline).
-- Komponentene skal ikke bestemme det vertikale og hosrisontale mellomrommet rundt seg. Bruk css-klasser for spacing på wrapper-elementer på komponentene for å lage mellomrom.
-- BEM: Ikke legg elements i elements, eller elements i modifiers. Block -> Modifier eller Block -> Element -> Modifier.
+- The components should have 100% width. Only the grid or other layout components should decide the width of components, except for components with display inline.
+- The components should not concern itself with spacing. There are wrapper classes handling the spacing.
+- Don't open Pandora's box. When using BEM; don't put elements in elements, or elements in modifiers. `Block`, `Block -> Modifier` or `Block -> Element -> Modifier`, no other patterns are allowed because it will break the BEM rules, and end up cluttering the project.
 
 ## SASS dependencies
 
 - Grid: https://github.com/m-spyratos/bootstrap-4-grid
+- Normalize: https://github.com/necolas/normalize.css
 
 ## Gatsby
 
@@ -75,6 +73,15 @@ Our site is based on: https://github.com/gatsbyjs/gatsby-starter-default and use
 
 ## Checking for broken links
 
-After building with Gatsby we run the commmand line tools link-checker. It checks the built files on the file system in the `/public` directory. It outputs information about the broken links as JSON. This string gets piped into the Node program `linkChecker.js`.
+Every week (wednesday 09:00) a scheduled task triggers a webhook to our serverless function which then checks for broken links on our website. It will email the web editors with a link to a list of broken links and where to find them if there are any.
 
-`linkChecker.js` checks if there are any items in the broken link list. If there are any items it creates a HTML file called `broken-links.html` into `/public`. It lists out the page with the error, the broken links on the page and the error message. If there are no errors it does nothing. Gatsby's build command deletes the `/public` directory on each build, meaning the file will not be published if there were no errors, and would be removed if there is no errors anymore. 
+This service requires three services:
+
+- Zapier: for scheduling
+- Netlify Functions: For finding broken links and notifying
+- Sendgrid: API service for sending email
+
+If there are any broken links, then the serverless function creates the HTML-page the email links to. No page will be made if there are no errors, making the link return 404. This page will redirect to another page, if it doesn't exist, telling the editor that everything is ok.
+
+Variables is handeled in `Netlify -> Byggelig -> Settings -> Build & deploy -> Environment`<br>
+Here you can add and remove email recipients, and handle other stuff.
