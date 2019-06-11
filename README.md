@@ -6,7 +6,7 @@ This is a web application based on the research from Bygg21. It is a tool for be
 
 Site: https://www.byggelig.no
 
-## Om prosjektet
+## About the project
 
 **Tech-stack:**
 
@@ -16,7 +16,7 @@ Site: https://www.byggelig.no
 - CMS: Sanity
 - Serverless: Netlify Functions
 
-## Utvikling
+## Development
 
 ### Webside
 
@@ -48,15 +48,22 @@ https://byggelig.sanity.studio/
 
 If something is not working, you might try to build locally, and check your terminal for errors: `npm run build`.
 
+## Deployment
+
+We use Netlify as a web host. This GitHub repo is connected Netlify, and Netlify will build whenever code is pushed to the master branch. Netlify also handles our serverless functions.
+
+Netlify is also connected to Sanity with a webhook, and will build when something is changed in Sanity.
+
 ## Project rules
 
 - Only write styles using SCSS
 - Follow airbnbs sass styleguide: https://github.com/airbnb/css
 - Use the BEM methology: http://getbem.com/
 - Components should not have state by default. Don't use class for components if you need state, use hooks instead.
+- Each component should have its own `.scss` file. Everything else goes where `main.scss` is.
 - Follow the WCAG 2.0 guidelines with Difi's modifications/interpretation: https://uu.difi.no/krav-og-regelverk/wcag-20-standarden
 
-## Styling rules
+## Additional styling rules
 
 - The components should have 100% width. Only the grid or other layout components should decide the width of components, except for components with display inline.
 - The components should not concern itself with spacing. There are wrapper classes handling the spacing.
