@@ -4,16 +4,28 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// Ole: lets wait with PWA until everything else is done
-// Used by "gatsby-offline-plugin"
-// export const onServiceWorkerUpdateReady = () => {
-//   // Refresh page if content has changed
-//   window.location.reload();
-// };
+/* global window, document */
+const scrollTo = id => {
+  const el = document.querySelector(id);
+  if (el) {
+    const rect = el.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    window.scrollTo(0, rect.top + scrollTop);
+  }
+};
 
 export const shouldUpdateScroll = ({ routerProps: { location } }) => {
-  if (location && location.state && location.state.noScroll) {
+  if (window.location.hash) {
+    return false;
+  } else if (location && location.state && location.state.noScroll) {
     return false;
   }
   return true;
+};
+
+export const onInitialClientRender = () => {
+  if (window.location.hash) {
+    scrollTo(window.location.hash);
+  }
 };
