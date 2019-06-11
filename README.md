@@ -6,9 +6,7 @@ This is a web application based on the research from Bygg21. It is a tool for be
 
 Site: https://www.byggelig.no
 
-## About the project
-
-**Tech-stack:**
+## Tech-stack
 
 - Frontend: React with Gatsby
 - Styling: SASS + classnames
@@ -18,7 +16,7 @@ Site: https://www.byggelig.no
 
 ## Development
 
-### Webside
+### Frontend
 
 1. `npm install`
 2. `npm run dev`
@@ -54,6 +52,8 @@ We use Netlify as a web host. This GitHub repo is connected Netlify, and Netlify
 
 Netlify is also connected to Sanity with a webhook, and will build when something is changed in Sanity.
 
+It should build in about a minute. If nothing changes then something in the build process went wrong. The build log in Netlify should tell you what. It is recommended connecting a Slack bot between the Netlify site and your Slack user when developing. If something goes wrong the last working version will be the version deployed in production.
+
 ## Project rules
 
 - Only write styles using SCSS
@@ -67,7 +67,7 @@ Netlify is also connected to Sanity with a webhook, and will build when somethin
 
 - The components should have 100% width. Only the grid or other layout components should decide the width of components, except for components with display inline.
 - The components should not concern itself with spacing. There are wrapper classes handling the spacing.
-- Don't open Pandora's box. When using BEM; don't put elements in elements, or elements in modifiers. `Block`, `Block -> Modifier` or `Block -> Element -> Modifier`, no other patterns are allowed because it will break the BEM rules, and end up cluttering the project.
+- Don't open Pandora's box. When using BEM; don't put elements in elements, or elements in modifiers. `Block`, `Block -> Modifier`, `Block -> Element` or `Block -> Element -> Modifier`, no other patterns are allowed because it will break the BEM rules, and end up cluttering the project.
 
 ## SASS dependencies
 
