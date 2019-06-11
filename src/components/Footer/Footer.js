@@ -30,7 +30,7 @@ export default () => (
               <p role="presentation">
                 <a
                   className="link link--white link--slim"
-                  href="http://localhost:8000/artikkel/personvern-og-cookies"
+                  href="/artikkel/personvern-og-cookies"
                 >
                   Personvern og cookies
                 </a>
