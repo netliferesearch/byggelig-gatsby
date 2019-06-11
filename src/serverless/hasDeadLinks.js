@@ -1,7 +1,7 @@
 const axios = require('axios');
 const sgMail = require('@sendgrid/mail');
 
-const brokenLinksDomain = 'https://byggelig.no/broken-links.html';
+const brokenLinksDomain = 'https://byggelig.no/broken-links';
 
 const { HAS_DEAD_LINKS_SECRET, SG_API_KEY, EMAIL_RECIPIENTS } = process.env;
 
