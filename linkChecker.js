@@ -20,6 +20,31 @@ rl.on('close', () => {
   );
   // If there are no errors, we stop here.
   if (!errors.length) {
+    const stream = fs.createWriteStream('public/broken-links.html');
+    stream.once('open', () => {
+      const html = `
+        <!DOCTYPE html>
+        <html>
+          <head>
+          <style>
+            body {
+              font-size: 16px;
+              font-family: sans-serif;
+            }
+            li {
+              margin-bottom: 1rem;
+            }
+          </style>
+          </head>
+          <body>
+            <h1>🤖 Jeg fant ingen ødelagte lenker 🙌 🎉 Bra jobba 👌
+            <br />
+            – Byggelig Robot</h1>
+          </body>
+        </html>
+      `;
+      stream.end(html);
+    });
     return;
   }
   const stream = fs.createWriteStream('public/broken-links.html');
