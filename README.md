@@ -88,7 +88,7 @@ This service requires three services:
 - Netlify Functions: For finding broken links and notifying
 - Sendgrid: API service for sending email
 
-If there are any broken links, then the serverless function creates the HTML-page the email links to. No page will be made if there are no errors, making the link return 404. This page will redirect to another page, if it doesn't exist, telling the editor that everything is ok.
+If there are any broken links, then the serverless function creates a HTML-page, with a list with broken links. If there are no broken links it tells you that there are no broken links. The errors might have been fixed since the editor received the email. On every build it will check for errors and update the HTML-page.
 
 Variables is handeled in `Netlify -> Byggelig -> Settings -> Build & deploy -> Environment`<br>
 Here you can add and remove email recipients, and handle other stuff.
