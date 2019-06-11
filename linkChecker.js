@@ -45,9 +45,9 @@ rl.on('close', () => {
             .map(
               error => `
             <li>
-              Side: <a href="/${error.source}">${error.source}</a>
+              Side: <a href="${error.source}">${error.source}</a>
               <br />
-              Lenke: <a href="/${error.target}">${error.target}</a>
+              Lenke: <a href="${error.target}">${error.target}</a>
               <br />
               Feilmelding: ${error.reason}
             </li>
