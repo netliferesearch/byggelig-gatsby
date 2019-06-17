@@ -108,6 +108,9 @@ h1,
   &--bold {
     font-size: bold;
   }
+  &--break {
+    word-break: break-word;
+  }
 }
 
 h2,

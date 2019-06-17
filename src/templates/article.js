@@ -40,7 +40,7 @@ export default ({ data }) => {
           <article className="container-fluid mt-3">
             <div className="row">
               <div className={imageUrl ? 'col-lg-4' : 'col-lg-8'}>
-                <h1>{title}</h1>
+                <h1 className="h1 h1--break">{title}</h1>
                 <p className="text-big">{intro}</p>
               </div>
               {imageUrl && (
