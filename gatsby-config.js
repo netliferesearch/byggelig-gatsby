@@ -50,6 +50,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-purgecss`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
