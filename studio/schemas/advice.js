@@ -17,17 +17,9 @@ export default {
           }
         },
         {
-          name: 'someFile',
-          title: 'Fil',
-          type: 'file',
-          fields: [
-            {
-              name: 'description',
-              title: 'Beskrivelse',
-              type: 'string',
-              validation: Rule => Rule.required()
-            }
-          ]
+          name: 'linkFile',
+          title: 'Fil-lenke',
+          type: 'linkFile'
         }
       ]
     },

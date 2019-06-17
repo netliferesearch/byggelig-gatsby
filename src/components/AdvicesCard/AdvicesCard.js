@@ -11,9 +11,11 @@ import './AdvicesCard.scss';
 
 const serializers = {
   types: {
-    someFile: props => {
+    linkFile: props => {
       console.log(props);
-      return <a href={props.node.asset.url}>{props.node.description}</a>;
+      return (
+        <a href={props.node.someFile.asset.url}>{props.node.description}</a>
+      );
     }
   }
 };
