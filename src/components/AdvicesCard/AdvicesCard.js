@@ -12,7 +12,6 @@ import './AdvicesCard.scss';
 const serializers = {
   types: {
     linkFile: props => {
-      console.log(props);
       return (
         <a href={props.node.someFile.asset.url}>{props.node.description}</a>
       );
