@@ -52,6 +52,12 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-remove-serviceworker`,
     {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: './src/icons/favicon.svg'
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Bygg21`,
