@@ -8,6 +8,8 @@
   color: white;
   background-color: $color-blue;
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.05);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &:hover {
     background-color: $color-purple;

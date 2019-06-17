@@ -5,6 +5,8 @@
   background-color: $color-purple;
   color: white;
   padding: 4rem 2rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &__line {
     border-left: 3px solid $color-mint;
@@ -26,5 +28,8 @@
   }
 
   &__contact {
+  }
+  &__tagline {
+    line-height: 1.5em;
   }
 }

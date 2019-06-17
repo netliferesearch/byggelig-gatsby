@@ -22,6 +22,8 @@
       color: $color-white;
       text-decoration: underline;
       background-color: $color-purple;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       &:hover {
         background-color: $color-purple;
       }

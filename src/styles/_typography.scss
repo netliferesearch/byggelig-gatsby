@@ -66,6 +66,16 @@ ul {
       font-weight: normal;
     }
   }
+  &--plain {
+    &,
+    &:visited,
+    &:active,
+    &:hover {
+      font-weight: normal;
+      text-decoration: underline;
+      box-shadow: none;
+    }
+  }
 }
 
 .text-huge {

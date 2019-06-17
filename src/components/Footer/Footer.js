@@ -12,8 +12,13 @@ export default () => (
             <img src={ntnuLogo} alt="NTNU Logo" />
           </div>
           <div className="col-lg-5 mt-lg-0 mt-2">
-            Veiledningen for effektive og bærekraftige byggeprosesser er
-            kvalitetssikret av NTNU
+            <div className="footer__tagline">
+              <a href="https://www.bygg21.no/" className="link link--white">
+                Bygg21s
+              </a>{' '}
+              veiledning for effektive og bærekraftige byggeprosesser er
+              kvalitetssikret av NTNU
+            </div>
           </div>
           <div className="col-lg-3 offset-lg-1 mt-lg-0 mt-2">
             <div className="footer__line" />

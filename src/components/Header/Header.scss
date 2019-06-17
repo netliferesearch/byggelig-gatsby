@@ -3,6 +3,8 @@
 .header {
   background-color: $color-purple;
   padding: map-get($spaces, 2) 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &__title {
     color: white !important;
