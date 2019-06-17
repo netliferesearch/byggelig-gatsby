@@ -60,13 +60,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Bygg21`,
-        short_name: `bygg21`,
+        name: `Byggelig`,
+        short_name: `Byggelig`,
         start_url: `/`,
         background_color: `#2d0469`,
         theme_color: `#2d0469`,
-        display: `minimal-ui`,
-        icon: `src/images/favicon-example.png` // This path is relative to the root of the site.
+        display: `minimal-ui`
       }
     }
   ]
