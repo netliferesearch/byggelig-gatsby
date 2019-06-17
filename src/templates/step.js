@@ -179,8 +179,8 @@ export const query = graphql`
           url
         }
       }
-      _rawMustHave
-      _rawShouldHave
+      _rawMustHave(resolveReferences: { maxDepth: 5 })
+      _rawShouldHave(resolveReferences: { maxDepth: 5 })
       caseReference {
         title
         intro

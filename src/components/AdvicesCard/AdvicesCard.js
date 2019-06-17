@@ -9,6 +9,15 @@ import ContentCard from '../ContentCard';
 import Collapsible from '../Collapsible';
 import './AdvicesCard.scss';
 
+const serializers = {
+  types: {
+    someFile: props => {
+      console.log(props);
+      return <a href={props.node.asset.url}>{props.node.description}</a>;
+    }
+  }
+};
+
 const AdvicesCard = ({
   title = '',
   advices = [],
@@ -64,7 +73,7 @@ const AdvicesCard = ({
                   <div className="li-icon">
                     <Icon type="check" size="small" />
                   </div>
-                  <BlockContent blocks={text} />
+                  <BlockContent blocks={text} serializers={serializers} />
                 </li>
               );
             })}

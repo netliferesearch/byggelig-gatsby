@@ -15,6 +15,19 @@ export default {
           marks: {
             decorators: []
           }
+        },
+        {
+          name: 'someFile',
+          title: 'Fil',
+          type: 'file',
+          fields: [
+            {
+              name: 'description',
+              title: 'Beskrivelse',
+              type: 'string',
+              validation: Rule => Rule.required()
+            }
+          ]
         }
       ]
     },
