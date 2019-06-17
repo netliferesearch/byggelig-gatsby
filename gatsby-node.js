@@ -5,7 +5,7 @@
  */
 
 async function createStepPages(graphql, actions, reporter) {
-  const { createPage, createPageDependency } = actions;
+  const { createPage } = actions;
   const result = await graphql(`
     {
       allSanityStep(sort: { fields: [stage, stepNumber], order: ASC }) {
@@ -97,13 +97,13 @@ async function createStepPages(graphql, actions, reporter) {
       }
     });
 
-    createPageDependency({ pathUtbygger, nodeId: id });
-    createPageDependency({ pathEntreprenor, nodeId: id });
+    // createPageDependency({ pathUtbygger, nodeId: id });
+    // createPageDependency({ pathEntreprenor, nodeId: id });
   });
 }
 
 async function createArticlePages(graphql, actions, reporter) {
-  const { createPage, createPageDependency } = actions;
+  const { createPage } = actions;
   const result = await graphql(`
     {
       allSanityArticle {
@@ -141,7 +141,7 @@ async function createArticlePages(graphql, actions, reporter) {
       }
     });
 
-    createPageDependency({ path, nodeId: id });
+    // createPageDependency({ path, nodeId: id });
   });
 }
 
