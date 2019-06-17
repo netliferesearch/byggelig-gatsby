@@ -18,6 +18,11 @@
     justify-content: center;
     height: 100%;
     align-items: center;
+
+    @media (max-width: $breakpoint-md) {
+      justify-content: flex-end;
+      padding-right: 0.5em;
+    }
   }
 
   &__description {
