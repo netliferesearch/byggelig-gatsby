@@ -36,9 +36,15 @@ img {
   height: auto;
 }
 
-.img-wide {
+.imgWide {
   width: 100%;
   height: auto;
+
+  &--bleed {
+    margin-left: -$grid-gutter-width;
+    width: calc(100% + calc(#{$grid-gutter-width * 2}));
+    max-width: calc(100% + calc(#{$grid-gutter-width * 2}));
+  }
 }
 
 hr {

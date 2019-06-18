@@ -35,13 +35,13 @@ export default ({ data, pageContext }) => {
         <main className="wrap-outer">
           <div className="container-fluid">
             <div className="row mt-md-4 mt-3">
-              <div className="col-md-3 col-sm-4 col-5 order-1 order-md-1">
+              <div className="col-4 mt-1">
                 <StepNavigation step={prevStep} direction="back" role={role} />
               </div>
-              <div className="col-md-6 col-12 center order-3 order-md-2 mt-3 mt-md-0">
+              <div className="col-4 center">
                 <Icon src={iconUrl} size="giga" />
               </div>
-              <div className="col-md-3 col-sm-4 col-5 offset-2 offset-sm-4 offset-md-0 order-2 order-md-3">
+              <div className="col-4 mt-1">
                 <StepNavigation step={nextStep} direction="next" role={role} />
               </div>
             </div>
@@ -57,7 +57,7 @@ export default ({ data, pageContext }) => {
 
             {showRoleSwitch && (
               <div className="row mt-2">
-                <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+                <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
                   <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
                 </div>
               </div>

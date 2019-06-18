@@ -10,6 +10,7 @@
     font-size: $text-small;
   }
   &__icon {
+    align-self: flex-start;
     margin-right: 0.75em;
   }
 }

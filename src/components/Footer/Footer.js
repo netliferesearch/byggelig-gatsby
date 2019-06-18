@@ -8,7 +8,7 @@ export default () => (
     <div className="wrap-outer">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-lg-3 mt-lg-0 mt-2">
+          <div className="col-lg-3 mt-lg-0 mt-2 mb-1">
             <img src={ntnuLogo} alt="NTNU Logo" />
           </div>
           <div className="col-lg-5 mt-lg-0 mt-2">
@@ -21,7 +21,6 @@ export default () => (
             </div>
           </div>
           <div className="col-lg-3 offset-lg-1 mt-lg-0 mt-2">
-            <div className="footer__line" />
             <div className="footer__contact">
               Lurer du på noe?
               <p role="presentation">

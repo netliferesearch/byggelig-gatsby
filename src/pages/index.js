@@ -73,7 +73,7 @@ export default ({ data }) => {
         <Hero />
         <div className="wrap-outer">
           <div className="container-fluid">
-            <h1 className="mt-5 mb-3">Hvor er du i prosjektet?</h1>
+            <h1 className="mt-3 mb-3">Hvor er du i prosjektet?</h1>
             <h2 className="mb-2">Reguleringsplan</h2>
             <Waypoint
               bottomOffset="50"

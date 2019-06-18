@@ -8,28 +8,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  &__line {
-    border-left: 3px solid $color-mint;
-    padding-left: 1.5em;
-    height: 100%;
-    float: left;
-
+  &__contact {
     @media (max-width: $breakpoint-sm) {
-      width: 4rem;
-      height: 0;
-      float: none;
-      margin-top: map-get($spaces, 1);
-      margin-bottom: map-get($spaces, 2);
-      display: inline-block;
-      border-left: none;
-      padding-left: 0;
-      border-top: 3px solid $color-mint;
+      margin-top: 2rem;
     }
   }
-
-  &__contact {
-  }
   &__tagline {
-    line-height: 1.5em;
+    line-height: 1.6em;
   }
 }

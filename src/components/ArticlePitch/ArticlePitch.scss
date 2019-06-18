@@ -22,6 +22,7 @@
     background-repeat: no-repeat;
 
     @media (max-width: $breakpoint-md) {
+      margin-top: $grid-gutter-width;
       height: 40vh;
     }
   }

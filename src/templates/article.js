@@ -10,9 +10,11 @@ import SEO from '../components/seo';
 const serializers = {
   types: {
     linkBlock: props => (
-      <LinkBlock to={props.node.url} external>
-        {props.node.text}
-      </LinkBlock>
+      <div className="mt-4">
+        <LinkBlock to={props.node.url} external>
+          {props.node.text}
+        </LinkBlock>
+      </div>
     )
   }
 };
@@ -37,11 +39,11 @@ export default ({ data }) => {
       <SEO title={`${title}`} description={intro} image={imageUrl} />
       <Layout>
         <main className="wrap-outer">
-          <article className="container-fluid mt-3">
+          <article className="container-fluid mt-5">
             <div className="row">
-              <div className={imageUrl ? 'col-lg-4' : 'col-lg-8'}>
-                <h1 className="h1 h1--break">{title}</h1>
-                <p className="text-big">{intro}</p>
+              <div className={imageUrl ? 'col-lg-4 mb-3' : 'col-lg-8 mb-3'}>
+                <h1 className="h2 h2--break mr-1">{title}</h1>
+                <p className="text-big mr-1">{intro}</p>
               </div>
               {imageUrl && (
                 <div className="col-lg-8">
@@ -49,11 +51,12 @@ export default ({ data }) => {
                     src={imageUrl}
                     alt={imageDescription}
                     description
+                    bleed
                   />
                 </div>
               )}
             </div>
-            <div className="row mt-3 mb-6">
+            <div className="row mt-4 mb-6">
               <div className="col-md-8">
                 <BlockContent blocks={bodyText} serializers={serializers} />
               </div>

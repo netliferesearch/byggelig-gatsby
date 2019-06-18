@@ -1,22 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import Icon from '../Icon';
 
 import './IntroImage.scss';
 
-const IntroImage = ({ src, alt, description }) => (
+const imageClasses = bleed =>
+  classNames({
+    imgWide: true,
+    'imgWide--bleed': bleed
+  });
+
+const IntroImage = ({ src, alt, description, bleed }) => (
   <div className="intro-image" role="presentation">
     <img
       src={src}
       alt={alt}
-      className="img-wide"
+      className={imageClasses(bleed)}
       aria-describedby="intro-image-description"
     />
     {description && (
       <div id="intro-image-description" className="intro-image__description">
         <div className="intro-image__icon">
-          <Icon type="arrowround" rotate={270} size="huge" />
+          <Icon type="arrowround" rotate={270} size="big" />
         </div>
         <span className="intro-image__description-text">{alt}</span>
       </div>
@@ -27,7 +34,8 @@ const IntroImage = ({ src, alt, description }) => (
 IntroImage.propTypes = {
   src: PropTypes.string,
   alt: PropTypes.string,
-  description: PropTypes.bool
+  description: PropTypes.bool,
+  bleed: PropTypes.bool
 };
 
 export default IntroImage;

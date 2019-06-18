@@ -17,6 +17,7 @@ const linkStepClasses = (subtle, direction) =>
 const textClasses = (subtle, direction) =>
   classNames({
     'link-step__text': true,
+    'link-step__text--back': direction === 'back',
     'link-step__text--subtle': subtle,
     'link-step__text--subtle-back': subtle && direction === 'back'
   });
@@ -24,6 +25,7 @@ const textClasses = (subtle, direction) =>
 const iconClasses = (subtle, direction) =>
   classNames({
     'link-step__icon': true,
+    'link-step__icon--back': direction === 'back',
     'link-step__icon--subtle': subtle,
     'link-step__icon--subtle-back': subtle && direction === 'back'
   });
@@ -39,7 +41,7 @@ const LinkStep = ({ children, to, direction, number, subtle }) => (
       <Icon
         mirror={direction === 'back'}
         type={subtle ? 'arrow' : 'arrowround'}
-        size={subtle ? 'big' : 'huge'}
+        size={subtle ? 'medium' : 'big'}
       />
     </Link>
     <Link to={to} className={textClasses(subtle, direction)}>
