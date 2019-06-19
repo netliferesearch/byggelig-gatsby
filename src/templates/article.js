@@ -38,31 +38,33 @@ export default ({ data }) => {
     <>
       <SEO title={`${title}`} description={intro} image={imageUrl} />
       <Layout>
-        <main className="wrap-outer">
-          <article className="container-fluid mt-5">
-            <div className="row">
-              <div className={imageUrl ? 'col-lg-4 mb-3' : 'col-lg-8 mb-3'}>
-                <h1 className="h2 h2--break mr-1">{title}</h1>
-                <p className="text-big mr-1">{intro}</p>
-              </div>
-              {imageUrl && (
-                <div className="col-lg-8">
-                  <IntroImage
-                    src={imageUrl}
-                    alt={imageDescription}
-                    description
-                    bleed
-                  />
+        <div className="bg-white">
+          <main className="wrap-outer">
+            <article className="container-fluid mt-5">
+              <div className="row">
+                <div className={imageUrl ? 'col-lg-4 mb-3' : 'col-lg-8 mb-3'}>
+                  <h1 className="h2 h2--break mr-1">{title}</h1>
+                  <p className="text-big mr-1">{intro}</p>
                 </div>
-              )}
-            </div>
-            <div className="row mt-4 mb-6">
-              <div className="col-md-8">
-                <BlockContent blocks={bodyText} serializers={serializers} />
+                {imageUrl && (
+                  <div className="col-lg-8">
+                    <IntroImage
+                      src={imageUrl}
+                      alt={imageDescription}
+                      description
+                      bleed
+                    />
+                  </div>
+                )}
               </div>
-            </div>
-          </article>
-        </main>
+              <div className="row mt-4 mb-6">
+                <div className="col-md-8">
+                  <BlockContent blocks={bodyText} serializers={serializers} />
+                </div>
+              </div>
+            </article>
+          </main>
+        </div>
       </Layout>
     </>
   );
