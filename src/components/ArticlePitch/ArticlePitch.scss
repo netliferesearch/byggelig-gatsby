@@ -29,13 +29,24 @@
 
   &__title {
     font-size: $text-huge;
+    @media (max-width: $breakpoint-md) {
+      font-size: $text-huge / 1.5;
+    }
+
     margin: 0;
+
     &--subtle {
       font-size: $text-big;
+      @media (max-width: $breakpoint-md) {
+        font-size: $text-big / 1.2;
+      }
     }
   }
   &__intro {
     font-size: $text-big;
+    @media (max-width: $breakpoint-md) {
+      font-size: $text-big / 1.2;
+    }
   }
   &__link {
     margin-top: 3em;
