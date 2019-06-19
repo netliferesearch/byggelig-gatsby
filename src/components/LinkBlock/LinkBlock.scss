@@ -2,9 +2,8 @@
 
 .link-block {
   display: inline-flex;
-  position: relative;
   text-decoration: none;
-  padding: 0.9em 2em 0.9em 0.9em;
+  padding: 0.9em 0.9em 0.7em 0.9em;
   color: white;
   background-color: $color-blue;
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.05);
@@ -16,9 +15,8 @@
   }
 
   &__icon {
-    position: absolute;
     padding-top: 2px;
     align-self: center;
-    right: 0.66em;
+    margin-left: 0.5em;
   }
 }
