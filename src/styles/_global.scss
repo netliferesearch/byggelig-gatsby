@@ -40,6 +40,23 @@ img {
   background-color: white;
 }
 
+.gradient {
+  background: linear-gradient(
+    white 0%,
+    white 35%,
+    transparent 35%,
+    transparent 100%
+  );
+  @media (max-width: $breakpoint-md) {
+    background: linear-gradient(
+      white 0%,
+      white 29%,
+      transparent 29%,
+      transparent 100%
+    );
+  }
+}
+
 .imgWide {
   width: 100%;
   height: auto;

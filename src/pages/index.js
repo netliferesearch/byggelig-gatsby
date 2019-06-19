@@ -69,7 +69,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title="Byggelig – Forside" description={heroText} />
-      <div>
+      <div className="gradient">
         <Hero />
         <div className="wrap-outer">
           <div className="container-fluid">

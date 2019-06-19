@@ -32,132 +32,142 @@ export default ({ data, pageContext }) => {
     <>
       <SEO title={`Fase ${stepNumber}: ${title}`} description={intro} />
       <Layout>
-        <main className="wrap-outer">
-          <div className="container-fluid">
-            <div className="row mt-md-4 mt-3">
-              <div className="col-4 mt-1">
-                <StepNavigation step={prevStep} direction="back" role={role} />
-              </div>
-              <div className="col-4 center">
-                <Icon src={iconUrl} size="giga" />
-              </div>
-              <div className="col-4 mt-1">
-                <StepNavigation step={nextStep} direction="next" role={role} />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-8 col-md-10 offset-md-1 offset-lg-2 center">
-                <h1 className="mt-2">
-                  Fase {stepNumber}:<br />
-                  {title}
-                </h1>
-                <p className="text-big">{intro}</p>
-              </div>
-            </div>
-
-            {showRoleSwitch && (
-              <div className="row mt-2">
-                <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
-                  <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
+        <div className="gradient">
+          <main className="wrap-outer">
+            <div className="container-fluid">
+              <div className="row mt-md-4 mt-3">
+                <div className="col-4 mt-1">
+                  <StepNavigation
+                    step={prevStep}
+                    direction="back"
+                    role={role}
+                  />
+                </div>
+                <div className="col-4 center">
+                  <Icon src={iconUrl} size="giga" />
+                </div>
+                <div className="col-4 mt-1">
+                  <StepNavigation
+                    step={nextStep}
+                    direction="next"
+                    role={role}
+                  />
                 </div>
               </div>
-            )}
+              <div className="row">
+                <div className="col-lg-8 col-md-10 offset-md-1 offset-lg-2 center">
+                  <h1 className="mt-2">
+                    Fase {stepNumber}:<br />
+                    {title}
+                  </h1>
+                  <p className="text-big">{intro}</p>
+                </div>
+              </div>
 
-            <article className="mt-3">
-              <AdvicesCard
-                title="Dette må du ha på plass"
-                advices={advicesMustHave}
-                role={role}
-              />
+              {showRoleSwitch && (
+                <div className="row mt-2">
+                  <div className="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
+                    <RoleSwitch role={role} stage={stage} stepSlug={stepSlug} />
+                  </div>
+                </div>
+              )}
 
-              <div className="mt-3">
+              <article className="mt-3">
                 <AdvicesCard
-                  title="Dette bør du ha på plass"
-                  advices={advicesShouldHave}
+                  title="Dette må du ha på plass"
+                  advices={advicesMustHave}
                   role={role}
-                  collapsible
                 />
-              </div>
 
-              {meetings &&
-                meetings[0] &&
-                (() => {
-                  const {
-                    title = '',
-                    description = '',
-                    mustHave = {},
-                    shouldHave = {}
-                  } = meetings[0];
-                  return (
-                    <section className="mt-6">
-                      <div className="col-md-6 offset-md-3">
-                        <hr />
-                        <h1 className="text-center mt-4" id="mote">
-                          {title}
-                        </h1>
-                        <p className="text-center">{description}</p>
-                      </div>
+                <div className="mt-3">
+                  <AdvicesCard
+                    title="Dette bør du ha på plass"
+                    advices={advicesShouldHave}
+                    role={role}
+                    collapsible
+                  />
+                </div>
 
-                      <div className="mt-3">
-                        <AdvicesCard
-                          title="Dette må du ha på plass"
-                          advices={mustHave}
-                          role={role}
-                        />
-                      </div>
-                      <div className="mt-3">
-                        <AdvicesCard
-                          title="Dette bør du ha på plass"
-                          advices={shouldHave}
-                          role={role}
-                          collapsible
-                        />
-                      </div>
-                    </section>
-                  );
-                })()}
-            </article>
+                {meetings &&
+                  meetings[0] &&
+                  (() => {
+                    const {
+                      title = '',
+                      description = '',
+                      mustHave = {},
+                      shouldHave = {}
+                    } = meetings[0];
+                    return (
+                      <section className="mt-6">
+                        <div className="col-md-6 offset-md-3">
+                          <hr />
+                          <h1 className="text-center mt-4" id="mote">
+                            {title}
+                          </h1>
+                          <p className="text-center">{description}</p>
+                        </div>
 
-            <div className="row mt-5">
-              <div className="col-6">
-                <StepNavigation
-                  step={prevStep}
-                  direction="back"
-                  role={role}
-                  subtle
-                />
-              </div>
-              <div className="col-6">
-                <StepNavigation
-                  step={nextStep}
-                  direction="next"
-                  role={role}
-                  subtle
-                />
+                        <div className="mt-3">
+                          <AdvicesCard
+                            title="Dette må du ha på plass"
+                            advices={mustHave}
+                            role={role}
+                          />
+                        </div>
+                        <div className="mt-3">
+                          <AdvicesCard
+                            title="Dette bør du ha på plass"
+                            advices={shouldHave}
+                            role={role}
+                            collapsible
+                          />
+                        </div>
+                      </section>
+                    );
+                  })()}
+              </article>
+
+              <div className="row mt-5">
+                <div className="col-6">
+                  <StepNavigation
+                    step={prevStep}
+                    direction="back"
+                    role={role}
+                    subtle
+                  />
+                </div>
+                <div className="col-6">
+                  <StepNavigation
+                    step={nextStep}
+                    direction="next"
+                    role={role}
+                    subtle
+                  />
+                </div>
               </div>
             </div>
+          </main>
+          {/* Adds spacing before footer if there are no case reference */}
+          <div className={`mt-6 ${caseReference ? '' : 'mb-6'}`}>
+            {caseReference &&
+              (() => {
+                const {
+                  title: caseTitle = '',
+                  intro: caseIntro = '',
+                  linkText = 'Les mer',
+                  slug: { current = '#' } = {}
+                } = caseReference;
+                return (
+                  <ArticlePitch
+                    title={caseTitle}
+                    intro={caseIntro}
+                    linkText={linkText}
+                    subtle
+                    to={`/artikkel/${current}`}
+                  />
+                );
+              })()}
           </div>
-        </main>
-        {/* Adds spacing before footer if there are no case reference */}
-        <div className={`mt-6 ${caseReference ? '' : 'mb-6'}`}>
-          {caseReference &&
-            (() => {
-              const {
-                title: caseTitle = '',
-                intro: caseIntro = '',
-                linkText = 'Les mer',
-                slug: { current = '#' } = {}
-              } = caseReference;
-              return (
-                <ArticlePitch
-                  title={caseTitle}
-                  intro={caseIntro}
-                  linkText={linkText}
-                  subtle
-                  to={`/artikkel/${current}`}
-                />
-              );
-            })()}
         </div>
       </Layout>
     </>
