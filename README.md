@@ -14,6 +14,8 @@ Site: https://www.byggelig.no
 - CMS: Sanity
 - Serverless: Netlify Functions
 
+![Alt text](readme-tech.svg 'Title')
+
 ## Development
 
 ### Frontend
