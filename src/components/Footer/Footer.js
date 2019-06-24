@@ -1,6 +1,5 @@
 import React from 'react';
 import ntnuLogo from '../../images/ntnu.svg';
-
 import './Footer.scss';
 
 export default () => (
@@ -37,6 +36,14 @@ export default () => (
                   href="/artikkel/personvern-og-cookies"
                 >
                   Personvern og cookies
+                </a>
+              </p>
+              <p role="presentation">
+                <a
+                  className="link link--white link--slim"
+                  href="https://github.com/netliferesearch/bygg21-api/tree/master"
+                >
+                  Bygg21 API
                 </a>
               </p>
             </div>
