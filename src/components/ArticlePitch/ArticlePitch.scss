@@ -42,6 +42,18 @@
       }
     }
   }
+
+  &__subtitle {
+    font-size: $text-normal;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 1.5em;
+
+    &--subtle {
+      font-size: $text-small;
+    }
+  }
+
   &__intro {
     font-size: $text-big;
     @media (max-width: $breakpoint-md) {

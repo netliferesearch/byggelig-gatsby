@@ -21,8 +21,13 @@ const ArticlePitch = ({
             <div className="container-fluid">
               <div className="row">
                 <div className="col-12">
-                  <h2 className="article-pitch__title article-pitch__title--subtle">
-                    {title}
+                  <h2>
+                    <div className="article-pitch__subtitle article-pitch__subtitle--subtle">
+                      Eksempel på bruk av beste praksis
+                    </div>
+                    <div className="article-pitch__title article-pitch__title--subtle">
+                      {title}
+                    </div>
                   </h2>
                   <p className="article-pitch__intro">{intro}</p>
                   <div className="article-pitch__link article-pitch__link--subtle">
@@ -38,7 +43,12 @@ const ArticlePitch = ({
       <div className="row">
         <div className={imageUrl ? 'col-md-6' : 'col-md-12'}>
           <div className="article-pitch__text-content">
-            <h2 className="article-pitch__title">{title}</h2>
+            <h2>
+              <div className="article-pitch__subtitle">
+                Eksempel på bruk av beste praksis
+              </div>
+              <div className="article-pitch__title">{title}</div>
+            </h2>
             <p className="article-pitch__intro">{intro}</p>
             <div className="article-pitch__link">
               <LinkBlock to={to}>{linkText}</LinkBlock>
