@@ -24,10 +24,10 @@ export default () => (
               Lurer du på noe?
               <p role="presentation">
                 <a
-                  href="mailto:kontakt@byggelig.no"
+                  href="mailto:post@bygg21.no"
                   className="link link--white link--slim"
                 >
-                  kontakt@byggelig.no
+                  post@bygg21.no
                 </a>
               </p>
               <p role="presentation">
