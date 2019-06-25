@@ -41,9 +41,9 @@ export default () => (
               <p role="presentation">
                 <a
                   className="link link--white link--slim"
-                  href="https://github.com/netliferesearch/bygg21-api/tree/master"
+                  href="/artikkel/api-med-innhold-fra-fasenormene"
                 >
-                  Bygg21 API
+                  API for fasenormene
                 </a>
               </p>
             </div>
