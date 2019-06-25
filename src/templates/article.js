@@ -31,7 +31,7 @@ export default ({ data }) => {
   const { introImage } = data.sanityArticle || {};
   const {
     description: imageDescription = '',
-    asset: { url: imageUrl = '' } = {}
+    asset: { url: imageUrl = '', fluid = {} } = {}
   } = introImage || {};
 
   return (
@@ -49,7 +49,7 @@ export default ({ data }) => {
                 {imageUrl && (
                   <div className="col-lg-8">
                     <IntroImage
-                      src={imageUrl}
+                      image={fluid}
                       alt={imageDescription}
                       description
                       bleed
@@ -79,6 +79,9 @@ export const query = graphql`
         description
         asset {
           url
+          fluid(maxWidth: 900) {
+            ...GatsbySanityImageFluid
+          }
         }
       }
       _rawBodyText(resolveReferences: { maxDepth: 5 })

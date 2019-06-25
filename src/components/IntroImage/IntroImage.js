@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Img from 'gatsby-image';
 
 import Icon from '../Icon';
 
@@ -12,10 +13,10 @@ const imageClasses = bleed =>
     'imgWide--bleed': bleed
   });
 
-const IntroImage = ({ src, alt, description, bleed }) => (
+const IntroImage = ({ image, alt, description, bleed }) => (
   <div className="intro-image" role="presentation">
-    <img
-      src={src}
+    <Img
+      fluid={image}
       alt={alt}
       className={imageClasses(bleed)}
       aria-describedby="intro-image-description"
