@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql, Link } from 'gatsby';
+import logo from '../../images/logo.svg';
 
 import './Header.scss';
 
@@ -19,7 +20,7 @@ const Header = ({ data }) => {
           <div className="row no-gutters">
             <div className="col">
               <Link to="/" className="header__title">
-                {siteName}
+                <img src={logo} alt={siteName} />
               </Link>
             </div>
             <div className="col">
