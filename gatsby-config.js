@@ -56,16 +56,6 @@ module.exports = {
       options: {
         logo: './favicon.svg'
       }
-    },
-    {
-      options: {
-        name: `Byggelig`,
-        short_name: `Byggelig`,
-        start_url: `/`,
-        background_color: `#2d0469`,
-        theme_color: `#2d0469`,
-        display: `minimal-ui`
-      }
     }
   ]
 };
