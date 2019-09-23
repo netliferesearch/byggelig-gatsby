@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Byggelig`,
-    siteUrl: `https://byggelig.no`,
+    siteUrl: `https://www.byggelig.no`,
     description: `Veiledning for effektive og bærekraftige byggeprosesser`
   },
   plugins: [
