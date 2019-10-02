@@ -96,9 +96,6 @@ async function createStepPages(graphql, actions, reporter) {
         }
       }
     });
-
-    // createPageDependency({ pathUtbygger, nodeId: id });
-    // createPageDependency({ pathEntreprenor, nodeId: id });
   });
 }
 
@@ -140,8 +137,6 @@ async function createArticlePages(graphql, actions, reporter) {
         }
       }
     });
-
-    // createPageDependency({ path, nodeId: id });
   });
 }
 

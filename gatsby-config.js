@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Byggelig`,
-    siteUrl: `https://byggelig.no`,
+    siteUrl: `https://www.byggelig.no`,
     description: `Veiledning for effektive og bærekraftige byggeprosesser`
   },
   plugins: [
@@ -55,17 +55,6 @@ module.exports = {
       resolve: `gatsby-plugin-favicon`,
       options: {
         logo: './favicon.svg'
-      }
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Byggelig`,
-        short_name: `Byggelig`,
-        start_url: `/`,
-        background_color: `#2d0469`,
-        theme_color: `#2d0469`,
-        display: `minimal-ui`
       }
     }
   ]
