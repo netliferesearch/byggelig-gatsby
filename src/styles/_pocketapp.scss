@@ -1,0 +1,132 @@
+@import './variables';
+
+.pocket-app {
+  background-color: $color-purple;
+  color: $color-white;
+  font-size: $text-big;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    font-size: $text-huge;
+    padding: 4rem 0;
+  }
+
+  &__img {
+    height: 110px;
+    width: 110px;
+
+    @media (max-width: $breakpoint-xs) {
+      height: 80px;
+      width: 80px;
+    }
+  }
+
+  &__img1,
+  &__img2  {
+    margin-left: -120px;
+    
+    @media (max-width: $breakpoint-xs) {
+      margin-left: -80px;
+      margin-top: 25px;
+    }
+  }
+
+  &__img2 {
+    margin-top: 15px;
+  }
+
+  &__img3,
+  &__img4  {
+    margin-right: -120px;
+    margin-top: 15px;
+
+    @media (max-width: $breakpoint-xs) {
+      margin-right: -80px;
+    }
+  }
+
+  &__img4 {
+    @media (max-width: $breakpoint-xs) {
+      margin-top: 30px;
+    }
+  }
+
+  &__text {
+    padding-bottom: 1rem;
+
+    &--mint {
+      color: $color-mint;
+    }
+  
+    &--yellow {
+      color: $color-yellow;
+    }
+  }
+
+  &__logo {
+    width: 280px;
+    margin: 2rem 0;
+
+    @media (max-width: $breakpoint-xs) {
+      width: 200px;
+    }
+  }
+
+  &__step {
+    padding: 3rem 0;
+  }
+
+  &__step-nr {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  &__circle {
+    color: $color-purple;
+    font-size: 60px;
+    padding-bottom: 0.2rem;
+
+    @media (max-width: $breakpoint-xs) {
+      font-size: 50px;
+    }
+  
+    &::before {
+      display: inline-block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+
+      @media (max-width: $breakpoint-xs) {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  
+    &--minty {
+      &::before {
+        content: '2';
+        background-color: $color-mint;
+      }
+    }
+    &--yellow {
+      &::before {
+        content: '1';
+        background-color: $color-yellow;
+      } 
+    }
+    &--greywhite {
+      &::before {
+        content: '3';
+        background-color: $color-purple-light;
+      } 
+    }
+  }
+}

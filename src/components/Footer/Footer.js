@@ -41,6 +41,14 @@ export default () => (
               <p role="presentation">
                 <a
                   className="link link--white link--slim"
+                  href="/pocketapp"
+                >
+                  Byggelig i lomma
+                </a>
+              </p>
+              <p role="presentation">
+                <a
+                  className="link link--white link--slim"
                   href="/artikkel/api-med-innhold-fra-fasenormene"
                 >
                   API for fasenormene
