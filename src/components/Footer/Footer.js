@@ -41,7 +41,7 @@ export default () => (
               <p role="presentation">
                 <a
                   className="link link--white link--slim"
-                  href="/pocketapp"
+                  href="/byggelig-i-lomma"
                 >
                   Byggelig i lomma
                 </a>
