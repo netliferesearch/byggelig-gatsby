@@ -35,7 +35,8 @@
     margin-top: 15px;
 
     @media (max-width: $breakpoint-xs) {
-      margin: 20px -10px 0px -80px;
+      margin: 20px -10px 0px -65px;
+      padding-right: 20px;
     }
   }
 
