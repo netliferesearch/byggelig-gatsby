@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import '../styles/main.scss';
 import SEO from '../components/seo';
 import { Link } from 'gatsby';
 import logo from '../images/logo.svg';
@@ -10,7 +10,7 @@ import menuImg from '../images/menu.svg';
 
 const DownloadApp = () => (
   <>
-    <SEO title="Download Byggelig app" />
+    <SEO title="Last ned Byggelig app" />
       <div className="pocket-app">
         <main className="wrap-outer">
           <div className="container-fluid">
