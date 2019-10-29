@@ -23,7 +23,7 @@
 
   &__img1,
   &__img2  {
-    margin-left: -120px;
+    margin-left: -110px;
     
     @media (max-width: $breakpoint-xs) {
       margin-left: -80px;
@@ -41,7 +41,7 @@
 
   &__img3,
   &__img4  {
-    margin-right: -120px;
+    margin-right: -110px;
     margin-top: 15px;
 
     @media (max-width: $breakpoint-xs) {
