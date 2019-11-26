@@ -53,6 +53,11 @@ export default {
         { type: 'image' },
         {
           type: 'linkBlock'
+        },
+        {
+          name: 'linkFile',
+          title: 'Fil-lenke',
+          type: 'linkFile'
         }
       ]
     },

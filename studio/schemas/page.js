@@ -26,6 +26,12 @@ export default {
       title: 'Body',
       type: 'text'
     },
+    {
+      name: 'bodyText',
+      title: 'Brødtekst',
+      type: 'array',
+      of: [{type: 'block'}]
+    },
     { name: 'image', title: 'Bilde', type: 'image' },
     {
       name: 'article',
