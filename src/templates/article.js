@@ -31,7 +31,6 @@ export default ({ data }) => {
     _rawBodyText: bodyText = ''
   } = data.sanityArticle;
 
-  console.log({data})
   // Since introImage returns 'null' if empty, we can not destructure and default it
   // Therefore we use a || short circuting trick below
   const { introImage } = data.sanityArticle || {};
