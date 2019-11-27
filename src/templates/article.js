@@ -7,6 +7,9 @@ import LinkBlock from '../components/LinkBlock';
 import IntroImage from '../components/IntroImage';
 import SEO from '../components/seo';
 
+import getImageUrl from '../utils/getImageUrl'
+import isNotEmptyObject from '../utils/isNotEmptyObject'
+
 const serializers = {
   types: {
     linkBlock: props => (
@@ -36,8 +39,14 @@ export default ({ data }) => {
   const { introImage } = data.sanityArticle || {};
   const {
     description: imageDescription = '',
-    asset: { url: imageUrl = '' } = {}
   } = introImage || {};
+
+  let imageUrl;
+  if(isNotEmptyObject(introImage)) {
+    imageUrl = getImageUrl(data)
+  } else {
+    imageUrl = ""
+  }
 
   return (
     <>
