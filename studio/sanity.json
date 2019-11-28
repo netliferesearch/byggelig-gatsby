@@ -14,7 +14,8 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "@sanity/vision",
-    "@sanity/dashboard"
+    "@sanity/dashboard",
+    "dashboard-widget-netlify"
   ],
   "parts": [
     {
