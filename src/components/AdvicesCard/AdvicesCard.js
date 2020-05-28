@@ -32,7 +32,7 @@ const AdvicesCard = ({
     });
 
   const [isInView, setIsInView] = useState(false);
-  let [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 
   // Error check
   if (!advices) return null;
@@ -44,7 +44,7 @@ const AdvicesCard = ({
 
   // Error check
   if (!currentAdvices.length) return null;
-
+  // Number of li-s to show 
   const numberToShow = showMore ? currentAdvices.length : 6;
 
   // Should we show the details collapsed (accordion style) or normal?
