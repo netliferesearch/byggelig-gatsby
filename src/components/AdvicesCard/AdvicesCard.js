@@ -32,6 +32,7 @@ const AdvicesCard = ({
     });
 
   const [isInView, setIsInView] = useState(false);
+  let [showMore, setShowMore] = useState(false);
 
   // Error check
   if (!advices) return null;
@@ -43,6 +44,8 @@ const AdvicesCard = ({
 
   // Error check
   if (!currentAdvices.length) return null;
+
+  const numberToShow = showMore ? currentAdvices.length : 6;
 
   // Should we show the details collapsed (accordion style) or normal?
   const CardDetails = ({ children }) => {
@@ -67,7 +70,7 @@ const AdvicesCard = ({
           }}
         >
           <ul className="ul-check mt-4">
-            {currentAdvices.map(advice => {
+            {currentAdvices.slice(0, numberToShow).map(advice => {
               const { _key, text } = advice;
               return (
                 <li key={_key} className={linkClasses(isInView)}>
@@ -78,6 +81,16 @@ const AdvicesCard = ({
                 </li>
               );
             })}
+            {
+              !showMore && !collapsible & currentAdvices.length > 6 ? 
+                <button 
+                  onClick={() => setShowMore(!showMore)}
+                  className="advices-card__button h3 mt-3"
+                >
+                    Vis alle
+                </button>
+              : null
+            }
           </ul>
         </Waypoint>
       </CardDetails>
