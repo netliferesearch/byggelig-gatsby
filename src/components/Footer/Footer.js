@@ -27,14 +27,14 @@ export default () => (
           <div className="col-lg-3 offset-lg-1 mt-lg-0 mt-2">
             <div className="footer__contact">
               Lurer du på noe?
-              <p role="presentation">
+              {/* <p role="presentation">
                 <a
                   href="mailto:post@bygg21.no"
                   className="link link--white link--slim"
                 >
                   post@bygg21.no
                 </a>
-              </p>
+              </p> */}
               <p role="presentation">
                 <a
                   className="link link--white link--slim"
