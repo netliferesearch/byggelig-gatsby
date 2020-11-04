@@ -8,11 +8,16 @@ export default () => (
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-3 mt-lg-0 mt-2 mb-1">
-            <img src={ntnuLogo} alt="NTNU Logo" />
+            <div className="footer__contact">
+              <img src={ntnuLogo} alt="NTNU Logo" />
+              <p>Prosjekt Norge - BAE-programmet<br />
+              c/o Institutt for maskintekikk og produksjon, NTNU<br />
+              Høgskoleringen 1, 7034 Trondheim</p>
+            </div>
           </div>
           <div className="col-lg-5 mt-lg-0 mt-2">
             <div className="footer__tagline">
-              <a href="https://www.bygg21.no/" className="link link--white">
+              <a href="https://www.bygg21.no/rapporter-og-veiledere" className="link link--white">
                 Bygg21s
               </a>{' '}
               veiledning for effektive og bærekraftige byggeprosesser er
