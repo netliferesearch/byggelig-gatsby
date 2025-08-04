@@ -93,4 +93,4 @@ This service requires three services:
 If there are any broken links, then the serverless function creates a HTML-page, with a list with broken links. If there are no broken links it tells you that there are no broken links. The errors might have been fixed since the editor received the email. On every build it will check for errors and update the HTML-page.
 
 Variables is handeled in `Netlify -> Byggelig -> Settings -> Build & deploy -> Environment`<br>
-Here you can add and remove email recipients, and handle other stuff.
+Here you can add and remove email recipients, and handle other stuff
